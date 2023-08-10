@@ -1,1 +1,1 @@
-# courses
+# courses repository.
