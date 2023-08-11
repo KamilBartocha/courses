@@ -1,0 +1,4 @@
+4
+nowa linia
+ kolejna linia42
+Append_mode
