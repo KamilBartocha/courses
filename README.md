@@ -2,4 +2,5 @@
 
 Todo:
 
-[ ] Add answears into 005
+[ ] Add answers into 005
+[ ] Add answers into 007
