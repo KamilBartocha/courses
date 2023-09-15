@@ -7799,6 +7799,451 @@ To żądanie pobiera listę książek z określonej ścieżki URI.</li>
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Do-%C4%87wicze%C5%84-u%C5%BCyjemy-Simple-Book-API-u%C5%BCytkownika-vdespa">Do ćwiczeń użyjemy Simple Book API użytkownika vdespa<a class="anchor-link" href="#Do-%C4%87wicze%C5%84-u%C5%BCyjemy-Simple-Book-API-u%C5%BCytkownika-vdespa">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a href="https://simple-books-api.glitch.me">https://simple-books-api.glitch.me</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Simple-Books-API----Documentation">Simple Books API  - Documentation<a class="anchor-link" href="#Simple-Books-API----Documentation">¶</a></h1><p>This API allows you to reserve a book.</p>
+<p>The API is available at <code>https://simple-books-api.glitch.me</code></p>
+<h2 id="Endpoints">Endpoints<a class="anchor-link" href="#Endpoints">¶</a></h2><h3 id="Status">Status<a class="anchor-link" href="#Status">¶</a></h3><p>GET <code>/status</code></p>
+<p>Returns the status of the API.</p>
+<h3 id="List-of-books">List of books<a class="anchor-link" href="#List-of-books">¶</a></h3><p>GET <code>/books</code></p>
+<p>Returns a list of books.</p>
+<p>Optional query parameters:</p>
+<ul>
+<li>type: fiction or non-fiction</li>
+<li>limit: a number between 1 and 20.</li>
+</ul>
+<h3 id="Get-a-single-book">Get a single book<a class="anchor-link" href="#Get-a-single-book">¶</a></h3><p>GET <code>/books/:bookId</code></p>
+<p>Retrieve detailed information about a book.</p>
+<h3 id="Submit-an-order">Submit an order<a class="anchor-link" href="#Submit-an-order">¶</a></h3><p>POST <code>/orders</code></p>
+<p>Allows you to submit a new order. Requires authentication.</p>
+<p>The request body needs to be in JSON format and include the following properties:</p>
+<ul>
+<li><code>bookId</code> - Integer - Required</li>
+<li><code>customerName</code> - String - Required</li>
+</ul>
+<p>Example</p>
+<pre><code>POST /orders/
+Authorization: Bearer &lt;YOUR TOKEN&gt;
+
+{
+  "bookId": 1,
+  "customerName": "John"
+}
+</code></pre>
+<p>The response body will contain the order Id.</p>
+<h3 id="Get-all-orders">Get all orders<a class="anchor-link" href="#Get-all-orders">¶</a></h3><p>GET <code>/orders</code></p>
+<p>Allows you to view all orders. Requires authentication.</p>
+<h3 id="Get-an-order">Get an order<a class="anchor-link" href="#Get-an-order">¶</a></h3><p>GET <code>/orders/:orderId</code></p>
+<p>Allows you to view an existing order. Requires authentication.</p>
+<h3 id="Update-an-order">Update an order<a class="anchor-link" href="#Update-an-order">¶</a></h3><p>PATCH <code>/orders/:orderId</code></p>
+<p>Update an existing order. Requires authentication.</p>
+<p>The request body needs to be in JSON format and allows you to update the following properties:</p>
+<ul>
+<li><code>customerName</code> - String</li>
+</ul>
+<p>Example</p>
+<pre><code>PATCH /orders/PF6MflPDcuhWobZcgmJy5
+Authorization: Bearer &lt;YOUR TOKEN&gt;
+
+{
+  "customerName": "John"
+}
+</code></pre>
+<h3 id="Delete-an-order">Delete an order<a class="anchor-link" href="#Delete-an-order">¶</a></h3><p>DELETE <code>/orders/:orderId</code></p>
+<p>Delete an existing order. Requires authentication.</p>
+<p>The request body needs to be empty.</p>
+<p>Example</p>
+<pre><code>DELETE /orders/PF6MflPDcuhWobZcgmJy5
+Authorization: Bearer &lt;YOUR TOKEN&gt;
+</code></pre>
+<h2 id="API-Authentication">API Authentication<a class="anchor-link" href="#API-Authentication">¶</a></h2><p>To submit or view an order, you need to register your API client.</p>
+<p>POST <code>/api-clients/</code></p>
+<p>The request body needs to be in JSON format and include the following properties:</p>
+<ul>
+<li><code>clientName</code> - String</li>
+<li><code>clientEmail</code> - String</li>
+</ul>
+<p>Example</p>
+<pre><code>{
+   "clientName": "Postman",
+   "clientEmail": "valentin@example.com"
+}
+</code></pre>
+<p>The response body will contain the access token. The access token is valid for 7 days.</p>
+<p><strong>Possible errors</strong></p>
+<p>Status code 409 - "API client already registered." Try changing the values for <code>clientEmail</code> and <code>clientName</code> to something else.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Pierwsze-zapytanie">Pierwsze zapytanie<a class="anchor-link" href="#Pierwsze-zapytanie">¶</a></h3><ol>
+<li>Tworzymy nowy Workspace, o dowolnej nazwie</li>
+<li>Otwieramy new tab (+ icon)</li>
+<li>Wpisujemy <a href="https://simple-books-api.glitch.me/status">https://simple-books-api.glitch.me/status</a> w pole i klikamy send</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Zapisywanie-request%C3%B3w">Zapisywanie requestów<a class="anchor-link" href="#Zapisywanie-request%C3%B3w">¶</a></h3><ol>
+<li>Klikamy Save w prawym górnym rogu</li>
+<li>Wpisujemy nazwę</li>
+<li>Nie możemy zapisać jeśli nie mamy kolekcji - zapytania przypisane do jednego api</li>
+<li>Tworzymy kolekcję</li>
+<li>Klikamy save</li>
+<li>Możemy przywołać zapisany request i od razu klikać Send</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Lepiej-przechowywa%C4%87-URL-strony-w-zmiennej">Lepiej przechowywać URL strony w zmiennej<a class="anchor-link" href="#Lepiej-przechowywa%C4%87-URL-strony-w-zmiennej">¶</a></h3><ol>
+<li>Zaznaczamy część ULR usuwając wcześniej /status</li>
+<li>Klikamy Set as Variable -&gt; Set as a new Variable</li>
+<li>Dodajemy nazwę: baseUrl</li>
+<li>Wybieramy Scope - Simple Book API</li>
+</ol>
+<h3 id="Dost%C4%99p-do-zmiennych:">Dostęp do zmiennych:<a class="anchor-link" href="#Dost%C4%99p-do-zmiennych:">¶</a></h3><ol>
+<li>Kolekcja -&gt; ...(znak 3 kropek) -&gt; edit</li>
+<li>Zakładka Variables.</li>
+<li>Nasza zmienna powinna mieć initial i Current value jako: <a href="https://simple-books-api.glitch.me">https://simple-books-api.glitch.me</a></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="/books">/books<a class="anchor-link" href="#/books">¶</a></h3><ol>
+<li>Utwórz nowy request z /books. Dodaj go do kolekcji(aby miał dostęp do baseUrl)</li>
+<li>Parametry, mogą być opjonalne lub wymagane</li>
+<li>Dodaj parametr type=crime - niepoprawny typ</li>
+<li>Zmień parametr type na poprawny - fiction</li>
+</ol>
+<h3 id="%C4%86wiczenie">Ćwiczenie<a class="anchor-link" href="#%C4%86wiczenie">¶</a></h3><p>Dodaj parametr ograniczający liczbę wyników zapytania bazując na dokumentacji</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Tworzenie-Path-Variable-za-dla-/books/:bookId">Tworzenie Path Variable za dla /books/:bookId<a class="anchor-link" href="#Tworzenie-Path-Variable-za-dla-/books/:bookId">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol>
+<li>Path parameter/variable - zapisujemy ścieżkę do jendej konkretnej książki z której chcemy pozyskać dane</li>
+<li>Wpisujemy Value 1 w bookId</li>
+<li>Klikamy Send</li>
+<li>Próba wysłania bookId = 0</li>
+</ol>
+<ul>
+<li>Postman zmienia {{baseURL}}/books/:bookId na {{baseURL}}/books/1  (gdzie 1 to wpisane value w Path Variables)</li>
+<li>nazwa bookId jest dowolna</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="POST-request:-/orders">POST request: /orders<a class="anchor-link" href="#POST-request:-/orders">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">{</span>
+    <span class="s2">"clientName"</span><span class="p">:</span> <span class="s2">"kamil"</span><span class="p">,</span>
+    <span class="s2">"clientEmail"</span><span class="p">:</span> <span class="s2">"kamil@cb.com"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>{'clientName': 'Kamil', 'clientEmail': 'Kamil@cb.com'}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol>
+<li>Utwórz nowy request z /orders i metodą POST</li>
+<li>Spróbuj wysłać request: "error": "Missing Authorization header."</li>
+<li>Utworzenie access token<ol>
+<li>Utwórz nowy request: POST, /api-clients</li>
+<li>Body z dokumentacji: raw -&gt; JSON</li>
+<li>Send</li>
+<li>201 Created -&gt; Utworzono token(hasło do użycia API)</li>
+<li>Skopiuj accesstoken i utwórz nową zmienną w kolekcji: accessToken, Current value: <token></token></li>
+<li>Dodajemy accessToken do Authorization -&gt; Type: Bearer Token -&gt; {{accessToken}}</li>
+</ol>
+</li>
+<li>Send -&gt; "error": "Invalid or missing bookId."</li>
+<li>Zamów book o Id 1. Dokumentacja -&gt; Body -&gt; raw -&gt; JSON</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Generowanie-nazw">Generowanie nazw<a class="anchor-link" href="#Generowanie-nazw">¶</a></h3><p>Postman pozwala na generowanie nazw aby nie powtarzać tych samych wartośći
+w Body -&gt; JSON możemy w pisać <code>"customerName": "{{$randomFullName}}"</code> aby wysłać wygenerowane przez postmana</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="List-all-the-orders">List all the orders<a class="anchor-link" href="#List-all-the-orders">¶</a></h3><h3 id="%C4%86wiczenie:">Ćwiczenie:<a class="anchor-link" href="#%C4%86wiczenie:">¶</a></h3><p>Stwórz zapytanie które wyświetli złożone zamówienia(orders)</p>
+<h3 id="%C4%86wiczenie:">Ćwiczenie:<a class="anchor-link" href="#%C4%86wiczenie:">¶</a></h3><p>Bazując na poprzednim request stwórz nowe zapytanie które wyświetli order o konkretnym id(istniejącym)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="U%C5%BCycie-PATCH---aktualizacja-zasobu">Użycie PATCH - aktualizacja zasobu<a class="anchor-link" href="#U%C5%BCycie-PATCH---aktualizacja-zasobu">¶</a></h3><ol>
+<li>Używając PATCH wysyłamy aktualizację <code>"customerName": "Bob {{$randomLastName}}"</code> do istniejącego zasobu</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="U%C5%BCycie-DELETE">Użycie DELETE<a class="anchor-link" href="#U%C5%BCycie-DELETE">¶</a></h3><ol>
+<li>Używając metody <code>DELETE</code> usuń jedno ze złożontch zamówień (order)</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Automatyzacja-w-postmanie">Automatyzacja w postmanie<a class="anchor-link" href="#Automatyzacja-w-postmanie">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Dodaj-test-do-zapytania-API-Status:">Dodaj test do zapytania API Status:<a class="anchor-link" href="#Dodaj-test-do-zapytania-API-Status:">¶</a></h3><ol>
+<li>Otwórz zapytanie</li>
+<li>w zakładce Tests dodaj poniższy kod</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="nx">pm</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"Status code is 200"</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">pm</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">to</span><span class="p">.</span><span class="nx">have</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">200</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">cosnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pm</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">[</span><span class="s2">"status"</span><span class="p">])</span>
+
+<span class="nx">pm</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">"Status should be OK"</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;{</span>
+<span class="w">    </span><span class="nx">pm</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="mf">1</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">eql</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">pm</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">eql</span><span class="p">(</span><span class="s2">"OK"</span><span class="p">)</span>
+
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%C4%86wiczenie:">Ćwiczenie:<a class="anchor-link" href="#%C4%86wiczenie:">¶</a></h3><p>Dodaj test do dowonego zapytania sprawdzający czy status code jest poprawny</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Runner">Runner<a class="anchor-link" href="#Runner">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol>
+<li>Wciśnij Runner w dolnym prawym rogu</li>
+<li>Przytrzymaj kolekcję i przeciągnij ją w kartę Runner</li>
+<li>Możemy wybierać kolejność zapytań</li>
+<li>Wybierz tylko te zapytania do których są napisane testy</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Monitor-Runner">Monitor Runner<a class="anchor-link" href="#Monitor-Runner">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol>
+<li>Wybierz Monitors z menu po lewej stronie</li>
+<li>Create a Monitor</li>
+<li>Wybierz kolekcję</li>
+<li>Zapisz monitor</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
 </main>
 </body>
 </html>
