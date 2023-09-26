@@ -7713,6 +7713,22 @@ błędu i WebDriver powinien się uruchomić.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Import-modu%C5%82u-selenium:">Import modułu selenium:<a class="anchor-link" href="#Import-modu%C5%82u-selenium:">¶</a></h4><p><code>from selenium import webdriver</code></p>
+<h4 id="Wybranie-webdrivera-do-konkretnej-przegl%C4%85darki">Wybranie webdrivera do konkretnej przeglądarki<a class="anchor-link" href="#Wybranie-webdrivera-do-konkretnej-przegl%C4%85darki">¶</a></h4><p><code> driver = webdriver.Chrome()</code></p>
+<h4 id="Za%C5%82adowanie-strony-do-aktualnej-sesji">Załadowanie strony do aktualnej sesji<a class="anchor-link" href="#Za%C5%82adowanie-strony-do-aktualnej-sesji">¶</a></h4><p><code>driver.get("https://codebrainers.pl/")</code></p>
+<h4 id="wy%C5%9Bwietlenie-tutu%C5%82u-strony-pobranej-za-pomoc%C4%85-get(jest-to-atrybut)">wyświetlenie tutułu strony pobranej za pomocą get(jest to atrybut)<a class="anchor-link" href="#wy%C5%9Bwietlenie-tutu%C5%82u-strony-pobranej-za-pomoc%C4%85-get(jest-to-atrybut)">¶</a></h4><p><code>site_title = driver.title</code></p>
+<p><code>print(site_title)</code></p>
+<h4 id="Zamkni%C4%99cie-przegl%C4%85darki-i-sesji-za%C5%82adowanej-strony">Zamknięcie przeglądarki i sesji załadowanej strony<a class="anchor-link" href="#Zamkni%C4%99cie-przegl%C4%85darki-i-sesji-za%C5%82adowanej-strony">¶</a></h4><p><code>driver.quit()</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Test-powinien:">Test powinien:<a class="anchor-link" href="#Test-powinien:">¶</a></h3><ol>
 <li>otworzyć przeglądarkę Chrome</li>
 <li>wejść na stronę <code>https://codebrainers.pl/</code></li>
@@ -7772,6 +7788,167 @@ błędu i WebDriver powinien się uruchomić.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="U%C5%BCycie-implicit-waits:">Użycie implicit waits:<a class="anchor-link" href="#U%C5%BCycie-implicit-waits:">¶</a></h2><h3 id=".implicitly_wait(timeout)-Czeka-okre%C5%9Blony-timeout-na-nast%C4%99pny-element"><code>.implicitly_wait(timeout)</code> Czeka określony timeout na następny element<a class="anchor-link" href="#.implicitly_wait(timeout)-Czeka-okre%C5%9Blony-timeout-na-nast%C4%99pny-element">¶</a></h3><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://www.selenium.dev/selenium/web/dynamic.html'</span><span class="p">)</span>
+    <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"adder"</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="n">added</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"box0"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="U%C5%BCycie-explicit-waits:">Użycie explicit waits:<a class="anchor-link" href="#U%C5%BCycie-explicit-waits:">¶</a></h2><h3 id="Czekamy-w-p%C4%99tli-za%C5%82adowanie-okre%C5%9Blonego-elementu">Czekamy w pętli załadowanie określonego elementu<a class="anchor-link" href="#Czekamy-w-p%C4%99tli-za%C5%82adowanie-okre%C5%9Blonego-elementu">¶</a></h3><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium.webdriver.support.wait</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+
+    <span class="n">revealed</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"revealed"</span><span class="p">)</span>
+    <span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"reveal"</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span> <span class="p">:</span> <span class="n">revealed</span><span class="o">.</span><span class="n">is_displayed</span><span class="p">())</span>
+
+    <span class="n">revealed</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">"Displayed"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Test-wyszukiwarki-google.com">Test wyszukiwarki google.com<a class="anchor-link" href="#Test-wyszukiwarki-google.com">¶</a></h2><h3 id="Test-Scenario:">Test Scenario:<a class="anchor-link" href="#Test-Scenario:">¶</a></h3><p><strong>GIVEN "test selenium" is typed into search on site google.com</strong></p>
+<p><strong>WHEN "ENTER" is pressed (search request)</strong></p>
+<p><strong>THEN Result stats are calculated and visible on screen</strong></p>
+<h3 id="Kolejno%C5%9B%C4%87-szukania-element%C3%B3w-strony-w-html:">Kolejność szukania elementów strony w html:<a class="anchor-link" href="#Kolejno%C5%9B%C4%87-szukania-element%C3%B3w-strony-w-html:">¶</a></h3><p>search order:</p>
+<ol>
+<li>id</li>
+<li>class</li>
+<li>name</li>
+</ol>
+<h4 id="Import-modu%C5%82u-selenium-oraz-time">Import modułu selenium oraz time<a class="anchor-link" href="#Import-modu%C5%82u-selenium-oraz-time">¶</a></h4><pre><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from time import *
+</code></pre>
+<h4 id="Wybranie-webdrivera-do-konkretnej-przegl%C4%85darki">Wybranie webdrivera do konkretnej przeglądarki<a class="anchor-link" href="#Wybranie-webdrivera-do-konkretnej-przegl%C4%85darki">¶</a></h4><p><code> driver = webdriver.Safari()</code></p>
+<h4 id="Za%C5%82adowanie-strony-do-aktualnej-sesji">Załadowanie strony do aktualnej sesji<a class="anchor-link" href="#Za%C5%82adowanie-strony-do-aktualnej-sesji">¶</a></h4><p><code>driver.get("https://google.com")</code></p>
+<h4 id="wy%C5%9Bwietlenie-tutu%C5%82u-strony-pobranej-za-pomoc%C4%85-get">wyświetlenie tutułu strony pobranej za pomocą get<a class="anchor-link" href="#wy%C5%9Bwietlenie-tutu%C5%82u-strony-pobranej-za-pomoc%C4%85-get">¶</a></h4><p><code>print(driver.title)</code></p>
+<h4 id="Zaakceptowanie-ustawie%C5%84(otwieramy-przegl%C4%85dark%C4%99-pierwszy-raz)">Zaakceptowanie ustawień(otwieramy przeglądarkę pierwszy raz)<a class="anchor-link" href="#Zaakceptowanie-ustawie%C5%84(otwieramy-przegl%C4%85dark%C4%99-pierwszy-raz)">¶</a></h4><pre><code>accept_all = driver.find_element(By.ID, "L2AGLb")
+accept_all.click()
+</code></pre>
+<h4 id="Znalezienie-pola-wyszukiwarki,-wpisanie-%22selenium-test%22-oraz-klikni%C4%99cie-enter(RETURN)">Znalezienie pola wyszukiwarki, wpisanie "selenium test" oraz kliknięcie enter(RETURN)<a class="anchor-link" href="#Znalezienie-pola-wyszukiwarki,-wpisanie-%22selenium-test%22-oraz-klikni%C4%99cie-enter(RETURN)">¶</a></h4><pre><code>search = driver.find_element(By.ID, "APjFqb")
+search.send_keys("selenium test")
+search.send_keys(Keys.RETURN)
+</code></pre>
+<h4 id="Znalezienie-pola-%22result-stats%22">Znalezienie pola "result-stats"<a class="anchor-link" href="#Znalezienie-pola-%22result-stats%22">¶</a></h4><p><code>results = driver.find_element(By.ID, "result-stats")</code></p>
+<h4 id="Oczekiwanie-%C5%BCe-results-nie-jest-puste">Oczekiwanie że results nie jest puste<a class="anchor-link" href="#Oczekiwanie-%C5%BCe-results-nie-jest-puste">¶</a></h4><p><code>assert results.text is not None</code></p>
+<h4 id="Zamkni%C4%99cie-przegl%C4%85darki-i-sesji-za%C5%82adowanej-strony">Zamknięcie przeglądarki i sesji załadowanej strony<a class="anchor-link" href="#Zamkni%C4%99cie-przegl%C4%85darki-i-sesji-za%C5%82adowanej-strony">¶</a></h4><p><code>driver.quit()</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="ca%C5%82o%C5%9B%C4%87-razem">całość razem<a class="anchor-link" href="#ca%C5%82o%C5%9B%C4%87-razem">¶</a></h4><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Safari</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://google.com"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">accept_all</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"L2AGLb"</span><span class="p">)</span>
+<span class="n">accept_all</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">search</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"APjFqb"</span><span class="p">)</span>
+<span class="n">search</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">"selenium test"</span><span class="p">)</span>
+
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">search</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span>
+
+<span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"result-stats"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">results</span><span class="o">.</span><span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Test-poczty">Test poczty<a class="anchor-link" href="#Test-poczty">¶</a></h2><h3 id="Test-Scenario:">Test Scenario:<a class="anchor-link" href="#Test-Scenario:">¶</a></h3><p><strong>GIVEN poczta.interia.pl/logowanie is loaded</strong>
+<strong>AND registered user credentials are typed into login form</strong></p>
+<p><strong>WHEN "Zaloguj się" button is pressed (search request)</strong></p>
+<p><strong>THEN User is logged in and email box is opened</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Ca%C5%82y-test:">Cały test:<a class="anchor-link" href="#Ca%C5%82y-test:">¶</a></h3><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Safari</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://poczta.interia.pl/logowanie"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+<span class="c1"># Akceptacja RODO</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">go_to_service</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">"rodo-popup-agree"</span><span class="p">)</span>
+<span class="n">go_to_service</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+
+<span class="c1"># Wpisywanie nazwy e-mail</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">input_email</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">)</span>
+<span class="n">input_email</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">"code.brainers.tester@interia.pl"</span><span class="p">)</span>
+
+
+<span class="c1"># Wpisywanie hasła</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">input_password</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">)</span>
+<span class="n">input_password</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">"testerZAQ!2wsx"</span><span class="p">)</span>
+
+
+<span class="c1"># Kliknięcie Zaloguj się</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">button_log_in</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">"btn"</span><span class="p">)</span>
+<span class="n">button_log_in</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span> <span class="o">==</span> <span class="s2">"Poczta w Interii"</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
 </div>
