@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>003_test_auto_python_selenium</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>007_python_wyjatki</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7482,8 +7482,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="logo" src="../code_brainers_logo.png" width="400"/></p>
-<h1 id="003-test-auto-python---selenium">003 test auto python - selenium<a class="anchor-link" href="#003-test-auto-python---selenium">¶</a></h1><p><em>Kamil Bartocha</em></p>
+<p><img alt="logo" src="code_brainers_logo.png" width="400"/></p>
+<h1 id="007-Python---wyj%C4%85tki">007 Python - wyjątki<a class="anchor-link" href="#007-Python---wyj%C4%85tki">¶</a></h1><p><em>Kamil Bartocha</em></p>
 </div>
 </div>
 </div>
@@ -7494,7 +7494,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><img alt="logo" src="images/image_selenium_logo.png" width="1000"/></p>
+<h2 id="Wyj%C4%85tki,-ang.-Exception">Wyjątki, ang. <em>Exception</em><a class="anchor-link" href="#Wyj%C4%85tki,-ang.-Exception">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7505,183 +7505,45 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Czym-Jest-Selenium:">Czym Jest Selenium:<a class="anchor-link" href="#Czym-Jest-Selenium:">¶</a></h1><ul>
-<li>Selenium to zestaw narzędzi i bibliotek, które pozwalają na automatyzację
-działań wykonywanych w przeglądarkach internetowych. Może być używany
-do testowania aplikacji webowych, skryptowania działań użytkownika i wykonywania
-różnych zadań związanych z przeglądarką.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Zalety-selenium">Zalety <code>selenium</code><a class="anchor-link" href="#Zalety-selenium">¶</a></h1><ol>
-<li><p><strong>Wsparcie dla wielu przeglądarek:</strong> Selenium obsługuje wiele popularnych przeglądarek internetowych, w tym Google Chrome, Mozilla Firefox, Microsoft Edge, Safari, Opera, oraz inne. Dzięki temu możesz pisać testy lub skrypty, które działają na różnych przeglądarkach.</p>
-</li>
-<li><p><strong>Wsparcie dla wielu języków programowania:</strong> Selenium jest dostępne w wielu językach programowania, w tym Python, Java, C#, Ruby, i wiele innych.</p>
-</li>
-<li><p><strong>Automatyzacja interakcji z przeglądarką:</strong> Selenium pozwala symulować interakcje użytkownika z przeglądarką, takie jak klikanie, wypełnianie formularzy, nawigacja po stronach, i wiele innych. Możesz pisać skrypty, które testują funkcjonalność aplikacji internetowych.</p>
-</li>
-<li><p><strong>Testowanie automatyczne:</strong> Selenium jest często używane do automatyzacji testów jednostkowych, testów akceptacyjnych (end-to-end), i testów wydajnościowych. Pozwala na powtarzalne i skalowalne testowanie aplikacji.</p>
-</li>
-<li><p><strong>Integracja z różnymi narzędziami:</strong> Selenium można integrować z różnymi narzędziami i frameworkami testowymi, takimi jak TestNG, JUnit, Robot Framework, czy PyTest. Dzięki temu można dostosować proces testowania do własnych potrzeb.</p>
-</li>
-<li><p><strong>Zaawansowane scenariusze testowe:</strong> Selenium pozwala na tworzenie zaawansowanych scenariuszy testowych, takich jak testy wielokrokowe, testy wielu przeglądarek, testy równoległe, i wiele innych.</p>
-</li>
-<li><p><strong>Community i dokumentacja:</strong> Selenium ma silne wsparcie społeczności. Istnieje wiele dostępnych materiałów edukacyjnych, kursów online, oraz dokumentacja, która pomaga w nauce i rozwiązywaniu problemów związanych z Selenium.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Wady-selenium">Wady <code>selenium</code><a class="anchor-link" href="#Wady-selenium">¶</a></h1><ol>
-<li><p><strong>Konieczność dostępu do przeglądarek:</strong> Selenium wymaga dostępu do
-przeglądarek internetowych, co może być problematyczne na niektórych środowiskach.</p>
-</li>
-<li><p><strong>Czułość na zmiany w interfejsie użytkownika:</strong> Testy napisane w Selenium
-mogą przestawać działać, jeśli strona internetowa często zmienia swoją strukturę HTML.</p>
-</li>
-<li><p><strong>Wolniejsza wydajność:</strong> Selenium działa poprzez interakcję z przeglądarką,
-co sprawia, że jest wolniejsze niż inne rodzaje testów.</p>
-</li>
-<li><p><strong>Brak wsparcia dla wielowątkowości:</strong> Selenium nie oferuje natywnej obsługi
-wielowątkowości, co może być problemem w przypadku próby uruchamiania testów równolegle.</p>
-</li>
-<li><p><strong>Zabezpieczenia przeglądarek:</strong> Niektóre strony internetowe wprowadzają
-zabezpieczenia, które utrudniają automatyzację za pomocą Selenium.</p>
-</li>
-<li><p><strong>Koszty utrzymania:</strong> Utrzymanie testów w Selenium może wymagać dużo pracy,
-szczególnie w przypadku aplikacji, które często się zmieniają.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Instalacja-selenium-dla-j%C4%99zyka-python">Instalacja selenium dla języka <code>python</code><a class="anchor-link" href="#Instalacja-selenium-dla-j%C4%99zyka-python">¶</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ol>
-<li><p><strong>Sprawdź, czy masz zainstalowanego Pythona:</strong> Upewnij się, że masz zainstalowanego Pythona na swoim komputerze. Selenium jest kompatybilne z Pythonem 3.5 i nowszymi wersjami.</p>
-</li>
-<li><p><strong>Zainstaluj Selenium za pomocą pip:</strong></p>
-<p>Aby zainstalować Selenium, wykonaj polecenie</p>
-<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>selenium
-</pre></div>
-</li>
-<li><p><strong>Pobierz przeglądarkę WebDriver:</strong></p>
-<p>Selenium wymaga WebDrivera, który jest odpowiedzialny za kontrolowanie
-przeglądarki. Musisz pobrać odpowiednią wersję WebDrivera dla przeglądarki,
-którą planujesz używać z Selenium. Na przykład, jeśli chcesz używać
-Google Chrome, pobierz ChromeDriver. Po pobraniu ChromeDrivera,
-umieść go w odpowiednim miejscu na swoim komputerze (np. w katalogu,
-który jest w zmiennej środowiskowej PATH).</p>
-</li>
-<li><p><strong>Sprawdź instalację:</strong></p>
-<p>Aby upewnić się, że Selenium zostało pomyślnie zainstalowane, uruchom
-interpreter Pythona w terminalu i wpisz</p>
-<p><code>from selenium import webdriver</code>.</p>
-<p>Jeśli nie otrzymasz żadnych błędów, oznacza to, że Selenium zostało
-pomyślnie zainstalowane.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Ad-3.-Instrukcja-Instalacji-WebDriver-dla-Google-Chrome">Ad 3. Instrukcja Instalacji WebDriver dla Google Chrome<a class="anchor-link" href="#Ad-3.-Instrukcja-Instalacji-WebDriver-dla-Google-Chrome">¶</a></h2><ol>
-<li><p><strong>Sprawdź wersję Google Chrome:</strong></p>
-<p>Upewnij się, że masz zainstalowaną przeglądarkę Google Chrome i sprawdź jej
-wersję. Aby to zrobić, otwórz Google Chrome i kliknij na trzy kropki w prawym
-górnym rogu, a następnie przejdź do "Pomoc" &gt; "Informacje o Google Chrome".
-Znajdziesz tam informacje o wersji przeglądarki.</p>
-</li>
-<li><p><strong>Pobierz odpowiedni ChromeDriver:</strong></p>
-<p>Następnie musisz pobrać odpowiednią wersję ChromeDriver, która jest
-kompatybilna z Twoją wersją przeglądarki i systemem operacyjnym. Otwórz stronę
-pobierania ChromeDrivera: <a href="https://sites.google.com/chromium.org/driver/">ChromeDriver Downloads</a></p>
-<p>Wybierz wersję ChromeDrivera, która odpowiada Twojej wersji przeglądarki i
-sytemu operacyjnego. Pobierz plik ZIP z ChromeDriverem.</p>
-</li>
-<li><p><strong>Rozpakuj ChromeDriver:</strong></p>
-<p>Po pobraniu ChromeDrivera, rozpakuj plik ZIP do wybranego katalogu na swoim komputerze.</p>
-</li>
-<li><p><strong>Dodaj ścieżkę do ChromeDriver do zmiennej PATH:</strong></p>
-<p>Aby Selenium mogło znaleźć ChromeDriver, musisz dodać ścieżkę do katalogu,
-w którym znajduje się ChromeDriver, do zmiennej środowiskowej PATH na swoim
-komputerze. Dzięki temu Selenium będzie w stanie automatycznie go odnaleźć.</p>
 <ul>
-<li><p>Jeśli korzystasz z systemu Windows, dodaj ścieżkę do ChromeDriver do zmiennej
-PATH w ustawieniach systemowych.</p>
-<ol>
-<li><p><strong>Otwórz ustawienia systemowe:</strong> Kliknij prawym przyciskiem myszy na
-ikonie "Mój komputer" (lub "Komputer" w zależności od wersji systemu Windows) na pulpicie i wybierz "Właściwości".</p>
-</li>
-<li><p><strong>Otwórz zaawansowane ustawienia systemu:</strong> W lewym panelu wybierz "Zaawansowane ustawienia systemu".</p>
-</li>
-<li><p><strong>Otwórz zmienne środowiskowe:</strong> W sekcji "Zaawansowane" na karcie "Ogólne" kliknij przycisk "Zmienne środowiskowe".</p>
-</li>
-<li><p><strong>Edytuj zmienne środowiskowe użytkownika:</strong> W sekcji "Zmienne użytkownika"
-znajdź zmienną o nazwie "Path" lub "PATH" i wybierz ją. Następnie kliknij przycisk "Edytuj".</p>
-</li>
-<li><p><strong>Dodaj ścieżkę do WebDriver:</strong> Kliknij przycisk "Nowy" i wprowadź
-ścieżkę do katalogu, w którym znajduje się WebDriver (np. ścieżka do
-katalogu z ChromeDriverem). Upewnij się, że ścieżka jest poprawna i nie zawiera żadnych błędów.</p>
-</li>
-<li><p><strong>Zapisz zmiany:</strong> Po dodaniu ścieżki do WebDrivera, zatwierdź
-wszystkie otwarte okna klikając "OK" lub "Zastosuj". Wartość zmiennej
-PATH zostanie zaktualizowana.</p>
-</li>
-<li><p><strong>Sprawdź instalację:</strong> Otwórz nowe okno wiersza poleceń (Command Prompt)
-i wpisz komendę, która uruchamia WebDriver (np. "chromedriver" dla ChromeDrivera).
-Jeśli WebDriver jest dostępny w zmiennej PATH, nie powinieneś otrzymać
-błędu i WebDriver powinien się uruchomić.</p>
-</li>
-</ol>
-</li>
-<li><p>Jeśli korzystasz z systemu Unix/Linux (np. macOS lub Linux), możesz dodać
-ścieżkę do ChromeDriver do zmiennej PATH, wykonując polecenie np.:</p>
-<div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/ścieżka/do/katalogu/z/ChromeDriverem
-</pre></div>
-<p>Upewnij się, że zastąpisz <code>/ścieżka/do/katalogu/z/ChromeDriverem</code> właściwą
-ścieżką do katalogu, w którym znajduje się ChromeDriver.</p>
-</li>
+<li>Mechanizm <strong>przepływu sterowania</strong> używany w <strong>procesorach</strong> oraz współczesnych <strong>językach programowania</strong> do obsługi zdarzeń wyjątkowych, a w szczególności błędów, których wystąpienie zmienia prawidłowy przebieg wykonywania programu.</li>
+<li>W momencie zajścia niespodziewanego zdarzenia generowany jest wyjątek, który musi zostać obsłużony przez zapamiętanie bieżącego stanu programu i przejście do <strong>procedury</strong> jego obsługi.</li>
+<li>W niektórych sytuacjach po obsłużeniu wyjątku można powrócić do wykonywania przerwanego kodu, korzystając z zapamiętanych informacji stanu.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Wyj%C4%85tki-w-procesorach">Wyjątki w procesorach<a class="anchor-link" href="#Wyj%C4%85tki-w-procesorach">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>Wyjątki w procesorach są zdarzeniami, których wynikiem jest przerwanie wykonania bieżącego strumienia instrukcji i przekazanie sterowania do oprogramowania systemowego w celu programowej reakcji na zdarzenie</li>
+<li>Wyjątki dzielą się na synchroniczne, obsługiwane bezpośrednio po wystąpieniu, oraz asynchroniczne, których obsługa może, w zależności od bieżącego priorytetu procesora, zostać opóźniona</li>
+<li>Do wyjątków asynchronicznych należą:<ul>
+<li>Przerwania</li>
 </ul>
 </li>
-</ol>
+<li>Wyjątki synchroniczne to:<ul>
+<li>Pułapki (traps) i</li>
+<li>Błędy (faults, aborts, errors)</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7692,16 +7554,188 @@ błędu i WebDriver powinien się uruchomić.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Pierwszy-test-w-selenium">Pierwszy test w selenium<a class="anchor-link" href="#Pierwszy-test-w-selenium">¶</a></h1><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<h3 id="Wyj%C4%85tki-w-j%C4%99zykach-programowania">Wyjątki w językach programowania<a class="anchor-link" href="#Wyj%C4%85tki-w-j%C4%99zykach-programowania">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>W <strong>językach programowania</strong> wsparcie dla wyjątków realizowane jest na poziomie składni i semantyki danego języka</li>
+<li>Zgłoszenie sytuacji wyjątkowej możliwe jest w dowolnym miejscu kodu</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Wyj%C4%85tki-w-Pythonie">Wyjątki w Pythonie<a class="anchor-link" href="#Wyj%C4%85tki-w-Pythonie">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>Gdy interpreter Pythona zauważy w programie błąd, tworzy wyjątek z opisem błędu</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ZeroDivisionError</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[6], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> print(5 * (1/0))
 
-<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://codebrainers.pl/"</span><span class="p">)</span>
-<span class="n">site_title</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">site_title</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">site_title</span> <span class="o">==</span> <span class="s2">"CodeBrainers – Prawdopodobnie najlepszy bootcamp w Polsce!"</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># Czekaj 5 sekund</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+<span class="ansi-red-fg">ZeroDivisionError</span>: division by zero</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[7], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> print(4 + x * 3)
+
+<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for +: 'int' and 'str'</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="s1">'2'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[8], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> print(2 + '2')
+
+<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for +: 'int' and 'str'</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Lista-wbudowanych-wyj%C4%85tk%C3%B3w-Pythona">Lista wbudowanych wyjątków Pythona<a class="anchor-link" href="#Lista-wbudowanych-wyj%C4%85tk%C3%B3w-Pythona">¶</a></h3><p><a href="https://python.readthedocs.io/en/stable/library/exceptions.html">https://python.readthedocs.io/en/stable/library/exceptions.html</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img alt="" src="https://images1.arabicprogrammer.com/66/8e/8e9ad449be8f27467ffcdfbb93f695a2.JPEG"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Obs%C5%82uga">Obsługa<a class="anchor-link" href="#Obs%C5%82uga">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Wyj%C4%85tki-i-obs%C5%82uga-b%C5%82%C4%99d%C3%B3w-w-Pythonie">Wyjątki i obsługa błędów w Pythonie<a class="anchor-link" href="#Wyj%C4%85tki-i-obs%C5%82uga-b%C5%82%C4%99d%C3%B3w-w-Pythonie">¶</a></h3><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">code_to_execute</span>
+<span class="k">except</span> <span class="n">ErrorType</span> <span class="k">as</span> <span class="n">er</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error occured, </span><span class="si">{</span><span class="n">er</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7713,12 +7747,7 @@ błędu i WebDriver powinien się uruchomić.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Import-modu%C5%82u-selenium:">Import modułu selenium:<a class="anchor-link" href="#Import-modu%C5%82u-selenium:">¶</a></h4><p><code>from selenium import webdriver</code></p>
-<h4 id="Wybranie-webdrivera-do-konkretnej-przegl%C4%85darki">Wybranie webdrivera do konkretnej przeglądarki<a class="anchor-link" href="#Wybranie-webdrivera-do-konkretnej-przegl%C4%85darki">¶</a></h4><p><code> driver = webdriver.Chrome()</code></p>
-<h4 id="Za%C5%82adowanie-strony-do-aktualnej-sesji">Załadowanie strony do aktualnej sesji<a class="anchor-link" href="#Za%C5%82adowanie-strony-do-aktualnej-sesji">¶</a></h4><p><code>driver.get("https://codebrainers.pl/")</code></p>
-<h4 id="wy%C5%9Bwietlenie-tutu%C5%82u-strony-pobranej-za-pomoc%C4%85-get(jest-to-atrybut)">wyświetlenie tutułu strony pobranej za pomocą get(jest to atrybut)<a class="anchor-link" href="#wy%C5%9Bwietlenie-tutu%C5%82u-strony-pobranej-za-pomoc%C4%85-get(jest-to-atrybut)">¶</a></h4><p><code>site_title = driver.title</code></p>
-<p><code>print(site_title)</code></p>
-<h4 id="Zamkni%C4%99cie-przegl%C4%85darki-i-sesji-za%C5%82adowanej-strony">Zamknięcie przeglądarki i sesji załadowanej strony<a class="anchor-link" href="#Zamkni%C4%99cie-przegl%C4%85darki-i-sesji-za%C5%82adowanej-strony">¶</a></h4><p><code>driver.quit()</code></p>
+<h3 id="Podstawowa-obs%C5%82uga">Podstawowa obsługa<a class="anchor-link" href="#Podstawowa-obs%C5%82uga">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7729,54 +7758,17 @@ błędu i WebDriver powinien się uruchomić.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Test-powinien:">Test powinien:<a class="anchor-link" href="#Test-powinien:">¶</a></h3><ol>
-<li>otworzyć przeglądarkę Chrome</li>
-<li>wejść na stronę <code>https://codebrainers.pl/</code></li>
-<li>wyświetlić w konsoli tytuł strony</li>
-<li>sprawdzi czy tutuł strony jest poprawny</li>
-<li>po 5 sekundach zamknie przeglądarkę</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Test-mo%C5%BCemy-poprawi%C4%87-do-bardziej-modularnego-i-skalowalnego-u%C5%BCywj%C4%85c-funkcji">Test możemy poprawić do bardziej modularnego i skalowalnego używjąc funkcji<a class="anchor-link" href="#Test-mo%C5%BCemy-poprawi%C4%87-do-bardziej-modularnego-i-skalowalnego-u%C5%BCywj%C4%85c-funkcji">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
-
-<span class="k">def</span> <span class="nf">get_website_title</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Safari</span><span class="p">()</span>
-    <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span>
-    <span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">title</span>
-
-<span class="k">def</span> <span class="nf">test_codebrainers_title</span><span class="p">():</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://codebrainers.pl/"</span>
-    <span class="n">expected_title</span> <span class="o">=</span> <span class="s2">"CodeBrainers – Prawdopodobnie najlepszy bootcamp w Polsce!"</span>
-    <span class="n">website_title</span> <span class="o">=</span> <span class="n">get_website_title</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">expected_title</span> <span class="o">==</span> <span class="n">website_title</span>
-
-<span class="n">test_codebrainers_title</span><span class="p">()</span>
+<ul>
+<li>Podniesiony wyjątek można przechwycić i obsłużyć przy pomocy struktury:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+	<span class="o">...</span>
+	<span class="o">&lt;</span><span class="n">linie</span> <span class="n">kodu</span><span class="o">&gt;</span> 
+<span class="k">except</span> <span class="n">Exeption</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span> 
+	<span class="o">&lt;</span><span class="n">obsługa</span> <span class="n">wtątku</span><span class="o">&gt;</span>
 </pre></div>
 <ul>
-<li>Zamiast wywoływać test <code>test_codebrainers_title()</code> możemy użyć <code>Pytest</code> do uruchomienia testu.</li>
+<li>Możemy również podnieść wyjątek przez <code>raise</code></li>
 </ul>
 </div>
 </div>
@@ -7788,11 +7780,161 @@ błędu i WebDriver powinien się uruchomić.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="U%C5%BCycie-implicit-waits:">Użycie implicit waits:<a class="anchor-link" href="#U%C5%BCycie-implicit-waits:">¶</a></h2><h3 id=".implicitly_wait(timeout)-Czeka-okre%C5%9Blony-timeout-na-nast%C4%99pny-element"><code>.implicitly_wait(timeout)</code> Czeka określony timeout na następny element<a class="anchor-link" href="#.implicitly_wait(timeout)-Czeka-okre%C5%9Blony-timeout-na-nast%C4%99pny-element">¶</a></h3><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://www.selenium.dev/selenium/web/dynamic.html'</span><span class="p">)</span>
-    <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"adder"</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-
-    <span class="n">added</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"box0"</span><span class="p">)</span>
+<p><img alt="Wyjątki Pythona" src="https://files.realpython.com/media/try_except_else_finally.a7fac6c36c55.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Przyk%C5%82ad">Przykład<a class="anchor-link" href="#Przyk%C5%82ad">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"plik.txt"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Plik nie znaleziony"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Plik nie znaleziony
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="S%C5%82owo-kluczowe-else">Słowo kluczowe <code>else</code><a class="anchor-link" href="#S%C5%82owo-kluczowe-else">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>Do struktury<br/>
+<code>try except</code><br/>
+można dodać również słowo kluczowe <code>else</code>, które wykona kod, tylko wtedy gdy nie pojawi się wyjątek</li>
+<li>Innymi słowy możesz użyć słowa kluczowego <code>else</code>, aby zdefiniować blok kodu do wykonania, jeśli nie zostaną zgłoszone żadne błędy</li>
+<li>Struktury tej można użyć np.: przy otwieraniu plików</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Przyk%C5%82ad">Przykład<a class="anchor-link" href="#Przyk%C5%82ad">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Dzień dobry"</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Coś poszło nie tak"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Nic nie poszło źle"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Dzień dobry
+Nic nie poszło źle
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="S%C5%82owo-kluczowe-finally">Słowo kluczowe <code>finally</code><a class="anchor-link" href="#S%C5%82owo-kluczowe-finally">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>Do struktury<br/>
+<code>try except</code><br/>
+można również dodać słowo kluczowe <code>finally</code>, które wskaże blok, który zawsze zostanie wykonany niezależnie od tego:<ul>
+<li>Czy wyjątek się pojawi</li>
+<li>Czy nie</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">operacja_która_może_wyrzucić_ioerror</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+    <span class="n">obsłuż_jakoś_wyjątek</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>    <span class="c1"># nie chcemy złapać IOError, jeśli jest podniesiony</span>
+    <span class="n">kolejna_operacja_która_może_wyrzucić_ioerror</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">coś_my_zawsze_trzeba_zrobić</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -7804,16 +7946,9 @@ błędu i WebDriver powinien się uruchomić.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="U%C5%BCycie-explicit-waits:">Użycie explicit waits:<a class="anchor-link" href="#U%C5%BCycie-explicit-waits:">¶</a></h2><h3 id="Czekamy-w-p%C4%99tli-za%C5%82adowanie-okre%C5%9Blonego-elementu">Czekamy w pętli załadowanie określonego elementu<a class="anchor-link" href="#Czekamy-w-p%C4%99tli-za%C5%82adowanie-okre%C5%9Blonego-elementu">¶</a></h3><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium.webdriver.support.wait</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
-
-    <span class="n">revealed</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"revealed"</span><span class="p">)</span>
-    <span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-    <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"reveal"</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-    <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span> <span class="p">:</span> <span class="n">revealed</span><span class="o">.</span><span class="n">is_displayed</span><span class="p">())</span>
-
-    <span class="n">revealed</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">"Displayed"</span><span class="p">)</span>
-</pre></div>
+<ul>
+<li>Innymi słowy, blok <code>finally</code>, jeśli został określony, zostanie wykonany niezależnie od tego, czy blok <code>try</code> wywoła błąd, czy nie</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7824,33 +7959,72 @@ błędu i WebDriver powinien się uruchomić.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Test-wyszukiwarki-google.com">Test wyszukiwarki google.com<a class="anchor-link" href="#Test-wyszukiwarki-google.com">¶</a></h2><h3 id="Test-Scenario:">Test Scenario:<a class="anchor-link" href="#Test-Scenario:">¶</a></h3><p><strong>GIVEN "test selenium" is typed into search on site google.com</strong></p>
-<p><strong>WHEN "ENTER" is pressed (search request)</strong></p>
-<p><strong>THEN Result stats are calculated and visible on screen</strong></p>
-<h3 id="Kolejno%C5%9B%C4%87-szukania-element%C3%B3w-strony-w-html:">Kolejność szukania elementów strony w html:<a class="anchor-link" href="#Kolejno%C5%9B%C4%87-szukania-element%C3%B3w-strony-w-html:">¶</a></h3><p>search order:</p>
-<ol>
-<li>id</li>
-<li>class</li>
-<li>name</li>
+<h3 id="Przyk%C5%82ad">Przykład<a class="anchor-link" href="#Przyk%C5%82ad">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Coś poszło nie tak"</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Klauzula „try except” jest zakończona"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>x
+Klauzula „try except” jest zakończona
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Podnie%C5%9B-wyj%C4%85tek">Podnieś wyjątek<a class="anchor-link" href="#Podnie%C5%9B-wyj%C4%85tek">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>Jako programista Pythona możesz zgłosić wyjątek, jeśli wystąpi warunek</li>
+<li>Aby zgłosić (lub podnieść) wyjątek, użyj słowa kluczowego <code>raise</code></li>
+<li>Słowo kluczowe <code>raise</code> jest używane do zgłaszania wyjątku</li>
+<li>Możesz zdefiniować rodzaj błędu, który należy zgłosić, oraz tekst do wydrukowania dla użytkownika</li>
+<li>Przykłady:<ol>
+<li>Wywołaj błąd i zatrzymaj program, jeśli <code>x</code> jest mniejsze niż <code>0</code></li>
+<li>Podnieś <code>TypeError</code>, jeśli <code>x</code> nie jest liczbą całkowitą (<code>int</code>)</li>
 </ol>
-<h4 id="Import-modu%C5%82u-selenium-oraz-time">Import modułu selenium oraz time<a class="anchor-link" href="#Import-modu%C5%82u-selenium-oraz-time">¶</a></h4><pre><code>from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from time import *
-</code></pre>
-<h4 id="Wybranie-webdrivera-do-konkretnej-przegl%C4%85darki">Wybranie webdrivera do konkretnej przeglądarki<a class="anchor-link" href="#Wybranie-webdrivera-do-konkretnej-przegl%C4%85darki">¶</a></h4><p><code> driver = webdriver.Safari()</code></p>
-<h4 id="Za%C5%82adowanie-strony-do-aktualnej-sesji">Załadowanie strony do aktualnej sesji<a class="anchor-link" href="#Za%C5%82adowanie-strony-do-aktualnej-sesji">¶</a></h4><p><code>driver.get("https://google.com")</code></p>
-<h4 id="wy%C5%9Bwietlenie-tutu%C5%82u-strony-pobranej-za-pomoc%C4%85-get">wyświetlenie tutułu strony pobranej za pomocą get<a class="anchor-link" href="#wy%C5%9Bwietlenie-tutu%C5%82u-strony-pobranej-za-pomoc%C4%85-get">¶</a></h4><p><code>print(driver.title)</code></p>
-<h4 id="Zaakceptowanie-ustawie%C5%84(otwieramy-przegl%C4%85dark%C4%99-pierwszy-raz)">Zaakceptowanie ustawień(otwieramy przeglądarkę pierwszy raz)<a class="anchor-link" href="#Zaakceptowanie-ustawie%C5%84(otwieramy-przegl%C4%85dark%C4%99-pierwszy-raz)">¶</a></h4><pre><code>accept_all = driver.find_element(By.ID, "L2AGLb")
-accept_all.click()
-</code></pre>
-<h4 id="Znalezienie-pola-wyszukiwarki,-wpisanie-%22selenium-test%22-oraz-klikni%C4%99cie-enter(RETURN)">Znalezienie pola wyszukiwarki, wpisanie "selenium test" oraz kliknięcie enter(RETURN)<a class="anchor-link" href="#Znalezienie-pola-wyszukiwarki,-wpisanie-%22selenium-test%22-oraz-klikni%C4%99cie-enter(RETURN)">¶</a></h4><pre><code>search = driver.find_element(By.ID, "APjFqb")
-search.send_keys("selenium test")
-search.send_keys(Keys.RETURN)
-</code></pre>
-<h4 id="Znalezienie-pola-%22result-stats%22">Znalezienie pola "result-stats"<a class="anchor-link" href="#Znalezienie-pola-%22result-stats%22">¶</a></h4><p><code>results = driver.find_element(By.ID, "result-stats")</code></p>
-<h4 id="Oczekiwanie-%C5%BCe-results-nie-jest-puste">Oczekiwanie że results nie jest puste<a class="anchor-link" href="#Oczekiwanie-%C5%BCe-results-nie-jest-puste">¶</a></h4><p><code>assert results.text is not None</code></p>
-<h4 id="Zamkni%C4%99cie-przegl%C4%85darki-i-sesji-za%C5%82adowanej-strony">Zamknięcie przeglądarki i sesji załadowanej strony<a class="anchor-link" href="#Zamkni%C4%99cie-przegl%C4%85darki-i-sesji-za%C5%82adowanej-strony">¶</a></h4><p><code>driver.quit()</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7861,94 +8035,178 @@ search.send_keys(Keys.RETURN)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="ca%C5%82o%C5%9B%C4%87-razem">całość razem<a class="anchor-link" href="#ca%C5%82o%C5%9B%C4%87-razem">¶</a></h4><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="o">*</span>
+<h3 id="Przyk%C5%82ad-nr:-1">Przykład nr: 1<a class="anchor-link" href="#Przyk%C5%82ad-nr:-1">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
-<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Safari</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://google.com"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">accept_all</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"L2AGLb"</span><span class="p">)</span>
-<span class="n">accept_all</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-
-<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">search</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"APjFqb"</span><span class="p">)</span>
-<span class="n">search</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">"selenium test"</span><span class="p">)</span>
-
-<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">search</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span>
-
-<span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="n">results</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"result-stats"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-
-<span class="k">assert</span> <span class="n">results</span><span class="o">.</span><span class="n">text</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"Przepraszamy, brak liczb poniżej zera"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">Exception</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[12], line 4</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> x = -1
+<span class="ansi-green-intense-fg ansi-bold">      3</span> if x &lt; 0:
+<span class="ansi-green-fg">----&gt; 4</span>     raise Exception("Przepraszamy, brak liczb poniżej zera")
+
+<span class="ansi-red-fg">Exception</span>: Przepraszamy, brak liczb poniżej zera</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Test-poczty">Test poczty<a class="anchor-link" href="#Test-poczty">¶</a></h2><h3 id="Test-Scenario:">Test Scenario:<a class="anchor-link" href="#Test-Scenario:">¶</a></h3><p><strong>GIVEN poczta.interia.pl/logowanie is loaded</strong>
-<strong>AND registered user credentials are typed into login form</strong></p>
-<p><strong>WHEN "Zaloguj się" button is pressed (search request)</strong></p>
-<p><strong>THEN User is logged in and email box is opened</strong></p>
+<h3 id="Przyk%C5%82ad-nr-2:">Przykład nr 2:<a class="anchor-link" href="#Przyk%C5%82ad-nr-2:">¶</a></h3>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Ca%C5%82y-test:">Cały test:<a class="anchor-link" href="#Ca%C5%82y-test:">¶</a></h3><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">"Dzień dobry"</span>
 
-<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Safari</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://poczta.interia.pl/logowanie"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-
-<span class="c1"># Akceptacja RODO</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">go_to_service</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">"rodo-popup-agree"</span><span class="p">)</span>
-<span class="n">go_to_service</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-
-
-<span class="c1"># Wpisywanie nazwy e-mail</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">input_email</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">)</span>
-<span class="n">input_email</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">"code.brainers.tester@interia.pl"</span><span class="p">)</span>
-
-
-<span class="c1"># Wpisywanie hasła</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">input_password</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">)</span>
-<span class="n">input_password</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">"testerZAQ!2wsx"</span><span class="p">)</span>
-
-
-<span class="c1"># Kliknięcie Zaloguj się</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">button_log_in</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">"btn"</span><span class="p">)</span>
-<span class="n">button_log_in</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span> <span class="o">==</span> <span class="s2">"Poczta w Interii"</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+<span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"Dozwolone są tylko liczby całkowite"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[13], line 4</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> x = "Dzień dobry"
+<span class="ansi-green-intense-fg ansi-bold">      3</span> if type(x) is not int:
+<span class="ansi-green-fg">----&gt; 4</span>     raise TypeError("Dozwolone są tylko liczby całkowite")
+
+<span class="ansi-red-fg">TypeError</span>: Dozwolone są tylko liczby całkowite</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%C4%86wiczenia">Ćwiczenia<a class="anchor-link" href="#%C4%86wiczenia">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%C4%86wiczenie-nr-1:">Ćwiczenie nr 1:<a class="anchor-link" href="#%C4%86wiczenie-nr-1:">¶</a></h3><p>Napisz program, który poprosi użytkownika o podanie dwóch liczb.</p>
+<ul>
+<li>Dodaj wprowadzone liczny i wypisz wynik.</li>
+<li>Jeśli nie zostanie wprowadzona liczba, zwróć komunikat o błędzie i poproś ponownie.</li>
+<li>dodaj obsługę wyjątku w przypadku błędu konwersji znaku na liczbę</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%C4%86wiczenie-nr-2:">Ćwiczenie nr 2:<a class="anchor-link" href="#%C4%86wiczenie-nr-2:">¶</a></h3><p>Podziel przez siebie dwie liczby</p>
+<p>Wypisz:</p>
+<div class="highlight"><pre><span></span><span class="s2">"Nie możesz podzielić przez 0"</span>
+</pre></div>
+<p>aby program uniknął <code>ZeroDivisionError</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%C4%86wiczenie-nr-3:">Ćwiczenie nr 3:<a class="anchor-link" href="#%C4%86wiczenie-nr-3:">¶</a></h3><p>Napisz dowolny kod.
+Wychwyć w nim wyjątek, ale nic nie rób po przechwyceniu.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%C4%86wiczenie-nr-4:">Ćwiczenie nr 4:<a class="anchor-link" href="#%C4%86wiczenie-nr-4:">¶</a></h3><p>Spróbuj dodać <code>int</code> do ciągu.</p>
+<p>Umieść:</p>
+<div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="s2">"Nie możesz dodać int do string"</span>
+</pre></div>
+<p>aby program uniknął błędu <code>BaseException</code>.</p>
+<p>Możesz użyć wyjątku <code>Exception</code>, chociaż zwykle powinno się ostrożnie używać tak potężnych instrukcji wyjątków.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%C4%86wiczenie-nr-5:">Ćwiczenie nr 5:<a class="anchor-link" href="#%C4%86wiczenie-nr-5:">¶</a></h3><p>Stwórz trójelementową listę.</p>
+<p>Spróbuj wypisać piąty element.</p>
+<p>Umieść:</p>
+<div class="highlight"><pre><span></span><span class="s2">"Jesteś poza zakresem listy"</span>
+</pre></div>
+<p>aby uniknąć wyjątku <code>IndexError</code>.</p>
 </div>
 </div>
 </div>
