@@ -1,5 +1,4 @@
 from selenium import webdriver
-from time import sleep
 
 def get_website_title(url):
     driver = webdriver.Safari()
@@ -10,8 +9,12 @@ def get_website_title(url):
 
 def test_codebrainers_title():
     url = "https://codebrainers.pl/"
-    expected_title = "CodeBrainers – Prawdopodobnie najlepszy bootcamp w Polsce!"
+    expected_title = "Coś więcej niż kodowanie - codebrainers"
     website_title = get_website_title(url)
     assert expected_title == website_title
 
-test_codebrainers_title()
+def test_google_title():
+    url = "https://google.com/"
+    expected_title = "Google"
+    website_title = get_website_title(url)
+    assert expected_title == website_title

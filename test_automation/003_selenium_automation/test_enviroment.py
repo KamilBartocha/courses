@@ -5,6 +5,6 @@ driver = webdriver.Safari()
 driver.get("https://codebrainers.pl/")
 site_title = driver.title
 print(site_title)
-assert site_title == "CodeBrainers – Prawdopodobnie najlepszy bootcamp w Polsce!"
-sleep(5) # Czekaj 5 sekund
+assert site_title == "Coś więcej niż kodowanie - codebrainers"
+sleep(2) # Czekaj 5 sekund
 driver.quit()
