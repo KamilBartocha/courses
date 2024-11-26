@@ -3,7 +3,7 @@ import requests
 
 BASE_URL = "https://simple-books-api.glitch.me"
 
-API_TOKEN = ""  # You'll fill this after running the client registration test.
+API_TOKEN = ""
 
 HEADERS = {
     "Authorization": f"Bearer {API_TOKEN}",
@@ -35,7 +35,7 @@ def test_list_books():
     """ Test to retrieve the list of books. """
     response = requests.get(f"{BASE_URL}/books")
     assert response.status_code == 200
-    assert isinstance(response.json(), list)  # Check that the response is a list
+    assert isinstance(response.json(), list)
 
 def test_list_books_with_query_params():
     """ Test to retrieve list of fiction books with a limit of 5. """
@@ -47,7 +47,7 @@ def test_list_books_with_query_params():
 
 def test_get_single_book():
     """ Test to retrieve a single book by ID. """
-    book_id = 1  # Assuming 1 is a valid book ID.
+    book_id = 1
     response = requests.get(f"{BASE_URL}/books/{book_id}")
     assert response.status_code == 200
     assert response.json()["id"] == book_id
@@ -79,7 +79,6 @@ def test_get_all_orders(get_api_token):
 
 def test_get_single_order(get_api_token):
     """ Test to retrieve a single order by order ID. """
-    # First, create an order to get a valid orderId
     url = f"{BASE_URL}/orders"
     payload = {
         "bookId": 1,
@@ -92,14 +91,12 @@ def test_get_single_order(get_api_token):
     create_response = requests.post(url, json=payload, headers=headers)
     order_id = create_response.json()["orderId"]
 
-    # Retrieve the created order
     response = requests.get(f"{BASE_URL}/orders/{order_id}", headers=headers)
     assert response.status_code == 200
     assert response.json()["id"] == order_id
 
 def test_update_order(get_api_token):
     """ Test to update an existing order. """
-    # First, create an order to get a valid orderId
     url = f"{BASE_URL}/orders"
     payload = {
         "bookId": 1,
@@ -112,7 +109,6 @@ def test_update_order(get_api_token):
     create_response = requests.post(url, json=payload, headers=headers)
     order_id = create_response.json()["orderId"]
 
-    # Update the order's customer name
     patch_url = f"{BASE_URL}/orders/{order_id}"
     patch_payload = {"customerName": "Jane"}
     patch_response = requests.patch(patch_url, json=patch_payload, headers=headers)
@@ -121,7 +117,6 @@ def test_update_order(get_api_token):
 
 def test_delete_order(get_api_token):
     """ Test to delete an existing order. """
-    # First, create an order to get a valid orderId
     url = f"{BASE_URL}/orders"
     payload = {
         "bookId": 1,
@@ -134,7 +129,6 @@ def test_delete_order(get_api_token):
     create_response = requests.post(url, json=payload, headers=headers)
     order_id = create_response.json()["orderId"]
 
-    # Delete the order
     delete_url = f"{BASE_URL}/orders/{order_id}"
     delete_response = requests.delete(delete_url, headers=headers)
 
