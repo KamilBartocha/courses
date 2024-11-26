@@ -1,0 +1,12 @@
+2024-09-08 16:49:22,623 - INFO - Wywołanie funkcji: add
+2024-09-08 16:49:22,623 - INFO - Argumenty: args=(3, 5), kwargs={}
+2024-09-08 16:49:22,623 - INFO - Wynik: 8
+2024-09-08 16:49:22,624 - INFO - Wywołanie funkcji: multiply
+2024-09-08 16:49:22,624 - INFO - Argumenty: args=(4, 7), kwargs={}
+2024-09-08 16:49:22,624 - INFO - Wynik: 28
+2024-09-15 13:28:22,639 - INFO - Wywołanie funkcji: add
+2024-09-15 13:28:22,640 - INFO - Argumenty: args=(3, 5), kwargs={}
+2024-09-15 13:28:22,640 - WARNING - Wynik: 8
+2024-09-15 13:28:22,640 - INFO - Wywołanie funkcji: multiply
+2024-09-15 13:28:22,641 - INFO - Argumenty: args=(4, 7), kwargs={}
+2024-09-15 13:28:22,641 - WARNING - Wynik: 28
