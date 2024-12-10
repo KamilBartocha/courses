@@ -163,3 +163,161 @@
 # for i in range(10):
 #     pass
 # print("Pętla wykonana")
+
+
+
+
+# def print_ala_ma_kota():
+#     """prints "ala ma kota" into console """
+#     print("ala")
+#     print("ma")
+#     print("kota")
+
+
+# print_ala_ma_kota()
+
+
+
+
+
+# def print_msg(msg1, msg2="", msg3="domyślny"):
+#     print(msg1)
+#     print(msg2)
+#     print(msg1)
+#     print(msg3)
+
+
+# print_msg("Ala ma psa", "ala")
+# print("*" * 30)
+# print_msg("Ala ma psa", "ala", "AAAAA")
+
+
+def add3(var):
+    result = var + 3
+    return result
+
+# # print(add3(5))
+# var1 = add3(5)
+
+# print(var1)
+
+# try:
+#     print(5 * (1 / 10))
+# except ZeroDivisionError:
+#     print("Nie wolno dzielić przez 0!!!")
+
+# def add_vars_and_5(var1, var2=None):
+#     if var2 == None:
+#         return var1 + 5
+#     elif var2 != None:
+#         return var1 + var2 + 5
+
+# x1 = add_vars_and_5(3)
+# x2 = add_vars_and_5(3, 10)
+
+# print(x1)
+# print(x2)
+
+
+
+
+
+
+
+
+
+
+# try:
+#     var1 = int(input("1: "))
+#     var2 = int(input("2: "))
+#     result = var1 / var2
+#     print(result)
+# except ZeroDivisionError:
+#     print("Nie wolno dzielić przez 0 ")
+# except ValueError:
+#     print("Coś poszło nie tak?")
+# def policz():
+#     var1 = int(input("1: "))
+#     var2 = int(input("2: "))
+#     result = var1 / var2
+#     print(result)
+
+
+# try:
+#     policz()
+# except Exception as error:
+#     print(f"Coś poszło nie tak, błąd: {error}")
+# else:
+#     print("Nie było wyjąktów!")
+# finally:
+#     print("koniec bloku try-except")
+
+
+# try:
+#     policz()
+# except Exception as error:
+#     print(f"Coś poszło nie tak, błąd: {error}")
+# else:
+#     print("Nie było wyjąktów!")
+# print("koniec bloku try-except")
+
+
+
+
+# import sqlite3
+
+# class DatabaseManager:
+#     def __init__(self, db_name):
+#         self.db_name = db_name
+#         self.connection = None
+
+#     def __enter__(self):
+#         self.connection = sqlite3.connect(self.db_name)
+#         return self.connection
+
+#     def __exit__(self, exc_type, exc_val, exc_tb):
+#         if exc_type != None:
+#             if self.connection:
+#                 self.connection.commit()
+#                 self.connection.close()
+#         return True   ## Do not use it. - pass for Exception
+
+# with DatabaseManager('example.db') as conn:
+#     cursor = conn.cursor()
+#     cursor.execute('''CREATE TABLE IF NOT EXISTS users (
+#                         id INTEGER PRIMARY KEY AUTOINCREMENT,
+#                         name TEXT,
+#                         age INTEGER
+#                     )''')
+
+#     cursor.execute('INSERT INTO users (name, age) VALUES (?, ?)', ("Jan", 30))
+#     cursor.execute('INSE INTO users (name, age) VALUES (?, ?)', ("Anna", 25))
+#     cursor.execute('SELECT * FROM users')
+#     users = cursor.fetchall()
+#     print(users)
+
+
+
+def test1():
+    raise Exception("test failed1")
+
+def test2():
+    raise Exception("test failed2")
+
+def test3():
+    raise Exception("test failed3")
+
+
+try:
+    test1()
+    test2()
+    test3()
+except Exception:
+    print("x")
+
+
+
+
+
+
+
