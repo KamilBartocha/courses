@@ -1,14 +1,10 @@
 import fruitmodule as fm
 
-fm.lemon_number(5)
+fm.lemon_number(10)
+x = fm.sum_two_numbers()
+print(x)
 
-wynik = fm.sum_two_numbers()
-print(wynik)
+# B importuje C
+# A importuje B
 
-
-
-# a: import b
-# b: import f, g
-
-
-# ->> a ma dostęp do b, f ,g
+# -> A ma dostęp do B i do C

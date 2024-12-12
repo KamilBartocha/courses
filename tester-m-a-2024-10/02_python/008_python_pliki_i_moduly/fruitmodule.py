@@ -1,6 +1,6 @@
 def lemon_number(l):
     print('Lemoniada nr', l)
-
+    print("ala ma kota")
 
 
 def sum_two_numbers():

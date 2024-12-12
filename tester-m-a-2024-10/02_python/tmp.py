@@ -298,26 +298,134 @@ def add3(var):
 
 
 
-def test1():
-    raise Exception("test failed1")
+# def test1():
+#     raise Exception("test failed1")
 
-def test2():
-    raise Exception("test failed2")
+# def test2():
+#     raise Exception("test failed2")
 
-def test3():
-    raise Exception("test failed3")
-
-
-try:
-    test1()
-    test2()
-    test3()
-except Exception:
-    print("x")
+# def test3():
+#     raise Exception("test failed3")
 
 
+# try:
+#     test1()
+#     test2()
+#     test3()
+# except Exception:
+#     print("x")
 
 
 
 
+# from time import sleep
+
+
+
+
+# f = open(r'02_python/008_python_pliki_i_moduly/008_file_text.txt', 'r')
+# content = f.read()
+# print(type(content))
+
+# content = f.readline()
+# content2 = f.readline()
+
+# content = f.readlines()
+
+# for line in f:
+    # print(line)
+
+# print(len(f.readlines()))
+
+
+
+
+
+# f.close()
+
+
+# print(content)
+
+
+# file = open(r'02_python/008_python_pliki_i_moduly/008_file_text2.txt', 'w')
+
+# for i in range(1000):
+#     file.write("Ala ma kota1\n")
+# print(file.name)
+# file.close()
+
+# file = open(r'02_python/008_python_pliki_i_moduly/008_file_text3.txt', 'a')
+
+# for i in range(1000):
+#     file.write("Ala ma kota1\n")
+
+# var1 = 2
+# file.write(str(var1))
+
+# file.close()
+
+
+# f = open(r'02_python/008_python_pliki_i_moduly/008_file_text.txt', 'r')
+# content = f.read()
+# f.close()
+
+# with open(r'02_python/008_python_pliki_i_moduly/008_file_text.txt', 'r') as x:
+#     content = x.read()
+
+
+
+
+# def longest_word(filename):
+#     with open(filename, 'r') as infile:
+#         words = infile.read().split()
+#         print(words)
+#         max = 0
+#         for word in words:
+#             if len(word) > max:
+#                 max = len(word)
+#                 words_max = []
+#                 words_max.append(word)
+#             elif len(word) == max:
+#                 words_max.append(word)
+#         return words_max
+
+# print(longest_word('02_python/008_python_pliki_i_moduly/008_file_text.txt'))
+
+# def longest_word(filename):
+#     with open(filename, 'r') as infile:
+#         words = infile.read().split()
+#         words = sorted(words, key=len)
+#         words = words[::-1]
+#         result = [words[0]]
+#         for idx, word in enumerate(words[1:]):
+#             if len(words[idx]) > len(words[idx + 1]):
+#                 break
+#             result.append(word)
+#         return result
+
+
+# print(longest_word('02_python/008_python_pliki_i_moduly/008_file_text.txt'))
+
+# import math
+
+# x = math.sin(1)
+# print(x)
+
+# from math import sin, cos, sqrt
+
+# x = sin(1)
+# print(x)
+
+# from math import *
+
+# cos()
+# sin()
+
+# import math as m
+
+# m.sin()
+# m.cos()
+
+import os
+print(os.system("ls"))
 
