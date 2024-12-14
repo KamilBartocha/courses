@@ -4,19 +4,23 @@ def test_add_positive():
     """doc"""
     assert Calculator.add(3, 4) == 7
 
-def test_add_negative():
-    '''doc TODO'''
-    result = Calculator.add(-10, -11)
-    assert result == -21
+def test_subtract():
+    """test to check sub method"""
+    var1 = 10
+    var2 = 20
+    result = Calculator.subtract(var1, var2)
+    assert result == -10
 
-def test_add_two_zeros():
-    '''doc TODO'''
-    result = Calculator.add(0, 0)
-    assert result == 0
-
-def test_subtract_positive_numbers():
-    '''doc TODO'''
-    result = Calculator.subtract(10, 8)
+def test_divide_positive():
+    """divide two positive vars"""
+    var1 = 10
+    var2 = 5
+    result = Calculator.divide(var1, var2)
     assert result == 2
 
-
+def test_divide_negative():
+    """divide one positive, one negative vars"""
+    var1 = 10
+    var2 = -5
+    result = Calculator.divide(var1, var2)
+    assert result == -2

@@ -426,6 +426,145 @@ def add3(var):
 # m.sin()
 # m.cos()
 
-import os
-print(os.system("ls"))
+# import os
+# print(os.system("ls"))
 
+
+
+
+
+
+
+# def add_2_vars(var1, var2):
+#     result = []
+#     return var1 + var2
+
+# x = add_2_vars(4, 5)
+# print(x)
+
+# add_lambda = lambda v1, v2: v1 + v2
+
+# y = add_lambda(4, 6)
+# print(y)
+
+# make_lower = lambda var: var.lower()
+
+# print(make_lower("S"))
+
+
+
+
+
+
+
+
+# list1 = [(1, 4), (2, 3), (0, 5)]
+
+# list2 = sorted(list1)
+
+# print(list2)
+
+# # def last(x):
+# #     return x[-1]
+
+# # list3 = sorted(list1, key=last)
+
+# list3 = sorted(list1, key=lambda x: x[-1])
+
+# print(list3)
+
+
+
+
+
+
+
+# szesciany = []
+# for x in range(10):
+#     szesciany.append(x ** 3)
+
+# print(szesciany)
+
+
+# szesciany2 = [x ** 3 for x in range(10)]
+
+# print(szesciany2)
+
+
+# kwadraty_not = [number ** 2 for number in range(1, 102) if number % 2 == 1]
+# print(kwadraty_not)
+
+
+## zdanie
+
+
+# var = sorted(number ** 2 for number in range(1, 102))
+
+# print(var)
+
+
+# nums = [2, 4, -6, -9, 11, -12, 14, -5, 17]
+
+# num_minus = sum([number for number in nums if number < 0])
+
+# print(abs(num_minus))
+
+
+# y = -10
+
+# x = "ala" if y > 0 else "kot"
+# print(x)
+
+# is_upper = True
+
+# str1 = "Ala ma Kota"
+
+# var1 = str1.upper() if is_upper else str1.lower()
+
+# print(var1)
+
+
+# kwadraty = [number ** 2 if number ** 2 % 2 == 0 else 0 for number in range(1, 102)]
+# kwadraty = [number for number in kwadraty if number != 0]
+# print(kwadraty)
+
+
+
+# class PojazdySamochody:
+#     x = 10
+#     y = True
+#     msg = "To obiekt z PojazdySamochody"
+
+#     def print_ala():
+#         print("ala")
+
+
+
+# var1 = PojazdySamochody
+
+
+# var1.print_ala()
+
+
+# class Cat:
+#     def __init__(self, name, age=1):
+#         self.name = name
+#         self.age = age
+
+#     def show(self):
+#         print(f"I am {self.name} and I am {self.age} years old")
+
+#     def speak(self):
+#         print("Meow ~" + self.name)
+
+
+
+# a1 = Cat("Devon", 2)
+# a2 = Cat("Devon", 2)
+
+# a1.show()
+# a2.speak()
+# print(a2.name)
+
+# print(id(a1))
+# print(id(a2))
