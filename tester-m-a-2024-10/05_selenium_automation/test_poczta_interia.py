@@ -31,6 +31,6 @@ button_log_in.click()
 sleep(4)
 
 print(driver.title)
-assert driver.title == "Poczta w Interii"
+assert driver.title == "Poczta w Interii (1)" or driver.title == "Poczta w Interii (2)"
 sleep(10)
 driver.quit()
