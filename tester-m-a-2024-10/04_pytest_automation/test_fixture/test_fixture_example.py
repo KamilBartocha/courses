@@ -8,6 +8,7 @@ def sample_data():
 
 def test_sum(sample_data):
     """Przykładowy test 1 korzystający z fixture 'sample_data'"""
+    print(sample_data)
     result = sum(sample_data)
     assert result == 15
 
