@@ -1,7 +1,7 @@
 class Calculator:
-    def __add__(a, b):
+    def add(a, b):
         return a + b
 
     def subtract(a, b):
-        """Returns result of a - b"""
+        """ Method that subtracts a - b"""
         return a - b
