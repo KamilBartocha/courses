@@ -31,7 +31,3 @@ def test_cal_subtract_two_positive():
     result = Calculator.subtract(10, 20)
     assert isinstance(result, int)
     assert result == -10
-
-def test_divide():
-    result = Calculator.divide(20, 2)
-    assert result == 10

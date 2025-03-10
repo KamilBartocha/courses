@@ -54,6 +54,5 @@ file_reader = FileReader(xml_file_path, json_file_path)
 
 # Load both the XML and JSON files
 file_reader.load_files()
-file_reader.set_mapping("root.item.price", "root.item[0].price")
-
+file_reader.set_mapping("root.item.name", "root.item[0].price")
 file_reader.compare_mapped_values()

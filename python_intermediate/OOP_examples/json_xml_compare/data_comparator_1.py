@@ -3,8 +3,8 @@ from data_readers import ReadXML, ReadJSON
 
 """Solution 1, classes only for data readers"""
 
-xml_file_path = "python_intermediate/OOP_examples/json_xml_compare/example1.xml"
-json_file_path = "python_intermediate/OOP_examples/json_xml_compare/example1.json"
+xml_file_path = "example1.xml"
+json_file_path = "example1.json"
 
 xml_reader = ReadXML(xml_file_path)
 xml_reader.load_xml()
