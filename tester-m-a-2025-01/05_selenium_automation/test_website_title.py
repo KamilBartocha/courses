@@ -9,7 +9,7 @@ def get_website_title(url):
 
 def test_codebrainers_title():
     url = "https://codebrainers.pl/"
-    expected_title = "Coś więcej niż kodowanie - codebrainers"
+    expected_title = "Coś więcej niż kodowanie - codrainers"
     website_title = get_website_title(url)
     assert expected_title == website_title
 
