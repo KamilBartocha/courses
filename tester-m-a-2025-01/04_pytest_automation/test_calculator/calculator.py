@@ -3,5 +3,5 @@ class Calculator:
         return a + b
 
     def subtract(a, b):
-        """ Method that subtracts a - b"""
-        return a - b
+        """Subtract b from a and return result"""
+        return  a - b
