@@ -2,7 +2,6 @@ def lemon_number(l):
     print('Lemoniada nr', l)
 
 
-
 def sum_two_numbers():
     """
     Read 2 numbers and returns sum
