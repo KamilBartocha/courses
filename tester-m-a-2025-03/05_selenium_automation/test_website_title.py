@@ -1,44 +1,63 @@
 from selenium import webdriver
 from time import sleep
 
-def get_website_title(url):
+def test_title_codebrainers():
     driver = webdriver.Safari()
-    driver.get(url)
-    sleep(2)
+    driver.get("https://codebrainers.pl/")
     site_title = driver.title
+    expected_title = "Coś więcej niż kodowanie - codebrainers"
+    assert site_title == expected_title
     driver.quit()
-    return site_title
+
+def test_title_allegro():
+    driver = webdriver.Safari()
+    driver.get("https://allegro.pl/")
+    site_title = driver.title
+    print(site_title)
+    expected_title = "allegro.pl"
+    assert site_title == expected_title
+    driver.quit()
+
+def test_title_sinthome():
+    driver = webdriver.Safari()
+    driver.get("https://sinthome.pl/")
+    site_title = driver.title
+    expectes_title = "strona główna - Sinthome"
+    assert site_title == expectes_title
+    driver.quit()
+
+def test_title_wloszczowa():
+    driver = webdriver.Safari()
+    driver.get("https://wloszczowa.pl/")
+    site_title = driver.title
+    print(site_title)
+    expected_title = "Portal informacyjny Gminy Włoszczowa - UG Włoszczowa"
+    assert site_title == expected_title
+    driver.quit()
+
+def test_Selenium_TITLE():
+    driver = webdriver.Safari()
+    driver.get("https://selenium-python.readthedocs.io/index.html")
+    site_title = driver.title
+    print(site_title)
+    assert site_title == "Selenium with Python — Selenium Python Bindings 2 documentation"
+    driver.quit() # zamyka całą
+
+def test_title_wirtualna_polska():
+    driver = webdriver.Safari()
+    driver.get("https://www.wp.pl/")
+    site_title = driver.title
+    expected_title = "Wirtualna Polska - Wszystko co ważne - www.wp.pl"
+    assert site_title == expected_title
+    driver.quit()
+
+def test_title_Pudelek():
+    driver = webdriver.Safari()
+    driver.get("https://www.pudelek.pl/")
+    site_title = driver.title
+    print(site_title)
+    assert site_title == "Pudelek.pl - Plotki, Gwiazdy, Sensacja - Pudelek"
+    sleep(5) # Czekaj 5 sekund
+    driver.quit()
 
 
-def test_website_codebrainers():
-    title = get_website_title(url="https://codebrainers.pl/")
-    expected = "Coś więcej niż kodowanie - codebrainers"
-    assert title == expected
-
-def test_website_wp():
-    assert get_website_title("https://www.wp.pl") == "Wirtualna Polska - Wszystko co ważne - www.wp.pl"
-
-# def test_website_allegro1():
-#     title = get_website_title(url="https://allegro.pl/")
-#     expected = "Allegro - atrakcyjne ceny - Strona Główna"
-#     assert title == expected
-
-# def test_website_allegro2():
-#     assert get_website_title(url="https://allegro.pl/") == "Allegro - atrakcyjne ceny - Strona Główna"
-
-def test_website_quantum():
-    title = get_website_title(url="https://quantum-software.com/en/")
-    expected = "Quantum Qguar – IT systems for logistics"
-    assert title == expected
-
-def test_website_pudelek():
-    title = get_website_title(url='https://www.pudelek.pl/')
-    expected = "Pudelek.pl - Plotki, Gwiazdy, Sensacja - Pudelek"
-    assert title == expected
-
-def test_website_google():
-    assert get_website_title("https://www.google.pl/") == "Google"
-
-def test_website_interia():
-    """Interia - Polska i świat: informacje, sport, gwiazdy."""
-    assert get_website_title("https://www.interia.pl") == "Interia - Polska i świat: informacje, sport, gwiazdy."

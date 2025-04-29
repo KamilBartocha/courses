@@ -10,14 +10,14 @@ def test_login_into_interia_poczta_success():
     d.get("https://poczta.interia.pl/logowanie/")
     sleep(1)
 
-    przejdz_do_sewisu = d.find_element(By.CLASS_NAME, "rodo-popup-agree")
+    przejdz_do_sewisu = d.find_element(By.CLASS_NAME, "rodo-popup-agree") # class="rodo-popup-agree
     przejdz_do_sewisu.click()
-    sleep(1)
+    sleep(4)
 
     # AND registered user credentials are typed into login form**
     email_form = d.find_element(By.ID, "email")
     email_form.send_keys("code.brainers.tester@interia.pl")
-    sleep(1)
+    sleep(5)
 
     pass_form = d.find_element(By.ID, "password")
     pass_form.send_keys("testerZAQ!2wsx")
