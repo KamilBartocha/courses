@@ -1,7 +1,33 @@
-import fruitmodule as fm
-# import alamakota
+import fruitmodule
 
-fm.lemon_number(5)
+fruitmodule.lemon_number(5)
 
-wynik = fm.sum_two_numbers()
-print(wynik)
+
+y = fruitmodule.add2(5)
+print(y)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# wynik = fruitmodule.sum_two_numbers()
+# print(wynik)
+

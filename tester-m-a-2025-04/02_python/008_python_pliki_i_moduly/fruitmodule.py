@@ -2,6 +2,34 @@ def lemon_number(l):
     print('Lemoniada nr', l)
 
 
+def add2(x):
+    return x + 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def sum_two_numbers():
     """
     Read 2 numbers and returns sum
@@ -16,3 +44,4 @@ def sum_two_numbers():
             print(f"Błąd konwersji: '{e}'. Podaj liczby całkowite")
         else:
             return x2 + y2
+
