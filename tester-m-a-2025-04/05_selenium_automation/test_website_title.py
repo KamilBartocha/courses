@@ -1,63 +1,55 @@
 from selenium import webdriver
 from time import sleep
 
-def test_title_codebrainers():
+def test_title_onet_pl():
     driver = webdriver.Safari()
-    driver.get("https://codebrainers.pl/")
-    site_title = driver.title
-    expected_title = "Coś więcej niż kodowanie - codebrainers"
-    assert site_title == expected_title
-    driver.quit()
-
-def test_title_allegro():
-    driver = webdriver.Safari()
-    driver.get("https://allegro.pl/")
+    driver.get("https://onet.pl/")
+    sleep(5)
     site_title = driver.title
     print(site_title)
-    expected_title = "allegro.pl"
-    assert site_title == expected_title
+    assert site_title == "Onet – Jesteś na bieżąco"
     driver.quit()
 
-def test_title_sinthome():
+def test_title_naszosie_pl():
     driver = webdriver.Safari()
-    driver.get("https://sinthome.pl/")
-    site_title = driver.title
-    expectes_title = "strona główna - Sinthome"
-    assert site_title == expectes_title
-    driver.quit()
-
-def test_title_wloszczowa():
-    driver = webdriver.Safari()
-    driver.get("https://wloszczowa.pl/")
+    driver.get("https://naszosie.pl")
+    sleep(1)
     site_title = driver.title
     print(site_title)
-    expected_title = "Portal informacyjny Gminy Włoszczowa - UG Włoszczowa"
-    assert site_title == expected_title
+    assert site_title == "naszosie.pl"
+    sleep(5) #czeka 5s
     driver.quit()
 
-def test_Selenium_TITLE():
+def test_title_me_pl():
     driver = webdriver.Safari()
-    driver.get("https://selenium-python.readthedocs.io/index.html")
+    print(driver)
+    sleep(2)
+    driver.get("https://mediaexpert.pl")
+    sleep(2)
+    site_title = driver.title
+    assert site_title == "Media Expert | Sklep internetowy RTV, AGD, komputery"
+    sleep(2)
+    driver.quit()
+
+def test_title_mrbuggy_pl():
+    driver = webdriver.Safari()
+    driver.get("http://mrbuggy.pl/")
+    sleep(5)
     site_title = driver.title
     print(site_title)
-    assert site_title == "Selenium with Python — Selenium Python Bindings 2 documentation"
-    driver.quit() # zamyka całą
-
-def test_title_wirtualna_polska():
-    driver = webdriver.Safari()
-    driver.get("https://www.wp.pl/")
-    site_title = driver.title
-    expected_title = "Wirtualna Polska - Wszystko co ważne - www.wp.pl"
-    assert site_title == expected_title
+    assert site_title == "Mr Buggy"
     driver.quit()
 
-def test_title_Pudelek():
+## sposób 2
+def get_website_title(url):
     driver = webdriver.Safari()
-    driver.get("https://www.pudelek.pl/")
-    site_title = driver.title
-    print(site_title)
-    assert site_title == "Pudelek.pl - Plotki, Gwiazdy, Sensacja - Pudelek"
-    sleep(5) # Czekaj 5 sekund
+    driver.get(url)
+    title = driver.title
     driver.quit()
+    return title
 
-
+def test_codebrainers_title():
+    url = "https://codebrainers.pl/"
+    expected_title = "CodeBrainers – Prawdopodobnie najlepszy bootcamp w Polsce!"
+    website_title = get_website_title(url)
+    assert expected_title == website_title

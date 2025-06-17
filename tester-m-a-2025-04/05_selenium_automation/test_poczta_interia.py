@@ -3,37 +3,35 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
+def test_login_into_interia_poczta():
+    """
+        przed zalogowaniem się title:Poczta w Interia.pl - darmowa poczta e-mail – logowanie do konta
+        po zalogowaniu się title:Poczta w Interii
+    """
 
-def test_login_into_interia_poczta_success():
-    # GIVEN poczta.interia.pl/logowanie is loaded
-    d = webdriver.Safari()
-    d.get("https://poczta.interia.pl/logowanie/")
-    sleep(1)
+    driver = webdriver.Safari()
+    driver.get("https://poczta.interia.pl/logowanie/")
+    sleep(3)
 
-    przejdz_do_sewisu = d.find_element(By.CLASS_NAME, "rodo-popup-agree") # class="rodo-popup-agree
-    przejdz_do_sewisu.click()
-    sleep(4)
+    rodo_agree_button = driver.find_element(By.CLASS_NAME, "rodo-popup-agree") #class="rodo-popup-agree"
+    rodo_agree_button.click()
 
-    # AND registered user credentials are typed into login form**
-    email_form = d.find_element(By.ID, "email")
+
+    email_form = driver.find_element(By.ID, "email")  #id="email"
+    email_form.click()
     email_form.send_keys("code.brainers.tester@interia.pl")
-    sleep(5)
 
-    pass_form = d.find_element(By.ID, "password")
+    pass_form = driver.find_element(By.ID, "password")  # id="password"
+    pass_form.click()
     pass_form.send_keys("testerZAQ!2wsx")
-    sleep(1)
 
-    # WHEN "Zaloguj się" button is pressed (log request)
-    zaloguj_sie = d.find_element(By.CLASS_NAME, "btn--login")
-    zaloguj_sie.click()
-    sleep(4)
+    login_button = driver.find_element(By.CLASS_NAME, "btn--login")  #class="btn btn--login btn"
 
-    # THEN User is logged in and email box is opened
-    title_logged = d.title
-    title_expected = "Poczta w Interii"
-    assert title_logged == title_expected
-
-    inbox = d.find_element(By.CLASS_NAME, "icon-inbox")
-    assert inbox is not None
+    print(driver.title)
+    assert driver.title == "Poczta w Interia.pl - darmowa poczta e-mail – logowanie do konta"
+    login_button.click()
+    sleep(3)
+    print(driver.title)
+    assert driver.title == "Poczta w Interii"
     sleep(5)
-    d.quit()
+    driver.quit()
