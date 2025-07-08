@@ -1,14 +1,18 @@
 import pytest
 
 @pytest.fixture
-def get_data():
-    return [1, 2, 3, 4, 5]
+def sample_data():
+    var = [1, 2, 3]
+    var.append(4)
+    return var
 
-def test_sum(get_data):
-    result = sum(get_data)
-    assert result == 15
+def test_sum(sample_data):
+    """sample_data = [1, 2, 3, 4]"""
+    data_sum = sum(sample_data)
+    expected = 10
+    assert data_sum == expected
 
-def test_min(get_data):
-    result = min(get_data)
-    pytest.CallInfo.duration
-    assert result == 1
+def test_min(sample_data):
+    data_min = min(sample_data)
+    expected = 1
+    assert data_min == expected
