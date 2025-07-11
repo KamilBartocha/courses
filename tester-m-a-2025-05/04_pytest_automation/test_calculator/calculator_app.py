@@ -1,10 +1,11 @@
 from calculator import Calculator
 
-input_a = int(input("podaj a: "))
-input_b = int(input("podaj b: "))
-input_op = input("podaj znak: '+' or '-' ")
+
 
 while True:
+    input_a = int(input("podaj a: "))
+    input_b = int(input("podaj b: "))
+    input_op = input("podaj znak: '+' or '-' ")
     if input_op == "+":
         result = Calculator.add(input_a, input_b)
         print(f"wynik: {result}")
@@ -15,5 +16,4 @@ while True:
         break
     else:
         print("Not implemented yet")
-        break
 

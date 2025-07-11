@@ -41,10 +41,19 @@ def test_user_is_John():
 
 # 2) setup i teardown
 
+# setup
+#   test
+# teardown
+
 @pytest.fixture
 def temp_file():
+    """
+    lines before yield f -> setup
+    lines after  yield f -> teardown
+
+    """
     f = open("test.txt", "w")
-    yield f
+    yield f   # return f
     f.close()
     os.remove("test.txt")
 
