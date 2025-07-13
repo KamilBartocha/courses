@@ -1,11 +1,11 @@
 from selenium import webdriver
 from time import sleep
 
-driver = webdriver.Safari()
-print(driver)
-driver.get("https://onet.pl/")
-sleep(5)
-site_title = driver.title
-print(site_title)
-assert site_title == "Onet – Jesteś na bieżąco"
-sleep(5) # Czekaj 5 sekund
+def test_onet_title():
+    driver = webdriver.Safari()
+    driver.get("https://onet.pl/")
+    site_title = driver.title
+    sleep(3)
+    driver.quit()
+    expected_title = "Onet – Jesteś na bieżąco"  #<html> -> <head><title>xxxxx</title></head>
+    assert expected_title == site_title

@@ -1,55 +1,42 @@
 from selenium import webdriver
-from time import sleep
 
-def test_title_onet_pl():
-    driver = webdriver.Safari()
+def test_onet_title():
+    driver = webdriver.Chrome()
     driver.get("https://onet.pl/")
-    sleep(5)
-    site_title = driver.title
-    print(site_title)
-    assert site_title == "Onet – Jesteś na bieżąco"
+    print(driver.title)
+    assert driver.title == "Onet – Jesteś na bieżąco"
     driver.quit()
 
-def test_title_naszosie_pl():
-    driver = webdriver.Safari()
-    driver.get("https://naszosie.pl")
-    sleep(1)
-    site_title = driver.title
-    print(site_title)
-    assert site_title == "naszosie.pl"
-    sleep(5) #czeka 5s
+def test_gag_title():
+    driver = webdriver.Chrome()
+    driver.get("https://9gag.com/")
+    print(driver.title)
+    assert driver.title == "9GAG - Best Funny Memes and Breaking News"
     driver.quit()
 
-def test_title_me_pl():
-    driver = webdriver.Safari()
+def test_wp_title():
+    driver = webdriver.Chrome()
+    driver.get("https://wp.pl")
+    print(driver.title)
+    assert driver.title == "Wirtualna Polska - Wszystko co ważne - www.wp.pl"
+    driver.quit()
+
+def test_chrome_krakow_title():
+    driver = webdriver.Chrome()
+    driver.get("https://krakow.naszemiasto.pl/")
+    assert driver.title == "Kraków Nasze Miasto - Wiadomości, informacje i wydarzenia"
+    driver.quit()
+
+def test_allegro_title():
+    driver = webdriver.Chrome()
+    driver.get("https://www.allegro.pl")
+    print(driver.title)
+    assert driver.title == "Allegro - atrakcyjne ceny - Strona Główna"
+    driver.quit()
+
+def test_inpost_title():
+    driver = webdriver.Chrome()
     print(driver)
-    sleep(2)
-    driver.get("https://mediaexpert.pl")
-    sleep(2)
-    site_title = driver.title
-    assert site_title == "Media Expert | Sklep internetowy RTV, AGD, komputery"
-    sleep(2)
+    driver.get("https://inpost.pl/")
+    assert driver.title == "InPost dla Ciebie - Paczkomat®, Kurier, Przesyłki Kurierskie i Paczki"
     driver.quit()
-
-def test_title_mrbuggy_pl():
-    driver = webdriver.Safari()
-    driver.get("http://mrbuggy.pl/")
-    sleep(5)
-    site_title = driver.title
-    print(site_title)
-    assert site_title == "Mr Buggy"
-    driver.quit()
-
-## sposób 2
-def get_website_title(url):
-    driver = webdriver.Safari()
-    driver.get(url)
-    title = driver.title
-    driver.quit()
-    return title
-
-def test_codebrainers_title():
-    url = "https://codebrainers.pl/"
-    expected_title = "CodeBrainers – Prawdopodobnie najlepszy bootcamp w Polsce!"
-    website_title = get_website_title(url)
-    assert expected_title == website_title
