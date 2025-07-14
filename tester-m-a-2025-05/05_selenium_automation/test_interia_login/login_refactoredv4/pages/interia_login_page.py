@@ -10,7 +10,6 @@ class InteriaLoginPage:
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
 
-    # Locators
     RODO_ACCEPT_BUTTON = (By.CLASS_NAME, "rodo-popup-agree")
     EMAIL_INPUT = (By.ID, "email")
     PASSWORD_INPUT = (By.ID, "password")

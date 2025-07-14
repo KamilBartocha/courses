@@ -1,3 +1,11 @@
+"""
+- dodanie osobych funkcji do drivera, setup i teardown
+- dodanie obsługi wyjątków
+- teardown w finally
+- implicitly_wait w ustawieniach drivera aby zminimializować sleep
+czas ok 10sec
+"""
+
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By

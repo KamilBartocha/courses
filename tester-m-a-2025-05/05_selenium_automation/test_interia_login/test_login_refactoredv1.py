@@ -1,3 +1,11 @@
+"""
+- Logika logowania przeniesiona do osobnej funkcji
+- test z logowaniem_sucess używa tej funkcji
+- dodatkowy test z logowaniem złymi danymi
+czas: ok 20sec
+"""
+
+
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By

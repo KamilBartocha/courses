@@ -1,3 +1,11 @@
+"""
+- ładowanie zmiennych z loginem/hasłęm z pliku .env
+- driver w @pytest.fixture
+- explicit waits z EC.
+- dekorator @pytest.mark.login w testach loginu
+czas: 9sec
+"""
+
 import os
 import pytest
 from selenium import webdriver
@@ -22,9 +30,7 @@ def login_to_interia_poczta(driver, email, password):
     driver.get(INTERIA_LOGIN_URL)
 
     try:
-        rodo_button = WebDriverWait(driver, 5).until(
-            EC.element_to_be_clickable((By.CLASS_NAME, "rodo-popup-agree"))
-        )
+        rodo_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.CLASS_NAME, "rodo-popup-agree")))
         rodo_button.click()
     except TimeoutException:
         pass

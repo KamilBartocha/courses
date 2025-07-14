@@ -1,3 +1,14 @@
+"""
+- ładowanie zmiennych z loginem/hasłęm z pliku .env
+- driver w @pytest.fixture
+- explicit waits z EC.
+- dekorator @pytest.mark.login w testach loginu
+- dodanie zapisywanie screenshot jeśli test failed -> conftest.py
+- POM, pages z lokatorami danej strony.
+czas: 9sec
+"""
+
+
 import os
 import pytest
 from datetime import datetime
@@ -40,18 +51,3 @@ def test_login_wrong_credentials(driver):
 
     error_message = login_page.get_error_message()
     assert error_message == "Błędny e-mail lub hasło."
-
-@pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    outcome = yield
-    result = outcome.get_result()
-
-    if result.failed and hasattr(item, "driver"):
-        driver = item.driver
-        import os
-        os.makedirs(SCREENSHOT_DIR, exist_ok=True)
-        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        test_name = item.name
-        filename = f"{SCREENSHOT_DIR}/{test_name}_{timestamp}.png"
-        driver.save_screenshot(filename)
-        print(f"\n📸 Screenshot saved: {filename}")
