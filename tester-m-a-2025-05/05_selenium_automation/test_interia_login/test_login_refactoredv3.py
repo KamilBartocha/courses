@@ -1,5 +1,5 @@
 """
-- ładowanie zmiennych z loginem/hasłęm z pliku .env
+- ładowanie zmiennych z loginem/hasłem z pliku .env
 - driver w @pytest.fixture
 - explicit waits z EC.
 - dekorator @pytest.mark.login w testach loginu

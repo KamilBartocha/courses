@@ -12,11 +12,14 @@ czas: 9sec
 import os
 import pytest
 from datetime import datetime
+
 from dotenv import load_dotenv
+
 from selenium import webdriver
-from pages.interia_login_page import InteriaLoginPage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from pages.interia_login_page import InteriaLoginPage
 
 load_dotenv()
 
@@ -39,7 +42,7 @@ def test_login_success(driver):
     login_page.login(email, password)
 
     WebDriverWait(driver, 10).until(EC.title_is("Poczta w Interii"))
-    assert driver.title == "Poczta w Interii"
+    assert driver.title == "Poczta w"
 
 @pytest.mark.login
 def test_login_wrong_credentials(driver):

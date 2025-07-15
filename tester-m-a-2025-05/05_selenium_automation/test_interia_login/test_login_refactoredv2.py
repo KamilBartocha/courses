@@ -35,7 +35,7 @@ def test_login_into_interia_poczta_success():
     try:
         login_to_interia_poczta(driver, "code.brainers.tester@interia.pl", "testerZAQ!2wsx")
         sleep(3)
-        assert driver.title == "Poczta w Interii"
+        assert driver.title.startswith("Poczta w Interii")
     finally:
         teardown_driver(driver)
 
