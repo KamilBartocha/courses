@@ -248,7 +248,7 @@ def run_sync():
     for i in range(1, REQUESTS_COUNT + 1):
         current_url = URL.format(i)
         response = requests.get(current_url)
-        print(f"Finished request {i}")
+        print(f"Finished request {i}, response status: {response.status_code}")
 
     end = time.time()
     return end - start
@@ -256,7 +256,7 @@ def run_sync():
 # -------------------------------------------
 # 2. THE FAST WAY (Asynchronous)
 # -------------------------------------------
-# This function handles just ONE request
+
 async def fetch_one(session, i):
     current_url = URL.format(i)
     async with session.get(current_url) as response:
