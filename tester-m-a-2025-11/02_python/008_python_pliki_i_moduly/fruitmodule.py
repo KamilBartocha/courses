@@ -6,30 +6,6 @@ def add2(x):
     return x + 2
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def sum_two_numbers():
     """
     Read 2 numbers and returns sum
