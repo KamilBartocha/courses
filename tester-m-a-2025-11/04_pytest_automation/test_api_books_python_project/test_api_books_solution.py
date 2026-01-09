@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-BASE_URL = "https://simple-books-api.glitch.me"
+BASE_URL = "https://simple-books-api.click"
 API_TOKEN = ""
 
 HEADERS = {
@@ -13,8 +13,8 @@ HEADERS = {
 def get_api_token():
     url = f"{BASE_URL}/api-clients/"
     payload = {
-        "clientName": "Alamakota2025",
-        "clientEmail": "alamakota2025@example.com"
+        "clientName": "Alamakota201",
+        "clientEmail": "alamakota201@example.com"
     }
     response = requests.post(url, json=payload)
     assert response.status_code == 201
@@ -59,4 +59,3 @@ def test_create_order(get_api_token):
     response = requests.post(url, json=payload, headers=headers)
     assert response.status_code == 201
     assert "orderId" in response.json()
-

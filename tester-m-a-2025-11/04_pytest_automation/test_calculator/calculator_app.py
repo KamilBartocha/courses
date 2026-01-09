@@ -1,7 +1,5 @@
 from calculator import Calculator
 
-
-
 while True:
     input_a = int(input("podaj a: "))
     input_b = int(input("podaj b: "))
@@ -16,4 +14,3 @@ while True:
         break
     else:
         print("Not implemented yet")
-
