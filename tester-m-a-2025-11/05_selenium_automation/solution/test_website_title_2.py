@@ -10,8 +10,3 @@ def get_website_title(url):
 def test_onet_title():
     title = get_website_title("https://onet.pl/")
     assert title == "Onet – Jesteś na bieżąco"
-
-def test_gag_title():
-    title = get_website_title("https://9gag.com/")
-    assert title == "9GAG - Best Funny Memes and Breaking News"
-

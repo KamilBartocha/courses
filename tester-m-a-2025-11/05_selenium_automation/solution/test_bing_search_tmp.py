@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
-# def test_search_bing_into_selenium():
+
 driver = webdriver.Safari()
 driver.get("https://www.bing.com/")
 sleep(4)
@@ -15,3 +15,5 @@ sleep(2)
 link = driver.find_element(By.PARTIAL_LINK_TEXT, "selenium.dev")
 link.click()
 sleep(5)
+
+driver.quit()
