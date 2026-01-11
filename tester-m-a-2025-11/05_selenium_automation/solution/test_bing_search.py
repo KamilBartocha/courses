@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
+
 def test_bing_search_success():
     """
     GIVEN "selenium alamakota" is typed into search on site bing.com
@@ -20,7 +21,7 @@ def test_bing_search_success():
     # search.send_keys(Keys.RETURN)
     sleep(3)
     results = driver.find_element(By.CLASS_NAME, "sb_count")
-    print(results.text)   #About 36,700 results   # można regexp import re
+    print(results.text)  # About 36,700 results   # można regexp import re
     assert results.text.startswith("About")
     sleep(3)
     driver.quit()
@@ -49,6 +50,7 @@ def test_bing_search_link_into_selenium():
     print(driver.title)
     driver.quit()
 
+
 def test_selenium_documentation_link():
     """
     GIVEN https://www.selenium.dev/ is opened
@@ -59,7 +61,7 @@ def test_selenium_documentation_link():
     wskazówka: By.LINK_TEXT, "Documentation"
     """
     driver = webdriver.Safari()
-    driver.maximize_window()   # lub driver.set_window_size(1920, 1080)
+    driver.maximize_window()  # lub driver.set_window_size(1920, 1080)
     driver.get("https://www.selenium.dev/")
     sleep(5)
     selenium_link = driver.find_element(By.LINK_TEXT, "Documentation")

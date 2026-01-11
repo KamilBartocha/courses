@@ -5,10 +5,10 @@
 czas: ok 20sec
 """
 
-
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+
 
 def login_to_interia_poczta(driver, email, password):
     driver.get("https://poczta.interia.pl/logowanie/")
@@ -28,6 +28,7 @@ def login_to_interia_poczta(driver, email, password):
     login_button = driver.find_element(By.CLASS_NAME, "btn--login")
     login_button.click()
 
+
 def test_login_into_interia_poczta_success():
     driver = webdriver.Safari()
     login_to_interia_poczta(driver, "code.brainers.tester@interia.pl", "testerZAQ!2wsx")
@@ -35,10 +36,13 @@ def test_login_into_interia_poczta_success():
     assert driver.title == "Poczta w Interii"
     driver.quit()
 
+
 def test_login_into_interia_poczta_wrong_credentials():
     """Błędny e-mail lub hasło. after loging in with wrong credentials"""
     driver = webdriver.Safari()
-    login_to_interia_poczta(driver, "code.brainers.tester@interia.pl", "tester_not_existing")
+    login_to_interia_poczta(
+        driver, "code.brainers.tester@interia.pl", "tester_not_existing"
+    )
     sleep(5)
     form_error = driver.find_element(By.CLASS_NAME, "form__error")
     assert form_error.text == "Błędny e-mail lub hasło."

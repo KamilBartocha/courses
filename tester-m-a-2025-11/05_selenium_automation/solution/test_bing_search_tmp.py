@@ -7,7 +7,7 @@ from time import sleep
 driver = webdriver.Safari()
 driver.get("https://www.bing.com/")
 sleep(4)
-search_form = driver.find_element(By.ID, "sb_form_q") #id="sb_form_q"
+search_form = driver.find_element(By.ID, "sb_form_q")  # id="sb_form_q"
 search_form.click()
 search_form.send_keys("selenium")
 search_form.send_keys(Keys.ENTER)
