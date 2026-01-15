@@ -5,41 +5,44 @@
 czas: ok 20sec
 """
 
-
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-def login_to_interia_poczta(driver, email, password):
-    driver.get("https://poczta.interia.pl/logowanie/")
+poczta_url = "https://poczta.interia.pl/logowanie"
+
+def _login_into_interia(driver, email, password):
+    driver.maximize_window()
+    driver.get(url=poczta_url)
+    sleep(4)
+    rodo_button = driver.find_element(By.CLASS_NAME, "rodo-popup-agree")
+    rodo_button.click()
     sleep(3)
 
-    rodo_agree_button = driver.find_element(By.CLASS_NAME, "rodo-popup-agree")
-    rodo_agree_button.click()
+    form_user_email = driver.find_element(By.ID, "email")
+    form_user_email.click()
+    form_user_email.send_keys(email)
 
-    email_form = driver.find_element(By.ID, "email")
-    email_form.click()
-    email_form.send_keys(email)
-
-    pass_form = driver.find_element(By.ID, "password")
-    pass_form.click()
-    pass_form.send_keys(password)
+    form_password = driver.find_element(By.ID, "password")
+    form_password.click()
+    form_password.send_keys(password)
 
     login_button = driver.find_element(By.CLASS_NAME, "btn--login")
     login_button.click()
+    sleep(6)
 
-def test_login_into_interia_poczta_success():
+
+def test_interia_login_correct_cred():
     driver = webdriver.Safari()
-    login_to_interia_poczta(driver, "code.brainers.tester@interia.pl", "testerZAQ!2wsx")
-    sleep(5)
-    assert driver.title == "Poczta w Interii"
+    _login_into_interia(driver, "code.brainers.tester@interia.pl", "testerZAQ!2wsx")
+    assert "Poczta w Interii" in driver.title
     driver.quit()
 
-def test_login_into_interia_poczta_wrong_credentials():
-    """Błędny e-mail lub hasło. after loging in with wrong credentials"""
+
+def test_interia_login_wrong_cred():
     driver = webdriver.Safari()
-    login_to_interia_poczta(driver, "code.brainers.tester@interia.pl", "tester_not_existing")
-    sleep(5)
+    _login_into_interia(driver, "wrong_email_test@interia.pl", "not_existing")
+    assert driver.title == "Poczta w Interia.pl - darmowa poczta e-mail – logowanie do konta"
     form_error = driver.find_element(By.CLASS_NAME, "form__error")
     assert form_error.text == "Błędny e-mail lub hasło."
     driver.quit()

@@ -37,9 +37,7 @@ def login_to_interia_poczta(driver, email, password):
 def test_login_into_interia_poczta_success():
     driver = setup_driver()
     try:
-        login_to_interia_poczta(
-            driver, "code.brainers.tester@interia.pl", "testerZAQ!2wsx"
-        )
+        login_to_interia_poczta(driver, "code.brainers.tester@interia.pl", "testerZAQ!2wsx")
         sleep(3)
         assert driver.title.startswith("Poczta w Interii")
     finally:
@@ -49,9 +47,7 @@ def test_login_into_interia_poczta_success():
 def test_login_into_interia_poczta_wrong_credentials():
     driver = setup_driver()
     try:
-        login_to_interia_poczta(
-            driver, "code.brainers.tester@interia.pl", "tester_not_existing"
-        )
+        login_to_interia_poczta(driver, "code.brainers.tester@interia.pl", "tester_not_existing")
         sleep(3)
         error = driver.find_element(By.CLASS_NAME, "form__error")
         assert error.text.strip() == "Błędny e-mail lub hasło."

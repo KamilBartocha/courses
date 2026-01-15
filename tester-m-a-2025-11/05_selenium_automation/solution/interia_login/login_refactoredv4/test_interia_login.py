@@ -32,6 +32,7 @@ def driver(request):
     yield driver
     driver.quit()
 
+
 @pytest.mark.login
 def test_login_success(driver):
     email = os.getenv("INTERIA_EMAIL")
@@ -43,6 +44,7 @@ def test_login_success(driver):
 
     WebDriverWait(driver, 10).until(EC.title_is("Poczta w Interii"))
     assert driver.title == "Poczta w"
+
 
 @pytest.mark.login
 def test_login_wrong_credentials(driver):
