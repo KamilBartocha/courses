@@ -11,7 +11,6 @@ czas: 9sec
 
 import os
 import pytest
-from datetime import datetime
 
 from dotenv import load_dotenv
 

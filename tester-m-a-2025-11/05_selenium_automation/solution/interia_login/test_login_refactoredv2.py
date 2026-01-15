@@ -26,7 +26,7 @@ def login_to_interia_poczta(driver, email, password):
     try:
         rodo_agree_button = driver.find_element(By.CLASS_NAME, "rodo-popup-agree")
         rodo_agree_button.click()
-    except:
+    except:  # noqa: E722
         pass
 
     driver.find_element(By.ID, "email").send_keys(email)
