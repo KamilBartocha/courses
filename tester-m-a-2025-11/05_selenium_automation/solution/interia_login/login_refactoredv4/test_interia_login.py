@@ -1,11 +1,11 @@
 """
-- ładowanie zmiennych z loginem/hasłęm z pliku .env
-- driver w @pytest.fixture
-- explicit waits z EC.
-- dekorator @pytest.mark.login w testach loginu
-- dodanie zapisywanie screenshot jeśli test failed -> conftest.py
-- POM, pages z lokatorami danej strony.
-czas: 9sec
+- Loading login/password variables from .env file
+- driver in @pytest.fixture
+- explicit waits with EC
+- @pytest.mark.login decorator in login tests
+- Adding screenshot saving if test fails -> conftest.py
+- POM, pages with locators for a given page
+time: 9sec
 """
 
 

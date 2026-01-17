@@ -1,9 +1,9 @@
 """
-- dodanie osobych funkcji do drivera, setup i teardown
-- dodanie obsługi wyjątków
-- teardown w finally
-- implicitly_wait w ustawieniach drivera aby zminimializować sleep
-czas ok 10sec
+- Added custom driver functions: setup and teardown
+- Added exception handling
+- Teardown in finally block
+- implicitly_wait in driver settings to minimize sleep
+approx 10 seconds
 """
 
 from time import sleep

@@ -1,8 +1,8 @@
 """
-- Logika logowania przeniesiona do osobnej funkcji
-- test z logowaniem_sucess używa tej funkcji
-- dodatkowy test z logowaniem złymi danymi
-czas: ok 20sec
+- Login logic moved to a separate function
+- test with login_success uses this function
+- additional test with wrong credentials
+time: ~20sec
 """
 
 from time import sleep

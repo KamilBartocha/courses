@@ -1,9 +1,9 @@
 """
-- ładowanie zmiennych z loginem/hasłem z pliku .env
-- driver w @pytest.fixture
-- explicit waits z EC.
-- dekorator @pytest.mark.login w testach loginu
-czas: 9sec
+- Loading login/password variables from .env file
+- driver in @pytest.fixture
+- explicit waits with EC.
+- @pytest.mark.login decorator in login tests
+time: 9 seconds
 """
 
 import os
