@@ -46,13 +46,14 @@ class FileReader:
 
 
 """Solution 3 Class with mappings to compare values"""
-xml_file_path = "python_intermediate/OOP_examples/json_xml_compare/example1.xml"
-json_file_path = "python_intermediate/OOP_examples/json_xml_compare/example1.json"
+xml_file_path = "OOP_examples/json_xml_compare/example1.xml"
+json_file_path = "OOP_examples/json_xml_compare/example1.json"
 
 # Create an instance of the FileReader class
 file_reader = FileReader(xml_file_path, json_file_path)
 
 # Load both the XML and JSON files
 file_reader.load_files()
-file_reader.set_mapping("root.item.name", "root.item[0].price")
+file_reader.set_mapping("root.item.price", "root.item[0].price")
+
 file_reader.compare_mapped_values()

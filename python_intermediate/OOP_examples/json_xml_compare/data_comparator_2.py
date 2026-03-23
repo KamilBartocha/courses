@@ -30,8 +30,8 @@ class FileReader:
 
 
 """Solution 2 Class for comparing"""
-xml_file_path = "python_intermediate/OOP_examples/json_xml_compare/example1.xml"
-json_file_path = "python_intermediate/OOP_examples/json_xml_compare/example1.json"
+xml_file_path = "OOP_examples/json_xml_compare/example1.xml"
+json_file_path = "OOP_examples/json_xml_compare/example1.json"
 
 # Create an instance of the FileReader class
 file_reader = FileReader(xml_file_path, json_file_path)
