@@ -36,7 +36,7 @@ Exception: module 105 also contains `105_library/datareader/` — a full install
 
 ## Notebook Authoring Standards
 
-These rules are documented in `NOTEBOOK_REFACTORING_PLAYBOOK.md` and must be followed when creating or editing notebooks:
+These rules are documented in `notebook-rules.md` and must be followed when creating or editing notebooks:
 
 **Structure per section (strictly in this order):**
 ```
@@ -47,7 +47,7 @@ Rozkład jazdy (agenda cell)
 Theory cells (Polish prose, max 79 chars/line)
 Example code cell (English variable names and strings)
 ---
-### ✏️ Ćwiczenia — topic
+### 🐍 Ćwiczenia — topic
 One markdown cell listing all exercises
 One code cell per exercise
 ```
@@ -89,4 +89,4 @@ One code cell per exercise
 | 115 | Type annotations, `typing` module |
 | 116 | Pydantic: `BaseModel`, `Field`, validators |
 
-Prerequisites for all modules are documented in `BASIC_CONCEPTS.md`. Full exercise list per module is in `SYLLABUS.md`.
+Prerequisites for all modules are documented in `syllabus-python-basics.md`. Full exercise list per module is in `syllabus-python-intermediate.md`.
