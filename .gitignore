@@ -1,3 +1,12 @@
 .DS_Store
+**/.DS_Store
 __pycache__
-008_python_pliki_i_moduly/__pycache__
+**/__pycache__
+*.pyc
+
+# Virtual environments
+venv/
+venv_new/
+venv_old/
+.venv/
+env/
