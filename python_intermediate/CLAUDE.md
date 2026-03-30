@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Purpose
 
-Python intermediate course (version 2.0, author Kamil Bartocha). 17 Jupyter notebook modules (100–116) covering advanced Python topics, each paired with a solutions `.py` file. 186 exercises across 67 sections total. Course instructions are in Polish; all code must be in English.
+Python intermediate course (version 2.0, author Kamil Bartocha). 20 Jupyter notebook modules (00–19) covering advanced Python topics, each paired with a solutions `.py` file. 236 exercises across 76 sections total. Course instructions are in Polish; all code must be in English.
 
 ## Running and Testing
 
@@ -13,9 +13,9 @@ Run a Jupyter notebook:
 jupyter notebook <module_dir>/<notebook>.ipynb
 ```
 
-Run the datareader library tests (module 105):
+Run the datareader library tests (module 05):
 ```bash
-cd 105_python_interm_modules/105_library/datareader
+cd 05_python_interm_modules/05_library/datareader
 python -m pytest tests/
 # or run a single test file
 python -m unittest tests/test_json_reader.py
@@ -32,7 +32,7 @@ Each module folder (`NNN_python_interm_<topic>/`) contains:
 - `NNN_python_interm_<topic>.ipynb` — main teaching notebook
 - `NNN_python_interm_solutions.py` — complete exercise solutions
 
-Exception: module 105 also contains `105_library/datareader/` — a full installable Python package with `setup.py`, `__init__.py`, and pytest tests.
+Exception: module 05 also contains `05_library/datareader/` — a full installable Python package with `setup.py`, `__init__.py`, and pytest tests.
 
 ## Notebook Authoring Standards
 
@@ -71,22 +71,25 @@ One code cell per exercise
 
 | Module | Topic |
 |--------|-------|
-| 100 | Basics review (prerequisites) |
-| 101 | OOP: inheritance, encapsulation, dunder methods, class/static methods |
-| 102 | Lambda, map, filter, list/dict/set comprehensions |
-| 103 | `*args` and `**kwargs` |
-| 104 | Virtual environments, requirements.txt, debugger |
-| 105 | Custom modules, packages, `setup.py`, pytest |
-| 106 | JSON serialization and file I/O |
-| 107 | Exception handling, custom exceptions |
-| 108 | Decorators, `@dataclass` |
-| 109 | Context managers, `__enter__`/`__exit__`, `@contextmanager` |
-| 110 | Metaclasses, `type()` |
-| 111 | Abstract Base Classes, `@abstractmethod` |
-| 112 | Generators, iterators, `itertools` |
-| 113 | `functools`: `partial`, `lru_cache`, `reduce` |
-| 114 | `collections`: Counter, defaultdict, deque, namedtuple; `enum` |
-| 115 | Type annotations, `typing` module |
-| 116 | Pydantic: `BaseModel`, `Field`, validators |
+| 00 | Basics review (prerequisites) |
+| 01 | OOP: inheritance, encapsulation, dunder methods, class/static methods |
+| 02 | Lambda, map, filter, list/dict/set comprehensions |
+| 03 | `*args` and `**kwargs` |
+| 04 | Virtual environments, requirements.txt, debugger |
+| 05 | Custom modules, packages, `setup.py`, pytest |
+| 06 | JSON serialization and file I/O |
+| 07 | Exception handling, custom exceptions |
+| 08 | Decorators, `@dataclass` |
+| 09 | Context managers, `__enter__`/`__exit__`, `@contextmanager` |
+| 10 | Metaclasses, `type()` |
+| 11 | Abstract Base Classes, `@abstractmethod` |
+| 12 | Generators, iterators, `itertools` |
+| 13 | `functools`: `partial`, `lru_cache`, `reduce` |
+| 14 | `collections`: Counter, defaultdict, deque, namedtuple, OrderedDict; `enum` |
+| 15 | Type annotations, `typing` module (Python 3.9+) |
+| 16 | Pydantic: `BaseModel`, `Field`, validators, `BaseSettings` |
+| 17 | `pathlib`: `Path`, file I/O, `glob`/`rglob` |
+| 18 | `logging`: levels, handlers, formatters, logger hierarchy |
+| 19 | `dataclasses`: `field()`, `__post_init__`, `ClassVar`, `InitVar`, `frozen` |
 
 Prerequisites for all modules are documented in `syllabus-python-basics.md`. Full exercise list per module is in `syllabus-python-intermediate.md`.

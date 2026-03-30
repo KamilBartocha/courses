@@ -1,25 +1,25 @@
 # Python Intermediate — Syllabus
 
-Kurs obejmuje 17 modułów (notebooks 100–116).
-Łącznie **186 ćwiczeń** w **67 sekcjach** tematycznych.
+Kurs obejmuje 20 modułów (notebooks 00–19).
+Łącznie **236 ćwiczeń** w **76 sekcjach** tematycznych.
 
 ---
 
-## Moduł 100 — Powtórka podstaw
+## Moduł 00 — Powtórka podstaw
 
-**Plik:** `100_python_interm_basics/100_python_interm_bacics_retake.ipynb`
+**Plik:** `00_python_interm_basics/00_python_interm_basics_retake.ipynb`
 
 Przegląd materiału z kursu podstawowego, który jest wymagany przed
-przystąpieniem do modułów 101–110.
+przystąpieniem do modułów 01–10.
 
 Tematy: arytmetyka, łańcuchy tekstowe, typy danych, pętle, funkcje,
 wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 101 — Programowanie obiektowe (zaawansowane)
+## Moduł 01 — Programowanie obiektowe (zaawansowane)
 
-**Plik:** `101_python_interm_oop_advanced/101_python_interm_oop_advanced.ipynb`
+**Plik:** `01_python_interm_oop_advanced/01_python_interm_oop_advanced.ipynb`
 
 ### Sekcje
 1. 🔹 Podstawy OOP
@@ -47,9 +47,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 102 — Lambda, map, filter, Comprehensions
+## Moduł 02 — Lambda, map, filter, Comprehensions
 
-**Plik:** `102_python_interm_lambda/102_python_interm_lambda_map_filter_comp.ipynb`
+**Plik:** `02_python_interm_lambda/02_python_interm_lambda_map_filter_comp.ipynb`
 
 ### Sekcje
 1. 🔹 List comprehensions
@@ -77,9 +77,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 103 — `*args` i `**kwargs`
+## Moduł 03 — `*args` i `**kwargs`
 
-**Plik:** `103_python_interm_args_kwargs/103_python_interm_args_kwargs.ipynb`
+**Plik:** `03_python_interm_args_kwargs/03_python_interm_args_kwargs.ipynb`
 
 ### Sekcje
 1. 🔹 `*args`
@@ -103,9 +103,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 104 — Wirtualne środowisko i Debugger
+## Moduł 04 — Wirtualne środowisko i Debugger
 
-**Plik:** `104_python_interm_venv/104_python_interm_virtual_env_debuger.ipynb`
+**Plik:** `04_python_interm_venv/04_python_interm_virtual_env_debuger.ipynb`
 
 ### Sekcje
 1. 🔹 Wirtualne środowisko (`venv`)
@@ -125,9 +125,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 105 — Własne moduły i biblioteki
+## Moduł 05 — Własne moduły i biblioteki
 
-**Plik:** `105_python_interm_modules/105_python_interm_own_modules.ipynb`
+**Plik:** `05_python_interm_modules/05_python_interm_own_modules.ipynb`
 
 ### Sekcje
 1. 🔹 Moduły i pakiety
@@ -147,9 +147,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 106 — JSON
+## Moduł 06 — JSON
 
-**Plik:** `106_python_interm_json/106_python_interm_json.ipynb`
+**Plik:** `06_python_interm_json/06_python_interm_json.ipynb`
 
 ### Sekcje
 1. 🔹 Format JSON i typy danych
@@ -173,9 +173,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 107 — Wyjątki
+## Moduł 07 — Wyjątki
 
-**Plik:** `107_python_interm_exception/107_python_interm_exception.ipynb`
+**Plik:** `07_python_interm_exception/07_python_interm_exception.ipynb`
 
 ### Sekcje
 1. 🔹 `try` / `except` / `else` / `finally`
@@ -199,9 +199,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 108 — Dekoratory
+## Moduł 08 — Dekoratory i `@dataclass`
 
-**Plik:** `108_python_interm_decorators/108_python_interm_decorators.ipynb`
+**Plik:** `08_python_interm_decorators/08_python_interm_decorators.ipynb`
 
 ### Sekcje
 1. 🔹 Podstawy dekoratorów
@@ -225,9 +225,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 109 — Menedżer kontekstu
+## Moduł 09 — Menedżer kontekstu
 
-**Plik:** `109_python_interm_context_man/109_python_interm_context_man.ipynb`
+**Plik:** `09_python_interm_context_man/09_python_interm_context_man.ipynb`
 
 ### Sekcje
 1. 🔹 Blok `with`
@@ -251,15 +251,15 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 110 — Metaklasy
+## Moduł 10 — Metaklasy
 
-**Plik:** `110_python_interm_metaclass/110_python_interm_metaclass.ipynb`
+**Plik:** `10_python_interm_metaclass/10_python_interm_metaclass.ipynb`
 
 ### Sekcje
 1. 🔹 Metaklasy i `type`
 2. 🔹 Tworzenie metaklasy
 3. 🔹 Praktyczne wzorce
-4. 🔹 `__init_subclass__` — nowoczesna alternatywa
+4. 🔹 `__init_subclass__` - nowoczesna alternatywa
 
 ### Ćwiczenia (12)
 1. Sprawdzenie metaklas typów wbudowanych
@@ -279,9 +279,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 111 — Abstrakcyjne klasy bazowe (`abc`)
+## Moduł 11 — Abstrakcyjne klasy bazowe (`abc`)
 
-**Plik:** `111_python_interm_abc/111_python_interm_abc.ipynb`
+**Plik:** `11_python_interm_abc/11_python_interm_abc.ipynb`
 
 ### Sekcje
 1. 🔹 Klasy abstrakcyjne i `abc.ABC`
@@ -301,14 +301,14 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 112 — Generatory i iteratory
+## Moduł 12 — Generatory i iteratory
 
-**Plik:** `112_python_interm_generators/112_python_interm_generators.ipynb`
+**Plik:** `12_python_interm_generators/12_python_interm_generators.ipynb`
 
 ### Sekcje
 1. 🔹 Protokół iteratora (`__iter__`, `__next__`)
 2. 🔹 Funkcje generatorowe (`yield`)
-3. 🔹 `yield from` i generatory zaawansowane
+3. 🔹 `yield from`, `send()` i generatory zaawansowane
 4. 🔹 Moduł `itertools`
 
 ### Ćwiczenia (12)
@@ -327,9 +327,9 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 113 — `functools`
+## Moduł 13 — `functools`
 
-**Plik:** `113_python_interm_functools/113_python_interm_functools.ipynb`
+**Plik:** `13_python_interm_functools/13_python_interm_functools.ipynb`
 
 ### Sekcje
 1. 🔹 `functools.partial`
@@ -349,59 +349,65 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ---
 
-## Moduł 114 — `collections` i `enum`
+## Moduł 14 — `collections` i `enum`
 
-**Plik:** `114_python_interm_collections/114_python_interm_collections.ipynb`
+**Plik:** `14_python_interm_collections/14_python_interm_collections.ipynb`
 
 ### Sekcje
 1. 🔹 `Counter` i `defaultdict`
-2. 🔹 `deque` i `namedtuple`
+2. 🔹 `deque`, `namedtuple` i `OrderedDict`
 3. 🔹 `enum.Enum` i `IntEnum`
 4. 🔹 `enum.auto()` i `Flag`
 
-### Ćwiczenia (12)
+### Ćwiczenia (13)
 1. `Counter` - analiza tekstów: top-5, część wspólna, różnica
 2. `defaultdict` - grupowanie i sumowanie transakcji per użytkownik
 3. *(Trudniejsze)* `word_frequency()` z usuwaniem interpunkcji + hapax legomena
 4. Klasa `Queue` (FIFO) oparta na `deque`
 5. `namedtuple Employee` - sortowanie i średnie wynagrodzenie per wydział
 6. *(Trudniejsze)* `LRUCache(capacity)` z `deque` i `dict`
-7. Wyliczenie `Direction` z metodą `opposite()`
-8. `IntEnum Priority` z funkcją `filter_tasks(min_priority)`
-9. *(Trudniejsze)* Wyliczenie `Planet` z `surface_gravity` i `weight()`
-10. Wyliczenie `Weekday` z `auto()` i metodą `is_weekend()`
-11. `Flag FileMode` z funkcją `open_mode()` zwracającą string dla `open()`
-12. *(Trudniejsze)* Wyliczenie `Status` z `can_transition_to()` i słownikiem dozwolonych przejść
+7. `OrderedDict` - funkcja `recent_unique(items, n)` zwracająca n ostatnich unikalnych elementów
+8. Wyliczenie `Direction` z metodą `opposite()`
+9. `IntEnum Priority` z funkcją `filter_tasks(min_priority)`
+10. *(Trudniejsze)* Wyliczenie `Planet` z `surface_gravity` i `weight()`
+11. Wyliczenie `Weekday` z `auto()` i metodą `is_weekend()`
+12. `Flag FileMode` z funkcją `open_mode()` zwracającą string dla `open()`
+13. *(Trudniejsze)* Wyliczenie `Status` z `can_transition_to()` i słownikiem dozwolonych przejść
 
 ---
 
-## Moduł 115 — Adnotacje typów (`typing`)
+## Moduł 15 — Adnotacje typów (`typing`)
 
-**Plik:** `115_python_interm_typing/115_python_interm_typing.ipynb`
+**Plik:** `15_python_interm_typing/15_python_interm_typing.ipynb`
+
+> Wymagania: Python 3.9+. Notatki o nowych konstrukcjach z 3.10/3.11+
+> (`ParamSpec`, `TypeAlias`, `Self`, `X | Y` zamiast `Union[X, Y]`)
+> sa oznaczone w notebooku jako opcjonalne.
 
 ### Sekcje
 1. 🔹 Podstawy adnotacji typów
-2. 🔹 Moduł `typing` (`Optional`, `Union`, `Callable`)
+2. 🔹 Moduł `typing` (`Optional`, `Union`, `Literal`, `Callable`)
 3. 🔹 `TypeVar`, `Generic` i `Protocol`
 
-### Ćwiczenia (9)
+### Ćwiczenia (10)
 1. Dodanie adnotacji do `calculate_bmi`, `get_initials`, `flatten_once`
 2. Klasa `Point` z adnotowanymi polami i metodami `distance_to`, `midpoint`
 3. *(Trudniejsze)* Generyczna funkcja `group_by(items, key_func) -> dict`
 4. `safe_parse_int() -> Optional[int]` i `parse_list() -> list[int]`
 5. Generyczna `transform(data, func)` z `Callable` w adnotacji
-6. *(Trudniejsze)* `deep_get(d, *keys)` - bezpieczny dostęp do zagnieżdżonych dict
-7. Generyczne `last(items)` i `zip_with(a, b, func)` z `TypeVar`
-8. Generyczna klasa `Pair[T, U]` z `swap()` i `map_first()`
-9. *(Trudniejsze)* `Protocol Comparable` + generyczny `binary_search`
+6. Funkcja `align_text(text, alignment)` i `make_border(style, width)` z `Literal`
+7. *(Trudniejsze)* `deep_get(d, *keys)` - bezpieczny dostęp do zagnieżdżonych dict
+8. Generyczne `last(items)` i `zip_with(a, b, func)` z `TypeVar`
+9. Generyczna klasa `Pair[T, U]` z `swap()` i `map_first()`
+10. *(Trudniejsze)* `Protocol Comparable` + generyczny `binary_search`
 
 ---
 
 ---
 
-## Moduł 116 — Pydantic
+## Moduł 16 — Pydantic
 
-**Plik:** `116_python_interm_pydantic/116_python_interm_pydantic.ipynb`
+**Plik:** `16_python_interm_pydantic/16_python_interm_pydantic.ipynb`
 
 ### Sekcje
 1. 🔹 `BaseModel` — definiowanie i walidacja modeli danych
@@ -409,7 +415,7 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 3. 🔹 Walidatory — `@field_validator`, `@model_validator`
 4. 🔹 Konfiguracja i ustawienia — `model_config`, `BaseSettings`
 
-### Ćwiczenia (12)
+### Ćwiczenia (13)
 1. Model `Product` z podstawowymi polami i walidacją
 2. Zagnieżdżone modele `Author` i `Book`
 3. *(Trudniejsze)* `load_users()` — wczytywanie listy z JSON z obsługą błędów
@@ -422,6 +428,73 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 10. `ConfigDict` — `Tag` z `str_strip_whitespace`, `str_to_lower`, `frozen`
 11. `extra='forbid'` — `ApiResponse` blokujący nieznane pola
 12. *(Trudniejsze)* `DatabaseConfig` z `@computed_field` `url` (connection string)
+13. *(Trudniejsze)* `AppSettings` z `BaseSettings` — wczytywanie konfiguracji ze zmiennych srodowiskowych
+
+---
+
+## Moduł 17 — `pathlib`
+
+**Plik:** `17_python_interm_pathlib/17_python_interm_pathlib.ipynb`
+
+### Sekcje
+1. 🔹 `Path` - tworzenie i nawigacja (`name`, `stem`, `suffix`, `parent`, operator `/`)
+2. 🔹 Odczyt, zapis i operacje na plikach (`read_text`, `write_text`, `rename`, `unlink`, `mkdir`)
+3. 🔹 Przeszukiwanie katalogów (`iterdir`, `glob`, `rglob`)
+
+### Ćwiczenia (9)
+1. Atrybuty `Path`: `name`, `stem`, `suffix`, `parent`, `parent.parent`
+2. Budowanie sciezki wzglednej, sprawdzenie `exists()` i `resolve()`
+3. *(Trudniejsze)* Funkcja `common_parent(paths)` - najdluzszy wspolny rodzic
+4. Funkcja `count_lines(path)` z `read_text()`
+5. Funkcja `backup(path)` tworzaca kopie `.bak.ext`
+6. *(Trudniejsze)* Funkcja `safe_write(path, text)` - atomowy zapis przez plik `.tmp`
+7. Funkcja `list_files(directory, extension)` - posortowana lista plikow
+8. Funkcja `dir_size(directory)` - laczny rozmiar wszystkich plikow (`rglob`)
+9. *(Trudniejsze)* Funkcja `find_duplicates(directory)` - pliki o tym samym rozmiarze
+
+---
+
+## Moduł 18 — `logging`
+
+**Plik:** `18_python_interm_logging/18_python_interm_logging.ipynb`
+
+### Sekcje
+1. 🔹 Poziomy logowania i podstawowa konfiguracja (`DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`)
+2. 🔹 Handlery i formattery (`FileHandler`, `StreamHandler`, `Formatter`)
+3. 🔹 Loggery hierarchiczne i dobre praktyki (`getLogger(__name__)`, propagacja, `NullHandler`)
+
+### Ćwiczenia (9)
+1. `basicConfig` z 5 poziomami i formatem z datą
+2. Funkcja `safe_divide(a, b)` z logowaniem na róznych poziomach
+3. *(Trudniejsze)* Dekorator `log_calls(logger)` - logowanie argumentów i wyników
+4. Logger `'audit'` z `StreamHandler` (INFO+) i `FileHandler` (DEBUG+)
+5. Funkcja fabryczna `get_logger(name, log_file)` z `propagate=False`
+6. *(Trudniejsze)* Własny handler `InMemoryHandler(capacity)` z `get_records()`
+7. Hierarchia loggerow - `'service'`, `'service.db'`, `'service.api'`
+8. Klasa `DatabaseService` uzywajaca `getLogger(__name__)`
+9. *(Trudniejsze)* Filtr kontekstowy `RequestFilter` dodajacy `request_id` do rekordów
+
+---
+
+## Moduł 19 — `dataclasses` (zaawansowane)
+
+**Plik:** `19_python_interm_dataclasses/19_python_interm_dataclasses.ipynb`
+
+### Sekcje
+1. 🔹 `@dataclass` i `field()` - `default_factory`, `repr`, `compare`, `init`
+2. 🔹 `__post_init__`, `ClassVar`, `InitVar` - walidacja i pola pochodne
+3. 🔹 Zaawansowane wzorce - `frozen`, `order`, `asdict`, `replace`, porównanie z `NamedTuple`
+
+### Ćwiczenia (9)
+1. `Product` z `field(default_factory=list)` i metodą `is_available()`
+2. `Vector2D` z `__add__`, `__mul__` i `length_cached` przez `field(init=False)`
+3. *(Trudniejsze)* `Student` z `@dataclass(order=True)` i selektywnym `compare=False`
+4. `Rectangle` z `__post_init__` - walidacja i pola pochodne `area`, `perimeter`
+5. `User` z `ClassVar[int]` licznikiem i polem pochodnym `full_name`
+6. *(Trudniejsze)* `Temperature` z `InitVar[str]` - przeliczanie jednostek w `__post_init__`
+7. `Color` z `frozen=True` i walidacją zakresu RGB w `__post_init__`
+8. Hierarchia `Shape` → `Circle`, `Square` z `frozen=True` i `asdict`/`replace`
+9. *(Trudniejsze)* Porównanie `@dataclass`, `NamedTuple`, `TypedDict` - mutowalność, hash, pamięć
 
 ---
 
@@ -429,21 +502,24 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 | #   | Temat                                 | Sekcje | Ćwiczenia |
 |-----|---------------------------------------|--------|-----------|
-| 100 | Powtórka podstaw                      | —      | —         |
-| 101 | OOP zaawansowane                      | 5      | 15        |
-| 102 | Lambda, map, filter, comprehensions   | 5      | 15        |
-| 103 | `*args` i `**kwargs`                  | 4      | 12        |
-| 104 | Wirtualne środowisko i debugger       | 3      | 9         |
-| 105 | Własne moduły i biblioteki            | 3      | 9         |
-| 106 | JSON                                  | 4      | 12        |
-| 107 | Wyjątki                               | 4      | 12        |
-| 108 | Dekoratory                            | 4      | 12        |
-| 109 | Menedżer kontekstu                    | 4      | 12        |
-| 110 | Metaklasy                             | 4      | 12        |
-| 111 | Abstrakcyjne klasy bazowe (`abc`)     | 3      | 9         |
-| 112 | Generatory i iteratory                | 4      | 12        |
-| 113 | `functools`                           | 3      | 9         |
-| 114 | `collections` i `enum`               | 4      | 12        |
-| 115 | Adnotacje typów (`typing`)            | 3      | 10        |
-| 116 | Pydantic                              | 4      | 12        |
-| **Σ** |                                     | **67** | **186**   |
+| 00 | Powtórka podstaw                      | 7      | 21        |
+| 01 | OOP zaawansowane                      | 5      | 15        |
+| 02 | Lambda, map, filter, comprehensions   | 5      | 15        |
+| 03 | `*args` i `**kwargs`                  | 4      | 12        |
+| 04 | Wirtualne środowisko i debugger       | 3      | 9         |
+| 05 | Własne moduły i biblioteki            | 3      | 9         |
+| 06 | JSON                                  | 4      | 12        |
+| 07 | Wyjątki                               | 4      | 12        |
+| 08 | Dekoratory i `@dataclass`             | 4      | 12        |
+| 09 | Menedżer kontekstu                    | 4      | 12        |
+| 10 | Metaklasy                             | 4      | 12        |
+| 11 | Abstrakcyjne klasy bazowe (`abc`)     | 3      | 9         |
+| 12 | Generatory i iteratory                | 4      | 12        |
+| 13 | `functools`                           | 3      | 9         |
+| 14 | `collections` i `enum`               | 4      | 13        |
+| 15 | Adnotacje typów (`typing`)            | 3      | 10        |
+| 16 | Pydantic                              | 4      | 13        |
+| 17 | `pathlib`                             | 3      | 9         |
+| 18 | `logging`                             | 3      | 9         |
+| 19 | `dataclasses` (zaawansowane)          | 3      | 9         |
+| **Σ** |                                     | **76** | **236**   |
