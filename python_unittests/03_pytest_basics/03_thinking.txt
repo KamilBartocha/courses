@@ -1,0 +1,114 @@
+create 03 notebook using @syllabus-python-unittests.md  and @notebook-rules.md
+
+Let me review the syllabus for module 03 and then create the notebook.
+
+Module 03 — pytest - podstawy
+
+Plik: 03_pytest_basics/03_pytest_basics.ipynb
+
+Instalacja i filozofia pytest. Pisanie testów jako zwykłe funkcje.
+Asercje przez assert. Odkrywanie testów, uruchamianie, flagi CLI.
+Czytelne komunikaty błędów. Porównanie z unittest.
+
+Instalacja: pip install pytest
+
+Sekcje
+🔹 Filozofia pytest - prostota i czytelność
+
+🔹 Asercje i komunikaty błędów
+
+🔹 Uruchamianie i konfiguracja (pytest.ini, pyproject.toml)
+
+Ćwiczenia (12)
+Przetłumacz testy z modułu 01 z unittest na pytest
+Napisz testy dla fizzbuzz(n) jako czyste funkcje pytest
+(Trudniejsze) Testy dla parse_date(text) - poprawne i błędne formaty
+Użyj pytest z różnymi flagami CLI jak -v, -k do filtrowania testów i --tb=short dla skróconych traceback'ów
+Napisz testy dla Temperature z modułu 19 intermediate
+(Trudniejsze) Testuj wyjątki za pomocą pytest.raises jako context manager
+Sprawdzaj komunikaty wyjątków przez excinfo.value
+Napisz testy dla UserValidator pokrywające edge cases
+Użyj pytest.approx do porównywania liczb zmiennoprzecinkowych
+Porównaj czytelność tego samego testu napisanego w unittest i pytest
+(Trudniejsze) Testy dla klasy ShoppingCart obejmujące dodawanie, usuwanie, obliczanie sumy i rabaty
+(Trudniejsze) Skonfiguruj pytest.ini z testpaths i addopts
+Teraz rozkładam to na sekcje. Sekcja 1 będzie zawierać ćwiczenia o filozofii pytest, sekcja 2 skupi się na asercjach i komunikatach, a sekcja 3 na uruchamianiu i konfiguracji. Pierwsze podejście dało mi zbyt wiele ćwiczeń w sekcji 2 i zbyt mało w sekcji 3, więc przeredystrybuuję: sekcja 1 dostaje ćwiczenia 1, 2 i 10, sekcja 2 bierze 3, 5, 6, 7 i 9, a sekcja 3 dostaje 4, 8, 11, 12 — to daje bardziej wyrównaną dystrybucję. I'm reconsidering the groupings more carefully—Section 3 is specifically about pytest configuration files, so exercises like the UserValidator tests don't really fit there. Let me reorganize with that constraint in mind: Section 1 gets the foundational philosophy exercises, Section 2 covers assertions and error handling, and Section 3 should focus on exercises that actually involve pytest configuration or CLI usage. I could combine exercises 4 and 12 into a single section about pytest configuration and running tests, then move exercise 11 (ShoppingCart tests) there as well to give section 3 a balanced three exercises. This would leave section 2 with six assertion-focused exercises and keep the distribution more even across all three sections. 3+6+3=12. That works!
+
+But philosophically, Ćw. 11 (ShoppingCart comprehensive tests) fits better in section 2 (writing tests) than section 3 (configuration). Let me reorganize with 3 exercises in section 3 instead:
+
+Section 1 (Filozofia): Ćw. 1, 2, 10 (3)
+Section 2 (Asercje): Ćw. 3, 5, 6, 7, 9, 11 (6)
+
+Section 3 (Uruchamianie): Ćw. 4, 8, 12 (3)
+
+Wait, Ćw. 8 (UserValidator edge cases) is really about writing tests, not CLI flags. Let me accept some imperfect categorization and shift things around:
+
+Section 1 (Filozofia): Ćw. 1, 2, 10 (3)
+Section 2 (Asercje): Ćw. 3, 5, 6, 7, 8, 9 (6)
+Section 3 (Uruchamianie): Ćw. 4, 11, 12 (3)
+
+This puts the ShoppingCart exercise in section 3 as a practice project with configuration. That's my final distribution. Now I need to think through the actual content.
+
+The key thing about this module is that pytest uses plain functions instead of TestCase classes, with tests discovered by name and assertions using plain assert statements. I'll structure the first section around this core difference from unittest, showing side-by-side comparisons and having students translate existing tests and write new ones as functions. The second section will focus on assertion messages and error reporting, which is where I'm heading next.
+
+For assertions, pytest's strength is in its rewritten assertions that give detailed error messages automatically. I'll cover pytest.raises for exception testing, excinfo.value to inspect the exception object, and pytest.approx for floating-point comparisons. The exercises will have students validate dates, test a Temperature class, check exception messages, and handle edge cases with proper assertions. Then I'll move into the third section on running and configuring pytest with command-line flags like -v, -k, --tb, -x, and -q.
+
+For configuration, I'll show how to set up pytest.ini or pyproject.toml with testpaths and addopts to customize behavior. Since we're in a Jupyter notebook, I can't actually run pytest from the terminal, but I can demonstrate the configuration files and show how the flags would work. The exercises will include running tests with specific flags, writing comprehensive tests for a ShoppingCart class, and configuring pytest.ini properly.
+
+For running pytest in a notebook, I have a few options: using ipytest, running subprocess commands, or executing test functions directly with assertions. I think the cleanest approach is to write pytest-style test functions and run them directly in the notebook using a simple helper function, while explaining that normally you'd run these from the terminal with pytest commands. I'm realizing the current approach with pytest.main() would try to run all test files in the directory, which isn't ideal for a teaching notebook. Instead, I think the cleanest solution is to write proper pytest-style test functions and call them directly in the notebook since they're just regular Python functions with assertions, then add comments showing what the equivalent pytest CLI command would be—and for exercises specifically about CLI flags, I can make those more conceptual with a Bash cell.
+
+Looking at how the existing test notebooks handle this, I should keep it consistent with modules 01-02 but adapted for pytest style. I'm building a simple test runner function that executes pytest-style functions and prints results in a familiar format...
+
+Writing test runner function...
+
+For the actual exercises, I'll write pytest-style functions directly in the cells and use a simple runner at the bottom, then for CLI-focused exercises I'll create actual test files with %%writefile and run them with !pytest commands.
+
+I'm settling on the simplest approach: just define the test functions explicitly and call them in a loop, printing pass/fail results. This is straightforward and mirrors what students would naturally do. I'm overthinking this—let me just keep it simple. I'll use a straightforward pattern where each exercise cell contains test functions that run via a basic loop, with a comment showing the equivalent pytest CLI command. For the CLI section, I can use the notebook's file-writing magic to create an actual test file and run pytest against it, which will demonstrate how pytest works in practice.
+
+I'm structuring the notebook so that exercise cells follow a consistent pattern with test functions and a loop that executes them, while example cells use a helper function throughout. The key approach is using plain pytest style: simple functions with assert statements, pytest.raises for exception testing, and pytest.approx for floating-point comparisons. I'll include CLI commands as comments and shell cells, plus a pytest.ini template.
+
+For exception testing in the notebook, I can import pytest and use the context manager directly since pytest will be installed—this works fine in a notebook environment.
+
+Now I'm laying out the full notebook structure with a title, agenda, theory sections, examples, and exercises organized across multiple cells covering unittest translation, fizzbuzz, date parsing, temperature validation, and exception handling.
+
+I'll create a simple helper function to run the tests in each exercise cell so they work independently within the notebook environment. I'm working through how to run tests in a Jupyter notebook without external dependencies. Rather than relying on locals() which can be unpredictable, I'll be explicit about which test functions to run and wrap them in try-except blocks to catch failures without stopping execution. The challenge is avoiding repetition across cells, so I'm considering defining a helper function once at the top and reusing it throughout, though I need to account for students potentially running individual cells. Looking at what other Python courses do, the simplest approach is just running functions directly with explicit error handling in each exercise cell. I'm settling on a pragmatic approach: each exercise cell will be self-contained with a simple inline runner that executes the test functions and prints results, so students can see pytest-style tests working directly in the notebook without needing to understand complex imports or module-level helpers. Now I'll start writing out the actual notebook content.
+
+I'm planning three main sections covering pytest fundamentals: first, the philosophy and discovery mechanism of pytest compared to unittest; second, assertion rewriting and exception testing with pytest.raises and pytest.approx for handling edge cases; and third, how to run pytest from the command line with various filtering and configuration options.
+
+For the exercises, I'm thinking about including a comparison task where students evaluate unittest versus pytest readability side-by-side, and then a configuration exercise where they fill in a pytest.ini template since we're working in a notebook environment where creating actual files requires some workarounds.
+
+Now I'm ready to build out the full notebook structure. I'll start with a helper function that runs test functions and reports pass/fail results, which I can reuse across multiple exercises.
+
+Actually, thinking about how Jupyter works—cells have independent namespaces when run individually, but in a teaching context students will run top-to-bottom anyway. The simplest approach is to just call test functions directly at the bottom of each exercise cell and let AssertionErrors bubble up as clear feedback when something fails.
+
+I'll go with defining _run once in the first example, then reusing it throughout the notebook since that's the standard workflow. For imports, I need pytest for things like pytest.raises and pytest.approx, while plain assert statements don't require anything.
+
+Now I'm ready to start building the actual notebook content, beginning with the first exercise where I'll convert unittest-style Calculator tests into pytest format. I'll finish setting up the float calculation functions for exercise 9, then move on to the ShoppingCart exercise which is the most comprehensive one. After that, I need to create a pytest.ini template for students to complete, and then structure everything into the JSON format, making sure to keep line lengths manageable.
+
+Now I'm building out the test helper function that runs multiple test functions in a notebook environment, along with a simple Calculator class and examples showing both the older unittest style and the newer pytest approach with assertions.
+
+I'm moving into section 2 to demonstrate how pytest handles more complex scenarios like exception testing with the pytest.raises context manager and validating error messages. Now I'm showing the main pytest command-line flags and how to run tests from the terminal, along with a sample pytest.ini configuration file that sets default options like verbose output and shorter tracebacks.
+
+For exercise 4, I'm planning to create test functions and run them using subprocess to simulate what would happen in a Jupyter notebook, writing temporary test files and executing pytest on them to demonstrate the actual test output.
+
+Actually, I realize subprocess might be overcomplicating things for a teaching notebook. Let me use pytest.main() instead since it runs directly in notebooks without needing temporary files or subprocess calls. I'll define some simple test functions and show how to run pytest with different flags like verbose mode.
+
+Wait, but pytest.main() operates globally and might pick up unintended test files. Let me reconsider—using subprocess on a temporary file is actually more reliable in a Jupyter environment, even if it seems like extra work. Or I could just use the !pytest shell magic if students are in VS Code or a standard Jupyter setup.
+
+Actually, let me step back. For the CLI exercises, I'll use shell commands with the ! prefix in code cells, and I'll create test files using %%writefile or just show the syntax as comments. Since this is educational, I can demonstrate the commands via subprocess for the actual execution.
+
+My final approach: stick with plain function calls using a _run helper for all exercises, and for the CLI-focused ones, I'll show the command syntax clearly.
+
+Now I'm mapping out the notebook structure—starting with the title and agenda, then moving through the theory sections with side-by-side comparisons, followed by the exercise blocks organized by topic. Generating comparison table... I'm working through the pytest.approx syntax with absolute and relative tolerance options, then moving into the CLI section to cover main commands, configuration files, and common settings like testpaths and markers. Now I need to structure the JSON carefully—the _run helper defined in an example cell is referenced throughout the exercises, so I'll add a note reminding students to run that cell first, and I'm being mindful of line lengths in the Polish text and making sure pytest is imported where needed for pytest.raises.
+
+Setting up the notebook structure with a dedicated setup cell right after the agenda to define _run and import pytest, then starting Section 1 from there. For the CLI exercises, I'm using subprocess to actually run pytest against test files to demonstrate how the flags work in practice.
+
+Writing the notebook JSON now... Finishing the subprocess calls and then realizing I should add a safety check for pytest availability before running the tests, since students might not have it installed in their environment.
+
+Actually, the syllabus already mentions installing pytest, so I can assume it's available and just proceed with writing out the complete JSON structure for the notebook.
+
+Now I'm organizing the content into sections, starting with a comparison table between unittest and pytest to highlight the key differences in syntax and approach.
+
+For the second section, I want to showcase pytest's advantage with assert rewriting that displays actual values in error messages. Since I can't show a failing test in the notebook itself, I'll describe what those error messages look like in the explanatory text rather than trying to demonstrate a failure.
+
+Building the JSON structure now...
