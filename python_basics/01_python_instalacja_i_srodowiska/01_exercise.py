@@ -15,7 +15,7 @@ height = 1.80
 # Wzory:
 #   F = C * 9/5 + 32
 #   K = C + 273.15
-# Wypisz wszystkie trzy wartości w jednej linii: "C=20  F=68.0  K=293.15"
+# Wypisz wszystkie trzy wartości: "C=20  F=68.0  K=293.15"
 
 temp_celsius = 20
 
