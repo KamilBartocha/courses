@@ -500,26 +500,29 @@ wyrażenia lambda, list comprehensions, obsługa błędów, operacje na plikach.
 
 ## Zestawienie
 
-| #   | Temat                                 | Sekcje | Ćwiczenia |
-|-----|---------------------------------------|--------|-----------|
-| 00 | Powtórka podstaw                      | 7      | 21        |
-| 01 | OOP zaawansowane                      | 5      | 15        |
-| 02 | Lambda, map, filter, comprehensions   | 5      | 15        |
-| 03 | `*args` i `**kwargs`                  | 4      | 12        |
-| 04 | Wirtualne środowisko i debugger       | 3      | 9         |
-| 05 | Własne moduły i biblioteki            | 3      | 9         |
-| 06 | JSON                                  | 4      | 12        |
-| 07 | Wyjątki                               | 4      | 12        |
-| 08 | Dekoratory i `@dataclass`             | 4      | 12        |
-| 09 | Menedżer kontekstu                    | 4      | 12        |
-| 10 | Metaklasy                             | 4      | 12        |
-| 11 | Abstrakcyjne klasy bazowe (`abc`)     | 3      | 9         |
-| 12 | Generatory i iteratory                | 4      | 12        |
-| 13 | `functools`                           | 3      | 9         |
-| 14 | `collections` i `enum`               | 4      | 13        |
-| 15 | Adnotacje typów (`typing`)            | 3      | 10        |
-| 16 | Pydantic                              | 4      | 13        |
-| 17 | `pathlib`                             | 3      | 9         |
-| 18 | `logging`                             | 3      | 9         |
-| 19 | `dataclasses` (zaawansowane)          | 3      | 9         |
-| **Σ** |                                     | **76** | **236**   |
+| #   | Temat                                 | Sekcje | Ćwiczenia | Czas    |
+|-----|---------------------------------------|--------|-----------|---------|
+| 00 | Powtórka podstaw                      | 7      | 21        | 2 h     |
+| 01 | OOP zaawansowane                      | 5      | 15        | 4 h     |
+| 02 | Lambda, map, filter, comprehensions   | 5      | 15        | 3.5 h   |
+| 03 | `*args` i `**kwargs`                  | 4      | 12        | 2.5 h   |
+| 04 | Wirtualne środowisko i debugger       | 3      | 9         | 2 h     |
+| 05 | Własne moduły i biblioteki            | 3      | 9         | 3 h     |
+| 06 | JSON                                  | 4      | 12        | 2.5 h   |
+| 07 | Wyjątki                               | 4      | 12        | 2.5 h   |
+| 08 | Dekoratory i `@dataclass`             | 4      | 12        | 3 h     |
+| 09 | Menedżer kontekstu                    | 4      | 12        | 2.5 h   |
+| 10 | Metaklasy                             | 4      | 12        | 4 h ⚠️  |
+| 11 | Abstrakcyjne klasy bazowe (`abc`)     | 3      | 9         | 2 h     |
+| 12 | Generatory i iteratory                | 4      | 12        | 3 h     |
+| 13 | `functools`                           | 3      | 9         | 2 h     |
+| 14 | `collections` i `enum`               | 4      | 13        | 2.5 h   |
+| 15 | Adnotacje typów (`typing`)            | 3      | 10        | 2 h     |
+| 16 | Pydantic                              | 4      | 13        | 3 h     |
+| 17 | `pathlib`                             | 3      | 9         | 2 h     |
+| 18 | `logging`                             | 3      | 9         | 2 h     |
+| 19 | `dataclasses` (zaawansowane)          | 3      | 9         | 2.5 h   |
+| **Σ** |                                     | **76** | **236**   | **~52 h** |
+
+> ⚠️ Moduł 10 (Metaklasy) jest najtrudniejszy koncepcyjnie - warto zaplanowac dodatkowy bufor czasowy.
+> ~52 h teorii i cwiczen = ok. **6-7 pelnych dni szkoleniowych** (8 h/dzien).
