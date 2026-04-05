@@ -1,4 +1,4 @@
-# 02_exercise.py — 002 Składnia i typy proste
+# 02_exercise.py — 02 Składnia i typy proste
 
 # ─── Ćwiczenie 1 ──────────────────────────────────────────────────────────────
 # Operacje na łańcuchach znaków.
@@ -24,9 +24,12 @@ vat_rate = 0.23
 
 
 # ─── Ćwiczenie 3 ──────────────────────────────────────────────────────────────
-# Wczytywanie danych i konwersja typów.
+# Operatory logiczne i wartości boolowskie.
+# Dane: wiek i status studenta.
 # Zadanie:
-#   - poproś użytkownika o podanie roku urodzenia (input), zamień na int
-#   - oblicz wiek (zakładając bieżący rok = 2026)
-#   - wypisz: "Masz X lat."
-#   - wypisz wynik wyrażenia logicznego: czy wiek >= 18 (True/False)
+#   - sprawdź, czy osoba jest pełnoletnia (wiek >= 18)
+#   - sprawdź (and), czy osoba jest studentem i pełnoletnia jednocześnie
+#   - sprawdź (or), czy osoba jest niepełnoletnia LUB nie jest studentem
+#   - wypisz bool() dla: 0, "", [], 42
+age = 17
+is_student = True
