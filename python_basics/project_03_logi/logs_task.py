@@ -93,39 +93,37 @@ def errors_by_module(parsed_logs):
     pass
 
 
-# ─── Zadanie 5 ─ Generowanie raportu tekstowego ──────────────────────────────
+# ─── Zadanie 5 ─ Generowanie raportu (gotowy - uruchom skrypt po implementacji)
+def _get_count(pair):
+    return pair[1]
+
+
 def print_report(filepath):
-    """Read a log file and print a formatted analysis report to stdout.
+    """Read a log file and print a formatted analysis report to stdout."""
+    lines  = read_logs(filepath)
+    parsed = [parse_line(line) for line in lines]
+    levels = count_by_level(parsed)
+    errors = errors_by_module(parsed)
 
-    Orchestrates the full pipeline: reads the file, parses each line, then
-    prints total entry count, a breakdown by severity level, error counts
-    per module (sorted descending), and the last 3 ERROR entries.
+    level_order  = ["INFO", "WARNING", "ERROR"]
+    error_pairs  = sorted(errors.items(), key=_get_count, reverse=True)
+    last_errors  = [log for log in parsed if log["level"] == "ERROR"][-3:]
 
-    Args:
-        filepath: Path to the log file to analyse.
-
-    Expected output format:
-        ========== RAPORT LOGOW: app.log ==========
-        Wszystkich wpisow: 10100
-
-        Poziomy:
-          INFO       9721
-          WARNING     250
-          ERROR       129
-
-        Errors per module:
-          database     50
-          cache        24
-          auth         21
-          ...
-
-        Ostatnie 3 ERROR:
-          2024-01-15 13:39:38 auth    Brute-force detected from 10.0.0.188
-          2024-01-15 13:39:48 cache   Redis connection lost
-          2024-01-15 13:39:57 cache   Failed to write session data - cache unavailable
-        ===========================================
-    """
-    pass
+    print(f"========== RAPORT LOGOW: {filepath} ==========")
+    print(f"Wszystkich wpisow: {len(parsed)}")
+    print()
+    print("Poziomy:")
+    for level in level_order:
+        print(f"  {level:<10} {levels.get(level, 0)}")
+    print()
+    print("Errors per module:")
+    for module, count in error_pairs:
+        print(f"  {module:<12} {count}")
+    print()
+    print("Ostatnie 3 ERROR:")
+    for log in last_errors:
+        print(f"  {log['date']} {log['time']}  {log['module']:<12} {log['message']}")
+    print("===========================================")
 
 
 # ─── Uruchomienie ─────────────────────────────────────────────────────────────

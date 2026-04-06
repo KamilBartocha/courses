@@ -111,32 +111,27 @@ def top_clients(orders, n=3):
     pass
 
 
-# ─── Zadanie 5 ─ Generowanie raportu tekstowego ──────────────────────────────
+# ─── Zadanie 5 ─ Generowanie raportu (gotowy - uruchom skrypt po implementacji)
 def print_report(orders):
-    """Print a formatted summary report for the given orders list.
+    """Print a formatted summary report for the given orders list."""
+    completed = filter_by_status(orders, "completed")
+    pending   = filter_by_status(orders, "pending")
+    cancelled = filter_by_status(orders, "cancelled")
+    revenue   = calculate_revenue(orders)
+    top       = top_clients(orders)
 
-    Orchestrates the full pipeline: counts orders by status, calculates
-    total revenue, and lists the top 3 clients by spending.
-
-    Args:
-        orders: A list of order dicts.
-
-    Expected output format:
-        ========== RAPORT ZAMOWIEN ==========
-        Wszystkich zamowien : 12
-        Zrealizowanych      : 7
-        Oczekujacych        : 3
-        Anulowanych         : 2
-
-        Przychod (completed): 9313.99 PLN
-
-        Top 3 klientow:
-          1. Anna Kowalska         4887.99 PLN
-          2. Maria Wisniewska      3728.00 PLN
-          3. Tomasz Wojcik          349.00 PLN
-        =====================================
-    """
-    pass
+    print("========== RAPORT ZAMOWIEN ==========")
+    print(f"Wszystkich zamowien : {len(orders)}")
+    print(f"Zrealizowanych      : {len(completed)}")
+    print(f"Oczekujacych        : {len(pending)}")
+    print(f"Anulowanych         : {len(cancelled)}")
+    print()
+    print(f"Przychod (completed): {revenue:.2f} PLN")
+    print()
+    print(f"Top {len(top)} klientow:")
+    for i, (client, amount) in enumerate(top):
+        print(f"  {i + 1}. {client:<20} {amount:>8.2f} PLN")
+    print("=====================================")
 
 
 # Uruchomienie

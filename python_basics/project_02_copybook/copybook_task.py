@@ -218,23 +218,14 @@ def build_message(fields, transaction):
     pass
 
 
-# ─── Zadanie 5 ────────────────────────────────────────────────────────────────
+# ─── Zadanie 5 ─ Podsumowanie (gotowy - uruchom skrypt po implementacji) ──────
 def print_summary(message):
-    """Print a summary of the encoded message.
-
-    Outputs the total byte length of the message, then encoded message.
-
-    Args:
-        message:    The full encoded fixed-width string from build_message.
-
-    Expected output format:
-        Length: 1330 chars
-
-        Message >MSGPL20240115000001                2024-01-1509-30-0...    <
-    """
-    pass
+    """Print a summary of the encoded message."""
+    print(f"Length: {len(message)} chars.")
+    print()
+    print(f"Message >{message}<")
 
 
 # ─── Uruchomienie ─────────────────────────────────────────────────────────────
 message = build_message(fields, transaction)
-print_summary(fields, transaction, message)
+print_summary(message)
