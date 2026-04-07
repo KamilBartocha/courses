@@ -68,7 +68,8 @@ Exercise code templates  (one cell per exercise)
 
 ### 9. Exercise quality checklist
 - [ ] No exercise uses a concept taught in a later section (syllabus-python-basics.md are known)
-- [ ] Each section has at least 3 exercises (easy / medium / hard)
+- If a section introduces N distinct concepts/methods, provide at least N exercises
+  so every introduced concept is covered by at least one exercise
 - [ ] Nested or advanced syntax is explained before it appears in an exercise
 - [ ] Templates are consistent: `...` for expressions, named variables for data
 - [ ] Dict comprehension exercise: use `.items()` explicitly in the template

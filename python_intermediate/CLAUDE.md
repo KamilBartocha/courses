@@ -58,6 +58,8 @@ One code cell per exercise
 - Always end with a `print()` statement
 - Add `# hint:` for harder problems
 - Mark harder exercises with `*(Trudniejsze)*`
+- If a section introduces N distinct concepts/methods, provide at least N exercises
+  so every introduced concept is covered by at least one exercise
 
 **Language rules:**
 - Theory: Polish, academic "we" voice (`wywołujemy`, `definiujemy`, `tworzymy`)
