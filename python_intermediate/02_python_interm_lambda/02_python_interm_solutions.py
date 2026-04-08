@@ -1,4 +1,4 @@
-# Solutions: 102_python_interm_lambda_map_filter_comp.ipynb
+# Solutions: 02_python_interm_lambda_map_filter_comp.ipynb
 ##############################################################################
 # 1. List comprehensions - trzy listy
 ##############################################################################
@@ -30,7 +30,17 @@ print(result)
 # [(1, 1, 1), (3, 9, 27), (5, 25, 125), (7, 49, 343), (9, 81, 729)]
 
 ##############################################################################
-# 4. Dictionary comprehension - dlugosc imion
+# 4. Zagnieżdżone list comprehension - tabliczka mnożenia
+##############################################################################
+
+multiplication = [(i, j, i * j) for i in range(1, 4) for j in range(1, 4)]
+
+print(multiplication)
+# [(1, 1, 1), (1, 2, 2), (1, 3, 3), (2, 1, 2), (2, 2, 4),
+#  (2, 3, 6), (3, 1, 3), (3, 2, 6), (3, 3, 9)]
+
+##############################################################################
+# 5. Dictionary comprehension - dlugosc imion
 ##############################################################################
 
 names        = ['Alice', 'Bob', 'Charlie', 'Diana']
@@ -39,7 +49,7 @@ name_lengths = {name: len(name) for name in names}
 print(name_lengths)  # {'Alice': 5, 'Bob': 3, 'Charlie': 7, 'Diana': 5}
 
 ##############################################################################
-# 5. Dictionary comprehension - filtrowanie i zaokraglanie cen
+# 6. Dictionary comprehension - filtrowanie i zaokraglanie cen
 ##############################################################################
 
 prices    = {'apple': 1.5, 'banana': 0.5, 'cherry': 3.0, 'date': 2.5}
@@ -48,7 +58,7 @@ expensive = {k: int(v) for k, v in prices.items() if v > 1.0}
 print(expensive)  # {'apple': 1, 'cherry': 3, 'date': 2}
 
 ##############################################################################
-# 6. Dictionary comprehension - srednie ocen
+# 7. Dictionary comprehension - srednie ocen
 ##############################################################################
 
 grades   = {'Alice': [90, 85, 92], 'Bob': [70, 75, 80], 'Charlie': [95, 88]}
@@ -57,7 +67,16 @@ averages = {name: round(sum(g) / len(g), 1) for name, g in grades.items()}
 print(averages)  # {'Alice': 89.0, 'Bob': 75.0, 'Charlie': 91.5}
 
 ##############################################################################
-# 7. Set comprehension - unikalne pierwsze litery
+# 8. Dictionary comprehension - odwrócenie słownika
+##############################################################################
+
+original = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+inverted = {v: k for k, v in original.items()}
+
+print(inverted)  # {1: 'a', 2: 'b', 3: 'c', 4: 'd'}
+
+##############################################################################
+# 9. Set comprehension - unikalne pierwsze litery
 ##############################################################################
 
 words       = ['cat', 'car', 'dog', 'deer', 'duck', 'cat']
@@ -66,7 +85,7 @@ first_chars = {word[0] for word in words}
 print(first_chars)   # {'c', 'd'}
 
 ##############################################################################
-# 8. Suma kwadratow przez generator
+# 10. Suma kwadratow przez generator
 ##############################################################################
 
 total = sum(x**2 for x in range(1, 1001))
@@ -74,7 +93,7 @@ total = sum(x**2 for x in range(1, 1001))
 print(total)   # 333833500
 
 ##############################################################################
-# 9. Funkcja generatora countdown
+# 11. Funkcja generatora countdown
 ##############################################################################
 
 def countdown(n):
@@ -92,7 +111,20 @@ print(next(gen))   # 3
 print(next(gen))   # 2
 
 ##############################################################################
-# 10. Proste lambdy
+# 12. next() z wartością domyślną
+##############################################################################
+
+gen    = (x for x in range(1, 4))
+first  = next(gen)
+second = next(gen)
+third  = next(gen)
+default = next(gen, 0)
+
+print(first, second, third)  # 1 2 3
+print(default)               # 0
+
+##############################################################################
+# 13. Proste lambdy
 ##############################################################################
 
 square  = lambda x: x ** 2
@@ -103,7 +135,7 @@ print(is_even(4))    # True
 print(is_even(7))    # False
 
 ##############################################################################
-# 11. Sortowanie napisow na trzy sposoby
+# 14. Sortowanie napisow na trzy sposoby
 ##############################################################################
 
 words = ['banana', 'apple', 'cherry', 'date']
@@ -117,7 +149,7 @@ print(by_length)      # ['date', 'apple', 'banana', 'cherry']
 print(by_last_char)   # ['banana', 'apple', 'date', 'cherry']
 
 ##############################################################################
-# 12. Sortowanie dostepnych produktow wg ceny
+# 15. Sortowanie dostepnych produktow wg ceny
 ##############################################################################
 
 products = [
@@ -139,7 +171,19 @@ for p in available_sorted:
 # laptop 2500
 
 ##############################################################################
-# 13. Celsius -> Fahrenheit
+# 16. Lambda wieloargumentowa i warunkowa
+##############################################################################
+
+max_of_two = lambda x, y: x if x > y else y
+parity     = lambda x: "parzysta" if x % 2 == 0 else "nieparzysta"
+
+print(max_of_two(3, 7))   # 7
+print(max_of_two(10, 5))  # 10
+print(parity(4))           # parzysta
+print(parity(7))           # nieparzysta
+
+##############################################################################
+# 17. Celsius -> Fahrenheit
 ##############################################################################
 
 celsius     = [0, 20, 37, 00]
@@ -148,7 +192,7 @@ fahrenheit  = list(map(lambda c: c * 9 / 5 + 32, celsius))
 print(fahrenheit)   # [32.0, 68.0, 98.6, 212.0]
 
 ##############################################################################
-# 14. Filtrowanie i podnoszenie do kwadratu
+# 18. Filtrowanie i podnoszenie do kwadratu
 ##############################################################################
 
 numbers   = [-3, -1, 0, 4, 7, -2, 9]
@@ -159,7 +203,7 @@ print(positives)  # [4, 7, 9]
 print(squared)    # [16, 49, 81]
 
 ##############################################################################
-# 15. filter() + map() na napisach
+# 19. filter() + map() na napisach
 ##############################################################################
 
 words      = ['hello', 'WORLD', 'Python', '123', 'foo', 'BAR']
@@ -167,3 +211,13 @@ only_alpha = filter(str.isalpha, words)
 titled     = list(map(str.title, only_alpha))
 
 print(titled)   # ['Hello', 'World', 'Python', 'Foo', 'Bar']
+
+##############################################################################
+# 20. map() na dwóch listach jednocześnie
+##############################################################################
+
+prices       = [100, 200, 350, 80]
+discounts    = [10, 5, 20, 0]
+final_prices = list(map(lambda x, y: x * (1 - y / 100), prices, discounts))
+
+print(final_prices)  # [90.0, 190.0, 280.0, 80.0]
