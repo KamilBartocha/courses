@@ -1,4 +1,4 @@
-# Solutions: 103_python_interm_args_kwargs.ipynb
+# Solutions: 03_python_interm_args_kwargs.ipynb
 ##############################################################################
 # 1. multiply_all
 ##############################################################################
@@ -88,7 +88,22 @@ validate_user(name='Bob', age=25)
 # Missing field: email
 
 ##############################################################################
-# 7. format_message
+# 7. configure z .update()
+##############################################################################
+
+def configure(**kwargs):
+    defaults = {'theme': 'light', 'language': 'pl', 'timeout': 30}
+    defaults.update(kwargs)
+    return defaults
+
+
+print(configure(theme='dark', timeout=60))
+# {'theme': 'dark', 'language': 'pl', 'timeout': 60}
+print(configure())
+# {'theme': 'light', 'language': 'pl', 'timeout': 30}
+
+##############################################################################
+# 8. format_message
 ##############################################################################
 
 def format_message(*args, separator=', ', end='!'):
@@ -100,7 +115,7 @@ print(format_message('a', 'b', 'c',
                      separator=' - ', end='.'))       # a - b - c.
 
 ##############################################################################
-# 8. build_html
+# 9. build_html
 ##############################################################################
 
 def build_html(tag, *content, **attributes):
@@ -116,7 +131,7 @@ print(build_html('a', 'Click', href='http://example.com'))
 # <a href="http://example.com">Click</a>
 
 ##############################################################################
-# 9. log
+# 10. log
 ##############################################################################
 
 def log(level, *messages, **context):
@@ -134,7 +149,7 @@ log('ERROR', 'Connection', 'failed')
 # [ERROR] Connection failed
 
 ##############################################################################
-# 10. Łączenie słowników
+# 11. Łączenie słowników
 ##############################################################################
 
 base   = {'host': 'localhost', 'port': 8080, 'debug': True}
@@ -146,7 +161,7 @@ print(config)
 # {'host': 'localhost', 'port': 9000, 'debug': True, 'timeout': 30}
 
 ##############################################################################
-# 11. Extended unpacking z posortowaną listą
+# 12. Extended unpacking z posortowaną listą
 ##############################################################################
 
 scores = [88, 72, 95, 60, 84]
@@ -158,7 +173,7 @@ print(worst)   # 60
 print(rest)    # [72, 84, 88]
 
 ##############################################################################
-# 12. Wywołanie funkcji przez rozpakowywanie
+# 13. Wywołanie funkcji przez rozpakowywanie
 ##############################################################################
 
 def power(base, exponent, modulo=None):
@@ -173,3 +188,19 @@ args3 = {'base': 5, 'exponent': 3, 'modulo': 7}
 print(power(*args1))   # 1024
 print(power(*args2))   # 81
 print(power(**args3))  # 6
+
+##############################################################################
+# 14. Łączenie list przez rozpakowywanie *
+##############################################################################
+
+fruits  = ['apple', 'banana']
+veggies = ['carrot', 'broccoli']
+grains  = ['rice', 'oats']
+
+all_items = [*fruits, *veggies, *grains]
+with_sep  = [*fruits, '---', *veggies, '---', *grains]
+
+print(all_items)
+# ['apple', 'banana', 'carrot', 'broccoli', 'rice', 'oats']
+print(with_sep)
+# ['apple', 'banana', '---', 'carrot', 'broccoli', '---', 'rice', 'oats']
