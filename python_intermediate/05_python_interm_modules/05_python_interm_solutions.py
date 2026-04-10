@@ -1,4 +1,4 @@
-# Solutions: 105_python_interm_own_modules.ipynb
+# Solutions: 05_python_interm_own_modules.ipynb
 ##############################################################################
 # 1. mathutils functions
 ##############################################################################
@@ -57,7 +57,23 @@ print(count_words("one two three"))     # 3
 # from myutils import add, clean
 
 ##############################################################################
-# 4. calculator/__init__.py (strukturalne - jako komentarze)
+# 4. Różne style importu
+##############################################################################
+
+# a) import całego modułu
+import math
+print(math.ceil(3.2))   # 4
+
+# b) import konkretnej funkcji
+from math import floor
+print(floor(3.8))       # 3
+
+# c) import z aliasem
+from math import pow as power
+print(power(2, 10))     # 1024.0
+
+##############################################################################
+# 5. calculator/__init__.py (strukturalne - jako komentarze)
 ##############################################################################
 
 # calculator/__init__.py:
@@ -69,7 +85,7 @@ print(count_words("one two three"))     # 3
 # from calculator import add, subtract, multiply
 
 ##############################################################################
-# 5. SimpleJSON
+# 6. SimpleJSON
 ##############################################################################
 
 import json
@@ -107,7 +123,7 @@ print(reader.get("name"))   # Alice
 print(reader.get("age"))    # 30
 
 ##############################################################################
-# 6. SimpleJSONExtended z keys() i summary()
+# 7. SimpleJSONExtended z keys() i summary()
 ##############################################################################
 
 class SimpleJSONExtended(SimpleJSONFromString):
@@ -128,7 +144,56 @@ reader2.summary()
 # scores: list
 
 ##############################################################################
-# 7. Testy unittest dla mathutils
+# 8. Struktura biblioteki csvreader
+##############################################################################
+
+structure = """
+csvreader/
+├── csvreader/
+│   ├── __init__.py
+│   └── csv_reader.py
+├── tests/
+│   ├── example1.csv
+│   └── test_csv_reader.py
+├── README.md
+└── setup.py
+"""
+
+print(structure)
+
+##############################################################################
+# 9. get_nested - nawigacja po zagnieżdżonym słowniku
+##############################################################################
+
+data = {
+    'user': {
+        'name': 'Alice',
+        'scores': [95, 87, 92]
+    }
+}
+
+def get_nested(data, path):
+    current = data
+    for part in path.split('.'):
+        if current is None:
+            return None
+        if '[' in part:
+            key = part[:part.index('[')]
+            index = int(part[part.index('[') + 1:part.index(']')])
+            current = current.get(key) if isinstance(current, dict) else None
+            if isinstance(current, list):
+                current = current[index] if index < len(current) else None
+        else:
+            current = current.get(part) if isinstance(current, dict) else None
+    return current
+
+
+print(get_nested(data, 'user.name'))        # Alice
+print(get_nested(data, 'user.scores[0]'))   # 95
+print(get_nested(data, 'missing.key'))      # None
+
+##############################################################################
+# 10. Testy unittest dla mathutils
 ##############################################################################
 
 import unittest
@@ -153,11 +218,11 @@ class TestMathUtils(unittest.TestCase):
 
 
 ##############################################################################
-# 8. Test obsługi błędu FileNotFoundError w ReadJSON
+# 11. Test obsługi błędu FileNotFoundError w ReadJSON
 ##############################################################################
 
 import sys
-sys.path.insert(0, '105_library/datareader')
+sys.path.insert(0, '05_library/datareader')
 from datareader.json_reader import ReadJSON
 
 
@@ -168,10 +233,8 @@ class TestReadJSONErrors(unittest.TestCase):
         self.assertIsNone(reader.data)
 
 
-unittest.main(argv=[''], exit=False, verbosity=2)
-
 ##############################################################################
-# 9. setup.py dla myutils (strukturalne - jako komentarze)
+# 12. setup.py dla myutils (strukturalne - jako komentarze)
 ##############################################################################
 
 # from setuptools import setup, find_packages
@@ -187,3 +250,21 @@ unittest.main(argv=[''], exit=False, verbosity=2)
 # Instalacja lokalna:
 # pip install .
 # pip install -e .   # tryb edytowalny (editable mode)
+
+##############################################################################
+# 13. Testy sprawdzające wyjątki (assertRaises)
+##############################################################################
+
+def divide(a, b):
+    return a / b
+
+
+class TestExceptions(unittest.TestCase):
+    def test_average_no_args(self):
+        self.assertRaises(ZeroDivisionError, average)
+
+    def test_divide_by_zero(self):
+        self.assertRaises(ZeroDivisionError, divide, 10, 0)
+
+
+unittest.main(argv=[''], exit=False, verbosity=2)
