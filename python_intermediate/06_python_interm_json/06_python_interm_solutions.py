@@ -1,4 +1,4 @@
-# Solutions: 106_python_interm_json.ipynb
+# Solutions: 06_python_interm_json.ipynb
 import json
 
 ##############################################################################
@@ -42,7 +42,25 @@ restored = json.loads(json_str)
 print(orders == restored)   # True
 
 ##############################################################################
-# 4. sort_keys
+# 4. Mapowanie typów Python -> JSON
+##############################################################################
+
+data = {
+    "nothing": None,
+    "flag":    True,
+    "off":     False,
+    "tags":    (1, 2, 3),
+}
+
+json_str = json.dumps(data)
+restored = json.loads(json_str)
+
+print(restored["nothing"] is None)   # True  (null -> None)
+print(type(restored["flag"]))        # <class 'bool'>
+print(type(restored["tags"]))        # <class 'list'>  (tuple -> list!)
+
+##############################################################################
+# 5. sort_keys
 ##############################################################################
 
 settings = {"timeout": 30, "host": "localhost", "debug": True}
@@ -53,7 +71,7 @@ print(result)
 # {"debug": true, "host": "localhost", "timeout": 30}
 
 ##############################################################################
-# 5. write to file
+# 6. write to file
 ##############################################################################
 
 user = {"name": "Zofia", "age": 28, "city": "Kraków"}
@@ -65,7 +83,7 @@ with open("user.json", encoding="utf-8") as f:
     print(f.read())
 
 ##############################################################################
-# 6. read, modify, write back
+# 7. read, modify, write back
 ##############################################################################
 
 with open("user.json", encoding="utf-8") as f:
@@ -79,7 +97,25 @@ with open("user.json", "w", encoding="utf-8") as f:
 print(data["age"])   # 29
 
 ##############################################################################
-# 7. write and read a list
+# 8. json.dumps() z kombinacją parametrów
+##############################################################################
+
+config3 = {"port": 8080, "name": "Aplikacja", "debug": True, "host": "localhost"}
+
+# a) kompaktowy
+a = json.dumps(config3)
+print("Kompaktowy:", a)
+
+# b) indent=2, sort_keys=True
+b = json.dumps(config3, indent=2, sort_keys=True)
+print("Posortowany:\n", b)
+
+# c) indent=4, sort_keys=True, ensure_ascii=False
+c = json.dumps(config3, indent=4, sort_keys=True, ensure_ascii=False)
+print("Pełny:\n", c)
+
+##############################################################################
+# 9. write and read a list
 ##############################################################################
 
 students = [
@@ -97,7 +133,7 @@ with open("students.json", encoding="utf-8") as f:
 print(loaded[1]["name"])   # Bob
 
 ##############################################################################
-# 8. read nested config (created by example code in notebook)
+# 10. read nested config
 ##############################################################################
 
 config = {
@@ -115,7 +151,7 @@ print(config["database"]["host"])   # localhost
 print(config["server"]["port"])     # 8080
 
 ##############################################################################
-# 9. filter JSON data and write result
+# 11. filter JSON data and write result
 ##############################################################################
 
 orders = [
@@ -134,7 +170,29 @@ print(len(done_orders))       # 2
 print(done_orders[0]["id"])   # 1
 
 ##############################################################################
-# 10. validate multiple JSON strings
+# 12. ensure_ascii=False z polskimi znakami
+##############################################################################
+
+polish_names = [
+    {"name": "Józef",      "city": "Łódź"},
+    {"name": "Małgorzata", "city": "Gdańsk"},
+]
+
+with open("polish.json", "w", encoding="utf-8") as f:
+    json.dump(polish_names, f, indent=2, ensure_ascii=False)
+
+with open("polish.json", encoding="utf-8") as f:
+    loaded = json.load(f)
+
+print(loaded[0]["name"])   # Józef
+print(loaded[1]["city"])   # Gdańsk
+
+with open("polish.json", encoding="utf-8") as f:
+    raw = f.read()
+print("\\u" not in raw)    # True - polskie znaki zapisane bezpośrednio
+
+##############################################################################
+# 13. validate multiple JSON strings
 ##############################################################################
 
 candidates = [
@@ -155,7 +213,7 @@ for s in candidates:
 # Carol: 22
 
 ##############################################################################
-# 11. load_or_default
+# 14. load_or_default
 ##############################################################################
 
 def load_or_default(path, default):
@@ -173,7 +231,7 @@ missing = load_or_default("missing.json", {"status": "empty"})
 print(missing)        # {'status': 'empty'}
 
 ##############################################################################
-# 12. update_json
+# 15. update_json
 ##############################################################################
 
 def update_json(path, key, value):
@@ -192,3 +250,21 @@ update_json("config.json", "server", {"host": "0.0.0.0", "port": 9000})
 with open("config.json", encoding="utf-8") as f:
     data = json.load(f)
 print(data["server"]["port"])   # 9000
+
+##############################################################################
+# 16. get_field - obsługa JSONDecodeError i KeyError
+##############################################################################
+
+def get_field(data_json, key):
+    try:
+        data = json.loads(data_json)
+        return data[key]
+    except json.JSONDecodeError:
+        return None
+    except KeyError:
+        return None
+
+
+print(get_field('{"name": "Alice", "age": 30}', "name"))   # Alice
+print(get_field('{"name": "Alice"}', "age"))                # None  (KeyError)
+print(get_field('not valid json', "name"))                   # None  (JSONDecodeError)
