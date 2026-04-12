@@ -1,4 +1,4 @@
-# Solutions: 107_python_interm_exception.ipynb
+# Solutions: 07_python_interm_exception.ipynb
 import math
 
 ##############################################################################
@@ -50,14 +50,34 @@ print(safe_divide(10, 0))    # None
 print(safe_divide(10, 'x'))  # None
 
 ##############################################################################
-# 4. multiple except clauses
+# 4. compute - all 4 blocks
+##############################################################################
+
+def compute(text, divisor):
+    try:
+        number = int(text)
+        result = number / divisor
+    except (ValueError, ZeroDivisionError) as e:
+        print(f"Error: {e}")
+    else:
+        print(f"Result: {result}")
+    finally:
+        print("--- done ---")
+
+
+compute("10", 4)   # Result: 2.5  --- done ---
+compute("abc", 2)  # Error: ...   --- done ---
+compute("10", 0)   # Error: ...   --- done ---
+
+##############################################################################
+# 5. multiple except clauses
 ##############################################################################
 
 values = ["5", "0", "abc", "10", ""]
 
 for v in values:
     try:
-        print(00 / int(v))
+        print(100 / int(v))
     except ValueError:
         print(f"Cannot convert: {v!r}")
     except ZeroDivisionError:
@@ -70,7 +90,7 @@ for v in values:
 # Cannot convert: ''
 
 ##############################################################################
-# 5. get_item
+# 6. get_item
 ##############################################################################
 
 def get_item(lst, index):
@@ -84,7 +104,7 @@ print(get_item([10, 20, 30], 1))   # 20
 print(get_item([10, 20, 30], 9))   # None
 
 ##############################################################################
-# 6. safe_get
+# 7. safe_get
 ##############################################################################
 
 def safe_get(data, key, default=None):
@@ -100,14 +120,14 @@ print(safe_get(config, "timeout", 30))   # 30
 print(safe_get(None, "host", "n/a"))     # n/a
 
 ##############################################################################
-# 7. validate_score
+# 8. validate_score
 ##############################################################################
 
 def validate_score(score):
     if not isinstance(score, int):
         raise TypeError(f"Score must be int, got {type(score).__name__}")
-    if score < 0 or score > 00:
-        raise ValueError(f"Score {score} is out of range [0, 00]")
+    if score < 0 or score > 100:
+        raise ValueError(f"Score {score} is out of range [0, 100]")
     return score
 
 
@@ -115,14 +135,14 @@ print(validate_score(85))   # 85
 try:
     validate_score(-5)
 except ValueError as e:
-    print(e)                # Score -5 is out of range [0, 00]
+    print(e)                # Score -5 is out of range [0, 100]
 try:
     validate_score('A')
 except TypeError as e:
     print(e)                # Score must be int, got str
 
 ##############################################################################
-# 8. to_upper
+# 9. to_upper
 ##############################################################################
 
 def to_upper(text):
@@ -138,7 +158,7 @@ except TypeError as e:
     print(e)               # Expected str, got int
 
 ##############################################################################
-# 9. BankAccount
+# 10. BankAccount
 ##############################################################################
 
 class BankAccount:
@@ -156,7 +176,7 @@ class BankAccount:
         return self.balance
 
 
-account = BankAccount(00)
+account = BankAccount(100)
 print(account.withdraw(30))   # 70
 try:
     account.withdraw(200)
@@ -164,7 +184,25 @@ except ValueError as e:
     print(e)                  # Insufficient funds: ...
 
 ##############################################################################
-# 10. NegativeValueError
+# 11. bare raise (re-raise)
+##############################################################################
+
+def safe_parse(text):
+    try:
+        return int(text)
+    except ValueError:
+        print(f"Logging: could not parse {text!r}")
+        raise
+
+
+print(safe_parse("42"))   # 42
+try:
+    safe_parse("abc")     # Logging: could not parse 'abc'
+except ValueError as e:
+    print(f"Caught: {e}")
+
+##############################################################################
+# 12. NegativeValueError
 ##############################################################################
 
 class NegativeValueError(Exception):
@@ -184,7 +222,7 @@ except NegativeValueError as e:
     print(e)            # Cannot compute square root of -4
 
 ##############################################################################
-# 11. AgeError with attribute
+# 13. AgeError with attribute
 ##############################################################################
 
 class AgeError(ValueError):
@@ -206,7 +244,7 @@ except AgeError as e:
     print(e.age)    # 15
 
 ##############################################################################
-# 12. Exception hierarchy
+# 14. Exception hierarchy
 ##############################################################################
 
 class StorageError(Exception):
@@ -234,3 +272,56 @@ try:
     read_config("config.json")
 except StorageError as e:
     print(f"StorageError: {e}")
+
+##############################################################################
+# 15. ApiError with __str__
+##############################################################################
+
+class ApiError(Exception):
+    def __init__(self, message, status_code):
+        super().__init__(message)
+        self.status_code = status_code
+
+    def __str__(self):
+        return f"[{self.status_code}] {super().__str__()}"
+
+
+try:
+    raise ApiError("Not Found", status_code=404)
+except ApiError as e:
+    print(e)              # [404] Not Found
+    print(e.status_code)  # 404
+
+##############################################################################
+# 16. Payment hierarchy with attribute
+##############################################################################
+
+class PaymentError(Exception):
+    def __init__(self, message, amount):
+        super().__init__(message)
+        self.amount = amount
+
+
+class InsufficientFundsError(PaymentError):
+    pass
+
+
+class CardDeclinedError(PaymentError):
+    pass
+
+
+def process_payment(amount, method):
+    if method == "empty":
+        raise InsufficientFundsError("Not enough funds", amount)
+    if method == "blocked":
+        raise CardDeclinedError("Card blocked", amount)
+
+
+for method in ["empty", "blocked"]:
+    try:
+        process_payment(100, method)
+    except PaymentError as e:
+        print(f"{type(e).__name__}: {e} (amount={e.amount})")
+
+# InsufficientFundsError: Not enough funds (amount=100)
+# CardDeclinedError: Card blocked (amount=100)
