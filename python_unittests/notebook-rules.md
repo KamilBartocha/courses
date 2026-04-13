@@ -24,6 +24,8 @@ One code cell per exercise
 - Always ends with a `print()` or assertion so output is visible
 - `# hint:` comments on harder exercises; mark them with `*(Trudniejsze)*`
 - Minimum 3 exercises per section, difficulty ramping easy → medium → hard
+- If a section introduces N distinct concepts/methods (e.g. 6 new mock methods),
+  provide at least N exercises so every introduced concept is covered by at least one
 - For test exercises: provide the class/function under test in the cell,
   student writes the test methods
 
