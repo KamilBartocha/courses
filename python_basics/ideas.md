@@ -1,1 +1,1 @@
-02 Ćwiczenia - operatory logiczne - brakuje poleceń ćwiczeń
+# TO DO

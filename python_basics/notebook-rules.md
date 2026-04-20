@@ -65,5 +65,7 @@ Rozkład jazdy  (agenda cell — one emoji-prefixed line per section)
 - `# hint:` comment on harder exercises
 - Marked with `*(Trudniejsze)*` for hard difficulty
 - Minimum 3 exercises per section: easy → medium → hard
+- If a section introduces N distinct concepts/methods, provide at least N exercises
+  so every introduced concept is covered by at least one exercise
 - No exercise uses a concept taught in a later section
 - Dict comprehension exercises: use `.items()` explicitly in the template
