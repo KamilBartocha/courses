@@ -10,25 +10,29 @@ A Polish-language Python design patterns course. Content is delivered via Jupyte
 
 ```bash
 # Open a notebook
-jupyter notebook 01_python_instalacja_i_srodowiska/01_python_instalacja.ipynb
+jupyter notebook 02_singleton/02_singleton.ipynb
 
 # Run a Python script directly
-python3 02_python_skladnia_i_typy_proste/02_cheat_sheet.py
+python3 03_factory_method/03_cheat_sheet.py
 ```
 
 No package manager or requirements file — all examples use the Python standard library only.
 
 ## Module Structure
 
-Eight modules (01–08), each containing three file types:
+Twenty modules (01–20), each containing four file types:
 - `NN_cheat_sheet.py` — quick-reference code snippets
 - `NN_exercise.py` — exercise starter code or solutions
 - `NN_live_coding.py` — blank file used during live class sessions
 - `NN_*.ipynb` — main Jupyter notebook with theory, examples, and exercises
 
-Module topics: 01 Installation & IDE → 02 Syntax & Simple Types → 03 Collections & Control Flow → 04 Functions → 05 Files & Modules → 06 Exceptions → 07 Functional Programming → 08 OOP
+Module topics: 01 Introduction & SOLID → 02 Singleton → 03 Factory Method →
+04 Abstract Factory → 05 Builder → 06 Prototype → 07 Adapter → 08 Decorator →
+09 Facade → 10 Proxy → 11 Composite → 12 Bridge → 13 Observer → 14 Strategy →
+15 Command → 16 Template Method → 17 State → 18 Iterator →
+19 Chain of Responsibility → 20 Mediator
 
-Supporting reference: `syllabus-python-basics.md` (Polish-language concept summary per module).
+Supporting reference: `syllabus-python-design-patterns.md` (Polish-language concept summary per pattern).
 
 ## Notebook Conventions (from `notebook-rules.md`)
 
