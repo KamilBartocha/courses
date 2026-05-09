@@ -1,8 +1,8 @@
-# Solutions: 110_python_interm_metaclass.ipynb
+# Solutions: 10_python_interm_metaclass.ipynb
 import functools
 
 ##############################################################################
-# 1. Check metaclass of built-in types
+# 1. metaclass inspection of built-in types
 ##############################################################################
 
 for typ in [int, str, list, dict]:
@@ -21,6 +21,7 @@ def rect_init(self, width, height):
 
 def rect_area(self):
     return self.width * self.height
+
 
 Rectangle = type('Rectangle', (object,), {
     'default_color': 'red',
@@ -42,10 +43,10 @@ def make_class(name, attrs):
 
 Config = make_class('Config', {'debug': True, 'port': 8080})
 c = Config()
-print(c.debug)              # True
-print(c.port)               # 8080
-print(type(c).__name__)     # Config
-print(isinstance(c, object))  # True
+print(c.debug)               # True
+print(c.port)                # 8080
+print(type(c).__name__)      # Config
+print(isinstance(c, object)) # True
 
 ##############################################################################
 # 4. UpperAttrsMeta
@@ -91,6 +92,7 @@ class Alpha(metaclass=VersionedMeta):
 class Beta(metaclass=VersionedMeta):
     version = '2.5'
 
+
 print(Alpha.version)     # 1.0
 print(Beta.version)      # 2.5
 print(Alpha.created_by)  # VersionedMeta
@@ -113,6 +115,7 @@ class Constants(metaclass=ReadOnlyMeta):
     PI    = 3.14159
     SPEED = 299_792_458
 
+
 print(Constants.PI)   # 3.14159
 
 try:
@@ -121,7 +124,38 @@ except AttributeError as e:
     print(e)
 
 ##############################################################################
-# 7. TypeRegistryMeta - registers only subclasses
+# 7. ModelMeta - validation + auto-adding
+##############################################################################
+
+class ModelMeta(type):
+    def __new__(cls, name, bases, dct):
+        if bases and 'fields' not in dct:
+            raise TypeError(f"'{name}' must define 'fields'")
+        if 'get_fields' not in dct:
+            def get_fields(self):
+                return type(self).fields
+            dct['get_fields'] = get_fields
+        return super().__new__(cls, name, bases, dct)
+
+
+class Model(metaclass=ModelMeta):
+    pass
+
+class User(Model):
+    fields = ['name', 'email']
+
+
+u = User()
+print(u.get_fields())   # ['name', 'email']
+
+try:
+    class Item(Model):
+        pass
+except TypeError as e:
+    print(e)
+
+##############################################################################
+# 8. TypeRegistryMeta - register only subclasses
 ##############################################################################
 
 class TypeRegistryMeta(type):
@@ -140,10 +174,11 @@ class Animal(metaclass=TypeRegistryMeta):
 class Dog(Animal): pass
 class Cat(Animal): pass
 
+
 print(TypeRegistryMeta.registry)   # {'Dog': ..., 'Cat': ...}
 
 ##############################################################################
-# 8. CountInstancesMeta
+# 9. CountInstancesMeta
 ##############################################################################
 
 class CountInstancesMeta(type):
@@ -163,13 +198,14 @@ class CountInstancesMeta(type):
 class Car(metaclass=CountInstancesMeta):
     pass
 
+
 Car()
 Car()
 Car()
 print(Car.instance_count)   # 3
 
 ##############################################################################
-# 9. AbstractMeta
+# 10. AbstractMeta
 ##############################################################################
 
 class AbstractMeta(type):
@@ -184,7 +220,6 @@ class AbstractMeta(type):
 class Shape(metaclass=AbstractMeta):
     abstract = True
 
-
 class Circle(Shape):
     def __init__(self, r):
         self.r = r
@@ -194,12 +229,12 @@ c = Circle(5)
 print(c.r)    # 5
 
 try:
-    s = Shape()
+    Shape()
 except TypeError as e:
     print(e)
 
 ##############################################################################
-# 10. Command - registry via __init_subclass__
+# 11. Command registry via __init_subclass__
 ##############################################################################
 
 class Command:
@@ -216,11 +251,12 @@ class HelpCommand(Command):
 class QuitCommand(Command):
     pass
 
+
 print(Command.commands)
-# {'helpcommand': ..., 'quitcommand': ...}
+# {'helpcommand': <class 'HelpCommand'>, 'quitcommand': <class 'QuitCommand'>}
 
 ##############################################################################
-# 11. Validator with __init_subclass__ enforcement
+# 12. Validator with __init_subclass__
 ##############################################################################
 
 class Validator:
@@ -246,10 +282,9 @@ except TypeError as e:
     print(e)
 
 ##############################################################################
-# 12. Metaclass vs __init_subclass__ comparison
+# 13. Comparison: metaclass vs __init_subclass__
 ##############################################################################
 
-# Approach 1: metaclass
 class PluginMeta(type):
     registry = {}
     def __new__(cls, name, bases, dct):
@@ -264,7 +299,7 @@ class BasePlugin(metaclass=PluginMeta): pass
 class EmailPlugin(BasePlugin):
     def run(self): return 'email'
 
-# Approach 2: __init_subclass__ (simpler)
+
 class Plugin2:
     registry = {}
 
@@ -277,5 +312,32 @@ class Plugin2:
 class LogPlugin2(Plugin2):
     def run(self): return 'log'
 
+
 print(PluginMeta.registry)   # {'EmailPlugin': ...}
 print(Plugin2.registry)      # {'LogPlugin2': ...}
+
+##############################################################################
+# 14. Vehicle with keyword args in __init_subclass__
+##############################################################################
+
+class Vehicle:
+    def __init_subclass__(cls, fuel_type='unknown', seats=5, **kwargs):
+        super().__init_subclass__(**kwargs)
+        cls.fuel_type = fuel_type
+        cls.seats     = seats
+
+
+class Car(Vehicle, fuel_type='petrol', seats=5):
+    pass
+
+class ElectricBike(Vehicle, fuel_type='electric', seats=2):
+    pass
+
+class Bicycle(Vehicle):
+    pass
+
+
+print(Car.fuel_type)           # petrol
+print(ElectricBike.fuel_type)  # electric
+print(Bicycle.fuel_type)       # unknown
+print(ElectricBike.seats)      # 2
