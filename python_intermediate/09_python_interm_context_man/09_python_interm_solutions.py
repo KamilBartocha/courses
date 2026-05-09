@@ -1,4 +1,4 @@
-# Solutions: 109_python_interm_context_man.ipynb
+# Solutions: 09_python_interm_context_man.ipynb
 import os
 import sqlite3
 from contextlib import contextmanager
@@ -149,12 +149,37 @@ def log_block(name):
 
 
 with log_block("data loading"):
-    data = list(range(00))
+    data = list(range(10))
 # [data loading] start
 # [data loading] end
 
 ##############################################################################
-# 8. open_write
+# 8. catch_errors - catching exception from inside the with block
+##############################################################################
+
+@contextmanager
+def catch_errors(label):
+    errors = []
+    try:
+        yield errors
+    except Exception as e:
+        errors.append(e)   # suppress: do not re-raise
+    finally:
+        print(f"[{label}] errors collected: {len(errors)}")
+
+
+with catch_errors("step1") as errs:
+    raise ValueError("something broke")   # suppressed
+
+print(errs)   # [ValueError('something broke')]
+
+with catch_errors("step2") as errs:
+    x = 1 + 1   # no exception
+
+print(errs)   # []
+
+##############################################################################
+# 9. open_write
 ##############################################################################
 
 @contextmanager
@@ -174,7 +199,7 @@ with open_write('test_write.txt') as f:
     f.write('hello context manager')
 
 ##############################################################################
-# 9. temp_env
+# 10. temp_env
 ##############################################################################
 
 @contextmanager
@@ -198,7 +223,7 @@ with temp_env('MY_VAR', 'test_value'):
 print(os.environ.get('MY_VAR'))       # None
 
 ##############################################################################
-# 10. ReadOnlyFile
+# 11. ReadOnlyFile
 ##############################################################################
 
 class ReadOnlyFile:
@@ -231,7 +256,7 @@ with ReadOnlyFile('greetings.txt') as f:
         print(e)
 
 ##############################################################################
-# 11. managed_db
+# 12. managed_db
 ##############################################################################
 
 @contextmanager
@@ -254,7 +279,7 @@ with managed_db(':memory:') as cur:
     print(cur.execute('SELECT * FROM notes').fetchall())   # [('hello',)]
 
 ##############################################################################
-# 12. APISession  (requires requests)
+# 13. APISession  (requires requests)
 ##############################################################################
 
 import requests
