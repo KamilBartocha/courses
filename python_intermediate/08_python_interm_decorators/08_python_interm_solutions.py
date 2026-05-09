@@ -1,4 +1,4 @@
-# Solutions: 108_python_interm_decorators.ipynb
+# Solutions: 08_python_interm_decorators.ipynb
 from functools import wraps
 from dataclasses import dataclass, field
 from datetime import date
@@ -153,7 +153,29 @@ def flaky():
 print(flaky())   # success (after 2 failures)
 
 ##############################################################################
-# 7. Converter - @staticmethod
+# 7. debug with @wraps
+##############################################################################
+
+def debug(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(f"Calling: {func.__name__}")
+        return func(*args, **kwargs)
+    return wrapper
+
+
+@debug
+def greet(name):
+    """Return a greeting."""
+    return f"hello {name}"
+
+
+print(greet("Alice"))     # Calling: greet \n hello Alice
+print(greet.__name__)     # greet
+print(greet.__doc__)      # Return a greeting.
+
+##############################################################################
+# 8. Converter - @staticmethod
 ##############################################################################
 
 class Converter:
@@ -166,11 +188,11 @@ class Converter:
         return c * 9 / 5 + 32
 
 
-print(Converter.km_to_miles(00))           # 62.1371
+print(Converter.km_to_miles(100))          # 62.1371
 print(Converter.celsius_to_fahrenheit(0))   # 32.0
 
 ##############################################################################
-# 8. Date - @classmethod
+# 9. Date - @classmethod
 ##############################################################################
 
 class Date:
@@ -198,7 +220,7 @@ print(d)            # 2026-03-24
 print(Date.today()) # current date
 
 ##############################################################################
-# 9. Rectangle with @property
+# 10. Rectangle with @property
 ##############################################################################
 
 class Rectangle:
@@ -246,7 +268,7 @@ except ValueError as e:
     print(e)        # Width must be positive
 
 ##############################################################################
-# 10. Book - @dataclass
+# 11. Book - @dataclass
 ##############################################################################
 
 @dataclass
@@ -264,7 +286,7 @@ print(b)          # Book(title='1984', author='Orwell', year=1949)
 print(b.age())    # 77
 
 ##############################################################################
-# 11. Coordinate - @dataclass(frozen=True)
+# 12. Coordinate - @dataclass(frozen=True)
 ##############################################################################
 
 @dataclass(frozen=True)
@@ -281,7 +303,7 @@ locations = {warsaw: "Warsaw"}
 print(locations[warsaw2])  # Warsaw
 
 ##############################################################################
-# 12. Student with grades list
+# 13. Student with grades list
 ##############################################################################
 
 @dataclass
