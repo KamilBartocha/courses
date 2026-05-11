@@ -220,7 +220,41 @@ except ValueError as e:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 7: Iterable_ z __subclasshook__
+# Ćw. 7: Converter - CelsiusToFahrenheit, KilometersToMiles
+# ---------------------------------------------------------------------------
+class Converter(ABC):
+    @staticmethod
+    @abstractmethod
+    def unit() -> str: ...
+
+    @abstractmethod
+    def convert(self, value: float) -> float: ...
+
+
+class CelsiusToFahrenheit(Converter):
+    @staticmethod
+    def unit() -> str: return "°F"
+
+    def convert(self, value: float) -> float:
+        return value * 9 / 5 + 32
+
+
+class KilometersToMiles(Converter):
+    @staticmethod
+    def unit() -> str: return "mi"
+
+    def convert(self, value: float) -> float:
+        return value * 0.621371
+
+
+print(CelsiusToFahrenheit.unit())
+print(CelsiusToFahrenheit().convert(100))
+print(KilometersToMiles.unit())
+print(KilometersToMiles().convert(10))
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 8: Iterable_ z __subclasshook__
 # ---------------------------------------------------------------------------
 class Iterable_(ABC):
     @classmethod
@@ -235,7 +269,7 @@ for t in [list, str, dict, int]:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 8: Printable z register
+# Ćw. 9: Printable z register
 # ---------------------------------------------------------------------------
 class Printable(ABC):
     @abstractmethod
@@ -253,7 +287,7 @@ print(isinstance(OldReport(), Printable))   # True
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 9: Plugin z REGISTRY przez __init_subclass__
+# Ćw. 10: Plugin z REGISTRY przez __init_subclass__
 # ---------------------------------------------------------------------------
 class Plugin(ABC):
     REGISTRY: dict = {}
