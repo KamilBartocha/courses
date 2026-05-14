@@ -119,7 +119,19 @@ print(list(flatten([[1, 2], [3, [4, [5]]]])))     # [1, 2, 3, 4, 5]
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 7: tree_values
+# Ćw. 7: generator expressions
+# ---------------------------------------------------------------------------
+words = ['apple', 'kiwi', 'banana', 'fig', 'cherry', 'plum']
+
+squares_gen = (x ** 2 for x in range(0, 21, 2))
+print(list(squares_gen))   # [0, 4, 16, 36, 64, 100]
+
+long_words_gen = (w for w in words if len(w) > 4)
+print(list(long_words_gen))   # ['apple', 'banana', 'cherry']
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 8: tree_values
 # ---------------------------------------------------------------------------
 def tree_values(node: dict):
     yield node["value"]
@@ -140,7 +152,7 @@ print(list(tree_values(tree)))   # [1, 2, 3, 4]
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 8: interleave
+# Ćw. 9: interleave
 # ---------------------------------------------------------------------------
 def interleave(*iters):
     iterators = [iter(it) for it in iters]
@@ -160,7 +172,7 @@ print(list(interleave([1, 2, 3], ["a", "b", "c"])))
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 9: moving_window
+# Ćw. 10: moving_window
 # ---------------------------------------------------------------------------
 def moving_window(iterable, size: int):
     window = deque(maxlen=size)
@@ -175,7 +187,51 @@ print(list(moving_window([1, 2, 3, 4, 5], 3)))
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 10: chain.from_iterable + compress
+# Ćw. 11: running_sum z send()
+# ---------------------------------------------------------------------------
+def running_sum():
+    total = 0
+    while True:
+        value = yield total
+        if value is None:
+            break
+        total += value
+
+
+gen = running_sum()
+next(gen)
+print(gen.send(10))    # 10
+print(gen.send(5))     # 15
+print(gen.send(-3))    # 12
+gen.close()
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 12: countdown z throw() i close()
+# ---------------------------------------------------------------------------
+def countdown(n: int):
+    current = n
+    while True:
+        try:
+            yield current
+            current -= 1
+            if current < 0:
+                return
+        except ValueError:
+            print("Reset!")
+            current = n
+
+
+gen = countdown(5)
+print(next(gen))                    # 5
+print(next(gen))                    # 4
+gen.throw(ValueError, "reset!")     # Reset!
+print(next(gen))                    # 5
+gen.close()
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 13: chain.from_iterable + compress
 # ---------------------------------------------------------------------------
 nested = [[1, 2], [3], [4, 5, 6]]
 flat = list(itertools.chain.from_iterable(nested))
@@ -186,7 +242,7 @@ print(list(itertools.compress(flat, mask)))   # [1, 3, 5]
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 11: combinations + permutations
+# Ćw. 14: combinations + permutations
 # ---------------------------------------------------------------------------
 letters = ["a", "b", "c", "d"]
 combos = list(itertools.combinations(letters, 3))
@@ -198,7 +254,7 @@ print(perms)
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 12: groupby - sumy transakcji
+# Ćw. 15: groupby - sumy transakcji
 # ---------------------------------------------------------------------------
 transactions = [
     ("Alice", 00), ("Bob", 50),
@@ -210,3 +266,25 @@ totals = {
     for name, group in itertools.groupby(sorted_tx, key=lambda x: x[0])
 }
 print(totals)   # {'Alice': 300, 'Bob': 125}
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 16: count + cycle + islice
+# ---------------------------------------------------------------------------
+result_a = list(itertools.islice(itertools.count(10, 3), 9))
+print(result_a)   # [10, 13, 16, 19, 22, 25, 28, 31, 34]
+
+result_b = list(itertools.islice(itertools.cycle(['A', 'B', 'C']), 9))
+print(result_b)   # ['A', 'B', 'C', 'A', 'B', 'C', 'A', 'B', 'C']
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 17: repeat + product
+# ---------------------------------------------------------------------------
+zeros = itertools.repeat(0, 5)
+print(list(zeros))   # [0, 0, 0, 0, 0]
+
+pins = list(itertools.product(range(4), repeat=2))
+pin_strings = [f'{a}{b}' for a, b in pins]
+print(pin_strings)
+print(f'Total: {len(pin_strings)}')   # Total: 16
