@@ -1,7 +1,7 @@
 # weryfikacja_task.py - Projekt 05: Weryfikacja migracji API
 #
 # Firma migruje z legacy systemu (eksport XML) na nowe REST API (JSON).
-# Weryfikacja, ze oba zródła zwracaja te same dane.
+# Weryfikacja, ze oba źródła zwracaja te same dane.
 # Twoj skrypt porownuje oba formaty i generuje raport rozbieznosci.
 #
 # Uruchomienie: python3 weryfikacja_task.py

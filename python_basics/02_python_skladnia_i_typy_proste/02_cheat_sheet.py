@@ -80,4 +80,3 @@ print("Linia 1\nLinia 2", "Kol 1\tKol 2")
 print(r"C:\Users\name")
 # C:\Users\name
 print("-" * 30)
-# ------------------------------

@@ -45,7 +45,7 @@ def filter_by_status(orders, status):
     pass
 
 
-# ─── Zadanie 2 ─ Obliczanie lacznego przychodu ze zrealizowanych zamowien ─────
+# ─── Zadanie 2 ─ Obliczanie łacznego przychodu ze zrealizowanych zamowien ─────
 def calculate_revenue(orders):
     """Return the total amount of all completed orders, rounded to 2 decimal places.
 

@@ -1,18 +1,18 @@
-# copybook_task.py - Projekt 02: Enkoder wiadomosci platniczej ISO 20022
+# copybook_task.py - Projekt 02: Enkoder wiadomosci płatniczej ISO 20022
 #
-# System core-banking dziala
+# System core-banking działa
 # na COBOLu i oczekuje wiadomosci w formacie fixed-width: kazde pole ma
-# scisle okreslona dlugosc w bajtach zgodna z definicja copybooka.
+# scisle okreslona długosc w bajtach zgodna z definicja copybook'a.
 #
-# Twoje zadanie: na podstawie slownika z danymi przelewu (transaction)
-# i listy definicji pol (fields) zbudowac jeden string o stalej dlugosci,
-# gdzie kazde pole jest dopelnione spacjami (X) lub zerami (9).
+# Twoje zadanie: na podstawie słownika z danymi przelewu (transaction)
+# i listy definicji pol (fields) zbudowac jeden string o stałej długości,
+# gdzie kazde pole jest dopełnione spacjami (X) lub zerami (9).
 #
-# Przyklad (pole DBTR-NM, typ X, dlugosc 35, wartosc "Jan Kowalski"):
-#   "Jan Kowalski                          "   <- 35 znakow, uzupelnionych spacjami
+# Przykład (pole DBTR-NM, typ X, długosc 35, wartosc "Jan Kowalski"):
+#   "Jan Kowalski                          "   <- 35 znakow, uzupełnionych spacjami
 #
-# Przyklad (pole INSTR-AMT, typ 9, dlugosc 18, decimals 2, wartosc 1234.56):
-#   "000000000000123456"   <- 18 cyfr, kwota * 100, dopelniona zerami z lewej
+# Przykład (pole INSTR-AMT, typ 9, długość 18, decimals 2, wartosc 1234.56):
+#   "000000000000123456"   <- 18 cyfr, kwota * 100, dopełniona zerami z lewej
 #
 # Uruchomienie: python3 copybook_task.py
 
@@ -200,7 +200,7 @@ def encode_field(field, value):
     pass
 
 
-# ─── Zadanie 4 ────────────────────────────────────────────────────────────────
+# ─── Zadanie 4 gotowy - buduje wiadomość ──────────────────────────────────────
 def build_message(fields, transaction):
     """Build a single fixed-width message string from all field definitions.
 
@@ -215,17 +215,27 @@ def build_message(fields, transaction):
     Returns:
         A single string whose total length equals the sum of all field lengths.
     """
-    pass
+    message = ""
+    for field in fields:
+        value = transaction[field["name"]]
+        message += encode_field(field, value)
+    return message
 
 
-# ─── Zadanie 5 ─ Podsumowanie (gotowy - uruchom skrypt po implementacji) ──────
+# ─── Zadanie 5 ─ Podsumowanie ─────────────────────────────────────────────────
 def print_summary(message):
     """Print a summary of the encoded message."""
-    print(f"Length: {len(message)} chars.")
-    print()
-    print(f"Message >{message}<")
+    pass
 
 
 # ─── Uruchomienie ─────────────────────────────────────────────────────────────
 message = build_message(fields, transaction)
 print_summary(message)
+
+
+# ─── Rozwiązanie dla danych z tego pliku: ─────────────────────────────────────
+"""
+Length: 1330 chars.
+
+Message >MSGPL20240115000001                2024-01-1509-30-00000000000000001000000000000123456TRFNORMSEPASCT                                SUPPJan Kowalski                                                                                                                                ul. Marszalkowska                                                     15A             00-001          Warszawa                           PLPL61109010140000071219812874      WBKPPLPP   IBAN                    Acme Sp. z o.o.                                                                                                                             ul. Dluga                                                             3               31-147          Krakow                             PLPL27114020040000300201355387      INGBPLPW   IBAN                    E2E-INV-2024-00042                 TX-20240115-001                    INSTR-20240115-001                                                    2024-01-16000000000000123456PLN000000000000123456PLN10000000000SLEV000000000000000000PLN                                              STRDINV-2024-00042                     INV-2024-00042                     2024-01-10Faktura INV-2024-00042 za uslugi IT                                                                                                         <
+"""

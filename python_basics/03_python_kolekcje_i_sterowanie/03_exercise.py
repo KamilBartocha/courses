@@ -100,4 +100,3 @@ print(result)   # (2, 7)
 word_1 = 'Racecar'
 word_2 = "Alamakota"
 word_3 = "Rower"
-
