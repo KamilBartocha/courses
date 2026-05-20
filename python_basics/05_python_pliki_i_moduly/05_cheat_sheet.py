@@ -1,6 +1,3 @@
-import os
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
 f = open('05_file_text.txt', 'r')
 print(f.name, f.mode)
 f.close()
@@ -28,11 +25,4 @@ import math as m
 from math import sqrt, pi
 
 print(math.pi, m.floor(3.7), m.ceil(3.2), sqrt(25), pi)
-
-import sys
-
-print(os.getcwd())
-print(f'Python {sys.version_info.major}.{sys.version_info.minor}')
-print(f'Platform: {sys.platform}')
-print(f"venv: {sys.prefix != sys.base_prefix}")
 print(__name__)

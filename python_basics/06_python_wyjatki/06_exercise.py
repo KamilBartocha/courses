@@ -1,4 +1,4 @@
-# 06_exercise.py — 006 Wyjątki
+# 06_exercise.py — 06 Wyjątki
 
 
 # ─── Ćwiczenie 1 ──────────────────────────────────────────────────────────────
@@ -49,25 +49,4 @@ def test_sqrt_positive():
         sqrt_positive(-1)
         assert False, "Powinien być NegativeValueError"
     except NegativeValueError:
-        pass
-
-
-# ─── Ćwiczenie 3 ──────────────────────────────────────────────────────────────
-# Napisz funkcję parse_config(text), która parsuje prosty format konfiguracji:
-#   "klucz=wartość" (jeden wpis na linię, linie zaczynające się od # to komentarze).
-# Zwraca słownik {klucz: wartość}.
-# Zgłasza ValueError jeśli jakakolwiek niepusta linia (nie-komentarz) nie zawiera "=".
-def parse_config(text):
-    pass
-
-
-def test_parse_config():
-    cfg = "# komentarz\nhost=localhost\nport=8080\n"
-    result = parse_config(cfg)
-    assert result == {"host": "localhost", "port": "8080"}
-
-    try:
-        parse_config("host=localhost\nzla_linia\n")
-        assert False, "Powinien być ValueError"
-    except ValueError:
         pass

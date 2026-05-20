@@ -37,7 +37,7 @@ def test_count_words(tmp_path):
 # Napisz funkcję csv_summary(path), która wczytuje prosty plik CSV (bez nagłówka)
 # w formacie "imię,wynik" i zwraca słownik {"top": imię, "avg": średnia_wyników}.
 # Zakładaj, że wyniki są liczbami całkowitymi.
-# Przykład pliku:
+# Przykład pliku(scores.csv):
 #   Anna,85
 #   Bartek,92
 #   Celina,78
