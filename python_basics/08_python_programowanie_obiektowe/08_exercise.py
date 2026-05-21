@@ -1,41 +1,6 @@
 # 08_exercise.py — 008 Programowanie obiektowe
 
-
 # ─── Ćwiczenie 1 ──────────────────────────────────────────────────────────────
-# Napisz klasę Stack (stos LIFO) z metodami:
-#   push(item)  — dodaje element na wierzch
-#   pop()       — usuwa i zwraca element z wierzchu; zgłasza IndexError gdy pusty
-#   peek()      — zwraca element z wierzchu bez usuwania; zgłasza IndexError gdy pusty
-#   is_empty()  — zwraca True gdy stos jest pusty
-#   __len__()   — zwraca liczbę elementów
-class Stack:
-    pass
-
-
-def test_stack():
-    s = Stack()
-    assert s.is_empty()
-    assert len(s) == 0
-
-    s.push(1)
-    s.push(2)
-    s.push(3)
-    assert len(s) == 3
-    assert s.peek() == 3
-
-    assert s.pop() == 3
-    assert s.pop() == 2
-    assert len(s) == 1
-
-    try:
-        empty = Stack()
-        empty.pop()
-        assert False, "Powinien być IndexError"
-    except IndexError:
-        pass
-
-
-# ─── Ćwiczenie 2 ──────────────────────────────────────────────────────────────
 # Napisz hierarchię klas do reprezentacji figur geometrycznych:
 #   Shape  (klasa bazowa) — metoda area() zwraca 0
 #   Circle(radius)        — pole = π * r²  (użyj math.pi)
@@ -78,7 +43,7 @@ def test_shapes():
     assert isinstance(t, Shape)
 
 
-# ─── Ćwiczenie 3 ──────────────────────────────────────────────────────────────
+# ─── Ćwiczenie 2 ──────────────────────────────────────────────────────────────
 # Napisz klasę BankAccount z:
 #   __init__(owner, balance=0)
 #   deposit(amount)   — dodaje środki; zgłasza ValueError gdy amount <= 0
