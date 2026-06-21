@@ -1,5 +1,5 @@
 """13 Python intermediate - functools - rozwiązania."""
-from functools import partial, lru_cache, reduce, total_ordering
+from functools import partial, lru_cache, cache, reduce, total_ordering, wraps
 from datetime import datetime
 import time
 
@@ -106,7 +106,23 @@ print(fib(30))   # 832040
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 7: reduce - max i suma kwadratów
+# Ćw. 7: @cache + cache_info
+# ---------------------------------------------------------------------------
+@cache
+def factorial(n: int) -> int:
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
+
+
+for i in range(1, 8):
+    print(f"{i}! = {factorial(i)}")
+
+print(factorial.cache_info())
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 8: reduce - max i suma kwadratów
 # ---------------------------------------------------------------------------
 numbers = [3, 1, 4, 1, 5, 9, 2, 6]
 maximum = reduce(lambda acc, x: acc if acc > x else x, numbers)
@@ -117,7 +133,7 @@ print(f"sum of squares: {sum_of_squares}")   # 173
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 8: reduce - scalanie słowników
+# Ćw. 9: reduce - scalanie słowników
 # ---------------------------------------------------------------------------
 dicts = [{"a": 1}, {"b": 2}, {"c": 3}]
 merged = reduce(lambda acc, d: {**acc, **d}, dicts, {})
@@ -125,7 +141,7 @@ print(merged)   # {'a': 1, 'b': 2, 'c': 3}
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 9: total_ordering - Card
+# Ćw. 10: total_ordering - Card
 # ---------------------------------------------------------------------------
 @total_ordering
 class Card:
@@ -149,3 +165,29 @@ class Card:
 
 hand = [Card("♠", 10), Card("♥", 14), Card("♣", 5), Card("♦", 10)]
 print(sorted(hand))
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 11: functools.wraps - dekorator timer
+# ---------------------------------------------------------------------------
+def timer(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        t0 = time.perf_counter()
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} took {time.perf_counter()-t0:.4f}s")
+        return result
+    return wrapper
+
+
+@timer
+def slow_add(a: int, b: int) -> int:
+    """Dodaje dwie liczby z opóźnieniem."""
+    time.sleep(0.05)
+    return a + b
+
+
+result = slow_add(3, 4)
+print(result)              # 7
+print(slow_add.__name__)   # slow_add
+print(slow_add.__doc__)    # Dodaje dwie liczby z opóźnieniem.
