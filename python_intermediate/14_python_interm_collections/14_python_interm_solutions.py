@@ -1,6 +1,6 @@
 """14 Python intermediate - collections i enum - rozwiązania."""
-from collections import Counter, defaultdict, deque, namedtuple
-from enum import Enum, IntEnum, Flag, auto
+from collections import Counter, defaultdict, deque, namedtuple, OrderedDict
+from enum import Enum, IntEnum, StrEnum, Flag, auto
 import re
 
 
@@ -23,7 +23,7 @@ print("Unique to text1:", dict(unique_to_1))
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 2: defaultdict - transakcje
+# Ćw. 2: defaultdict(list) - transakcje
 # ---------------------------------------------------------------------------
 transactions = [
     ("Alice", 00), ("Bob", 50), ("Alice", 200),
@@ -54,7 +54,28 @@ print("Hapax:", sorted(hapax))
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 4: Queue z deque
+# Ćw. 4: defaultdict(set) - odwrócony indeks tagów
+# ---------------------------------------------------------------------------
+articles = [
+    ("Python basics",   ["python", "beginner"]),
+    ("Python advanced", ["python", "advanced"]),
+    ("JS fundamentals", ["javascript", "beginner"]),
+    ("Async Python",    ["python", "async", "advanced"]),
+]
+
+tag_index = defaultdict(set)
+for title, tags in articles:
+    for tag in tags:
+        tag_index[tag].add(title)
+
+print(dict(tag_index))
+
+most_common_tag = max(tag_index, key=lambda t: len(tag_index[t]))
+print(f"Most common tag: {most_common_tag}")   # python
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 5: Queue z deque
 # ---------------------------------------------------------------------------
 class Queue:
     def __init__(self):
@@ -88,7 +109,7 @@ print(len(q), q.peek(), q.dequeue(), len(q))   # 3 1 1 2
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 5: namedtuple - Employee
+# Ćw. 6: namedtuple - Employee
 # ---------------------------------------------------------------------------
 Employee = namedtuple("Employee", ["name", "department", "salary"])
 
@@ -111,7 +132,7 @@ print(avg_salary)
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 6: LRUCache
+# Ćw. 7: LRUCache
 # ---------------------------------------------------------------------------
 class LRUCache:
     def __init__(self, capacity: int):
@@ -147,7 +168,24 @@ print(cache.get(3))    # 30
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 7: Direction z opposite()
+# Ćw. 8: OrderedDict - recent_unique
+# ---------------------------------------------------------------------------
+def recent_unique(items, n: int) -> list:
+    seen = OrderedDict()
+    for item in items:
+        if item in seen:
+            seen.move_to_end(item)
+        else:
+            seen[item] = None
+    return list(seen.keys())[-n:]
+
+
+print(recent_unique([1, 2, 3, 1, 4, 2, 5], 3))   # [4, 2, 5]
+print(recent_unique(["a", "b", "a", "c"], 2))     # ['a', 'c']
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 9: Direction z opposite()
 # ---------------------------------------------------------------------------
 class Direction(Enum):
     NORTH = "N"
@@ -170,7 +208,7 @@ for d in Direction:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 8: Priority z filter_tasks
+# Ćw. 10: Priority z filter_tasks
 # ---------------------------------------------------------------------------
 class Priority(IntEnum):
     LOW      = 1
@@ -193,7 +231,7 @@ print(filter_tasks(tasks, Priority.HIGH))
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 9: Planet Enum
+# Ćw. 11: Planet Enum
 # ---------------------------------------------------------------------------
 G = 6.67430e-11
 
@@ -221,7 +259,33 @@ for planet in Planet:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 10: Weekday z is_weekend
+# Ćw. 12: StrEnum - HttpMethod  (Python 3.11+)
+# ---------------------------------------------------------------------------
+class HttpMethod(StrEnum):
+    GET    = auto()
+    POST   = auto()
+    PUT    = auto()
+    DELETE = auto()
+
+
+print(HttpMethod.GET == "get")    # True
+print(HttpMethod.POST)             # post
+
+
+def route(method: str, path: str) -> str:
+    if method == HttpMethod.GET:
+        return f"Fetching {path}"
+    elif method == HttpMethod.POST:
+        return f"Creating at {path}"
+    return f"Other: {method} {path}"
+
+
+print(route("get", "/api/users"))
+print(route("post", "/api/users"))
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 13: Weekday z is_weekend
 # ---------------------------------------------------------------------------
 class Weekday(Enum):
     MONDAY    = auto()
@@ -242,7 +306,7 @@ for day in Weekday:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 11: FileMode z open_mode
+# Ćw. 14: FileMode z open_mode
 # ---------------------------------------------------------------------------
 class FileMode(Flag):
     READ   = auto()
@@ -270,7 +334,7 @@ print(open_mode(FileMode.APPEND | FileMode.BINARY)) # 'ab'
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 12: Status z can_transition_to
+# Ćw. 15: Status z can_transition_to
 # ---------------------------------------------------------------------------
 class Status(Enum):
     PENDING    = auto()
@@ -278,8 +342,6 @@ class Status(Enum):
     SHIPPED    = auto()
     DELIVERED  = auto()
     CANCELLED  = auto()
-
-    _TRANSITIONS = None   # inicjalizacja poza ciałem klasy
 
     def can_transition_to(self, next_status: "Status") -> bool:
         allowed = {
