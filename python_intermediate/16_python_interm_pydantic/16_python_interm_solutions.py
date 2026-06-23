@@ -88,7 +88,31 @@ for u in users:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 4: Order
+# Ćw. 4: model_validate_json, model_fields_set, model_json_schema
+# ---------------------------------------------------------------------------
+class ProductV2(BaseModel):
+    id:       int
+    name:     str
+    price:    float
+    in_stock: bool = True
+    tags:     list[str] = []
+
+
+json_str = '{"id": 10, "name": "Keyboard", "price": 199.99, "tags": ["usb"]}'
+p = ProductV2.model_validate_json(json_str)
+print(p.name, p.tags)
+
+p_full    = ProductV2(id=1, name="Mouse", price=49.99, in_stock=False)
+p_partial = ProductV2(id=2, name="Hub",   price=29.99)
+print(p_full.model_fields_set)     # {'id', 'name', 'price', 'in_stock'}
+print(p_partial.model_fields_set)  # {'id', 'name', 'price'}
+
+schema = ProductV2.model_json_schema()
+print(schema)
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 5: Order
 # ---------------------------------------------------------------------------
 class Order(BaseModel):
     order_id: int          = Field(gt=0)
@@ -109,7 +133,7 @@ except ValidationError as e:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 5: Config z aliasami
+# Ćw. 6: Config z aliasami
 # ---------------------------------------------------------------------------
 class Config(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
@@ -126,7 +150,7 @@ print(cfg.model_dump(by_alias=True))
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 6: Cart z computed_field
+# Ćw. 7: Cart z computed_field
 # ---------------------------------------------------------------------------
 class CartItem(BaseModel):
     product_id: int
@@ -153,7 +177,35 @@ print(f"Total: {cart.total:.2f}")   # 124.93
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 7: Password validator
+# Ćw. 8: ContactInfo z pattern= i description=
+# ---------------------------------------------------------------------------
+import re as _re
+
+
+class ContactInfo(BaseModel):
+    name:  str   = Field(min_length=2, description="Full name of the contact")
+    email: str   = Field(pattern=r"^[\w.+-]+@[\w-]+\.[a-zA-Z]{2,}$",
+                         description="Valid e-mail address")
+    phone: str   = Field(pattern=r"^\+?[\d\s\-]{7,15}$",
+                         description="Phone number, optionally with country code")
+
+
+c = ContactInfo(name="Alice", email="alice@example.com", phone="+48 123 456 789")
+print(c.model_dump())
+
+schema = ContactInfo.model_json_schema()
+for field, info in schema["properties"].items():
+    print(f"{field}: {info.get('description', '')}")
+
+try:
+    ContactInfo(name="X", email="bad-email", phone="abc")
+except ValidationError as e:
+    for err in e.errors():
+        print(f"{err['loc']}: {err['msg']}")
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 9: Password validator
 # ---------------------------------------------------------------------------
 class Password(BaseModel):
     value: str
@@ -185,7 +237,7 @@ print(p.value)
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 8: DateRange
+# Ćw. 10: DateRange
 # ---------------------------------------------------------------------------
 class DateRange(BaseModel):
     start: date
@@ -208,7 +260,7 @@ except ValidationError as e:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 9: Invoice z computed_field
+# Ćw. 11: Invoice z computed_field
 # ---------------------------------------------------------------------------
 class InvoiceItem(BaseModel):
     name:  str
@@ -243,7 +295,40 @@ print(f"After discount: {inv.total_after_discount:.2f}") # 360.00
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 10: Tag z ConfigDict
+# Ćw. 12: RGB z model_validator(mode='before')
+# ---------------------------------------------------------------------------
+class RGB(BaseModel):
+    r: int = Field(ge=0, le=255)
+    g: int = Field(ge=0, le=255)
+    b: int = Field(ge=0, le=255)
+
+    @model_validator(mode="before")
+    @classmethod
+    def parse_input(cls, data: Any) -> Any:
+        if isinstance(data, (list, tuple)) and len(data) == 3:
+            return {"r": data[0], "g": data[1], "b": data[2]}
+        if isinstance(data, str) and data.startswith("#") and len(data) == 7:
+            hex_val = data[1:]
+            return {
+                "r": int(hex_val[0:2], 16),
+                "g": int(hex_val[2:4], 16),
+                "b": int(hex_val[4:6], 16),
+            }
+        return data
+
+
+print(RGB(r=255, g=0, b=128))
+print(RGB.model_validate((10, 20, 30)))
+print(RGB.model_validate("#ff8040"))
+
+try:
+    RGB.model_validate("bad")
+except ValidationError as e:
+    print(e)
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 13: Tag z ConfigDict
 # ---------------------------------------------------------------------------
 class Tag(BaseModel):
     model_config = ConfigDict(
@@ -264,7 +349,7 @@ except Exception as e:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 11: ApiResponse z extra='forbid'
+# Ćw. 14: ApiResponse z extra='forbid'
 # ---------------------------------------------------------------------------
 class ApiResponse(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -283,7 +368,7 @@ except ValidationError as e:
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 12: DatabaseConfig z computed url
+# Ćw. 15: DatabaseConfig z computed url
 # ---------------------------------------------------------------------------
 class DatabaseConfig(BaseModel):
     host:     str
@@ -306,3 +391,30 @@ db = DatabaseConfig(
     user="admin", password="secret",
 )
 print(db.url)   # postgresql://admin:secret@localhost:5432/mydb
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 17: Defaults z validate_default=True
+# ---------------------------------------------------------------------------
+def default_tags() -> list[str]:
+    return ["general"]
+
+
+class Defaults(BaseModel):
+    model_config = ConfigDict(validate_default=True)
+
+    name:  str       = "anonymous"
+    score: float     = Field(default=0.0, ge=0.0, le=100.0)
+    tags:  list[str] = Field(default_factory=default_tags)
+
+
+d = Defaults()
+print(d.name, d.score, d.tags)   # anonymous 0.0 ['general']
+
+d2 = Defaults(name="Alice", score=95.5, tags=["python", "advanced"])
+print(d2.model_dump())
+
+try:
+    Defaults(score=150.0)
+except ValidationError as e:
+    print(e)
