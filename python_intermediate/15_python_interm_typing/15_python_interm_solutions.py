@@ -1,6 +1,6 @@
 """15 Python intermediate - Adnotacje typów (typing) - rozwiązania."""
-from typing import Optional, Union, Callable, Any, TypeVar, Generic, Protocol
-from typing import runtime_checkable, Literal
+from typing import (Optional, Union, Callable, Any, TypeVar, Generic, Protocol,
+                    runtime_checkable, Literal, Sequence, Iterable, Mapping)
 import math
 
 
@@ -150,7 +150,57 @@ print(deep_get(data, "missing", "key"))            # None
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 8: last, zip_with
+# Ćw. 8: Sequence + Iterable
+# ---------------------------------------------------------------------------
+import itertools
+
+
+def stats(items: Sequence[float]) -> dict[str, float]:
+    return {"min": min(items), "max": max(items), "avg": sum(items) / len(items)}
+
+
+def take(n: int, source: Iterable[T]) -> list[T]:
+    result = []
+    for item in source:
+        if len(result) >= n:
+            break
+        result.append(item)
+    return result
+
+
+print(stats([3.0, 1.5, 4.0, 1.0, 5.5]))   # {'min': 1.0, 'max': 5.5, 'avg': 3.0}
+print(stats((10.0, 20.0, 30.0)))            # {'min': 10.0, 'max': 30.0, 'avg': 20.0}
+print(take(5, itertools.count(10)))          # [10, 11, 12, 13, 14]
+print(take(3, (x**2 for x in range(10))))   # [0, 1, 4]
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 9: Mapping + Union
+# ---------------------------------------------------------------------------
+from collections import OrderedDict
+
+ConfigValue = Union[int, str, bool, float]
+
+
+def get_config(config: Mapping[str, ConfigValue], key: str) -> Optional[ConfigValue]:
+    return config.get(key)
+
+
+def format_config(config: Mapping[str, ConfigValue]) -> str:
+    return "\n".join(f"{k} = {v!r}" for k, v in config.items())
+
+
+cfg_dict = {"host": "localhost", "port": 8080, "debug": True}
+cfg_od   = OrderedDict([("host", "0.0.0.0"), ("port", 443), ("ssl", True)])
+
+print(get_config(cfg_dict, "port"))      # 8080
+print(get_config(cfg_dict, "missing"))   # None
+print(format_config(cfg_dict))
+print(format_config(cfg_od))
+
+
+# ---------------------------------------------------------------------------
+# Ćw. 10: last, zip_with
 # ---------------------------------------------------------------------------
 def last(items: list[T]) -> T:
     return items[-1]
@@ -170,7 +220,7 @@ print(zip_with([1, 2, 3], [4, 5, 6], lambda a, b: a + b))  # [5, 7, 9]
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 9: Pair[T, U]
+# Ćw. 11: Pair[T, U]
 # ---------------------------------------------------------------------------
 U = TypeVar("U")
 
@@ -197,7 +247,7 @@ print(p.map_first(lambda x: x * 10))  # Pair(10, 'hello')
 
 
 # ---------------------------------------------------------------------------
-# Ćw. 10: binary_search z Protocol Comparable
+# Ćw. 12: binary_search z Protocol Comparable
 # ---------------------------------------------------------------------------
 @runtime_checkable
 class Comparable(Protocol):
