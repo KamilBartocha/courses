@@ -47,7 +47,15 @@ class Student:
     student_id: int = field(compare=False)
 
 
-# Ćw. 4 - Rectangle z post_init
+# Ćw. 4 - GeoPoint z field(hash=False, compare=False, repr=False)
+@dataclass(frozen=True)
+class GeoPoint:
+    lat:   float
+    lon:   float
+    label: str = field(default='', compare=False, hash=False, repr=False)
+
+
+# Ćw. 5 - Rectangle z post_init
 @dataclass
 class Rectangle:
     width:     float
@@ -62,7 +70,7 @@ class Rectangle:
         self.perimeter = 2 * (self.width + self.height)
 
 
-# Ćw. 5 - User z ClassVar
+# Ćw. 6 - User z ClassVar
 @dataclass
 class User:
     first_name: str
@@ -76,7 +84,7 @@ class User:
         self.full_name = f'{self.first_name} {self.last_name}'
 
 
-# Ćw. 6 - Temperature z InitVar
+# Ćw. 7 - Temperature z InitVar
 @dataclass
 class Temperature:
     value:   float
@@ -100,7 +108,7 @@ class Temperature:
         return self.celsius + 273.15
 
 
-# Ćw. 7 - Color frozen
+# Ćw. 8 - Color frozen
 @dataclass(frozen=True)
 class Color:
     r: int
@@ -113,7 +121,7 @@ class Color:
                 raise ValueError(f'{name}={val} poza zakresem 0-255')
 
 
-# Ćw. 8 - Shape hierarchy
+# Ćw. 9 - Shape hierarchy
 @dataclass(frozen=True)
 class Shape:
     color: str = 'black'
@@ -138,7 +146,7 @@ class Square(Shape):
         return self.side ** 2
 
 
-# Ćw. 9 - porównanie dataclass vs NamedTuple vs TypedDict
+# Ćw. 10 - porównanie dataclass vs NamedTuple vs TypedDict
 @dataclass
 class Point3D_DC:
     x: float
@@ -156,3 +164,18 @@ class Point3D_TD(TypedDict):
     x: float
     y: float
     z: float
+
+
+# Ćw. 11 - slots=True i astuple (Python 3.10+)
+@dataclass
+class PixelRegular:
+    r: int
+    g: int
+    b: int
+
+
+@dataclass(slots=True)
+class Pixel:
+    r: int
+    g: int
+    b: int
